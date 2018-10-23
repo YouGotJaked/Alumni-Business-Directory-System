@@ -18,6 +18,11 @@ $json = '{
     "owner_id":0
 }';
 
-$business->add($json)
+$business->add($json);
+
+//TODO test updating all fields
+$business->update(0, "name", "HELLO");
+
+$business->remove(0);
 
 ?>
