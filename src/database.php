@@ -11,15 +11,17 @@ class Database {
         $this->conn = mysqli_connect($this->host, $this->user, $this->pass, $this->name);
 
         if ($this->conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+            die();
+            return FALSE;
         } else {
-            echo "Connection successful" . "<br>";
+            return TRUE;
         }
     }
 
     public function close() {
         $this->conn->close();
-	    echo "Connection closed" . "<br>";
+
+        return !is_resource($this->conn);
     }
 }
 

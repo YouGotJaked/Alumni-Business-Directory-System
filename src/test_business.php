@@ -18,11 +18,32 @@ $json = '{
     "owner_id":0
 }';
 
-$business->add($json);
+$add_resp = $business->add($json);
 
-//TODO test updating all fields
-$business->update(0, "name", "HELLO");
+if ($add_resp) {
+    echo "Business has been added" . "<br>";
+} else {
+    echo "Failed to add business". "<br>";
+}
 
-$business->remove(0);
+echo $business->get(0) . "<br>";
+
+$update_resp = $business->update(0, "name", "HELLO");
+
+if ($update_resp) {
+    echo "Business has been updated" . "<br>";
+} else {
+    echo "Failed to update business" . "<br>";
+}
+
+echo $business->get(0) . "<br>";
+
+$remove_resp = $business->remove(0);
+
+if ($remove_resp) {
+    echo "Business has been removed" . "<br>";
+} else {
+    echo "Failed to remove business" . "<br>";
+}
 
 ?>

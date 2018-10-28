@@ -1,8 +1,8 @@
 <?php
 
-include 'database.php';
+include 'entry.php';
 
-class Business {
+class Business extends Entry {
 
     public function add($json) {
 		$database = new Database();
@@ -39,68 +39,27 @@ class Business {
 
 		$resp = $database->conn->query($query);
 
-		if ($resp === TRUE) {
-			echo "Business has been added" . "<br>";
-		} else {
-			echo "Failed to add business with the following error: " . $database->conn->error . "<br>";
-		}
-
 		$database->close();
+
+		return $resp;
     }
     
     public function get($id) {
-		$database = new Database();
+		$this->table = "businesses";
 
-		$database->connect();
-
-		$query = "SELECT * FROM businesses WHERE id='$id'";
-
-		$resp = $database->conn->query($query);
-
-		if ($resp === TRUE) {
-			//TODO return json object of the data: https://www.w3schools.com/php/php_mysql_select.asp
-		} else {
-			echo "Failed to get business with the following error: " . $database->conn->error . "<br>";
-		}
-
-		$database->close();
+		return parent::get($id);
     }
 
     public function update($id, $key, $value) {
-		$database = new Database();
+		$this->table = "businesses";
 
-		$database->connect();
-
-		$query = "UPDATE businesses SET $key='$value' WHERE id='$id'";
-
-		$resp = $database->conn->query($query);
-
-		if ($resp === TRUE) {
-			echo "Business has been updated: " . $id . "<br>";
-			echo $key . " is now " . $value . "<br>";
-		} else {
-			echo "Failed to update business with the following error: " . $database->conn->error . "<br>";
-		}
-
-		$database->close();
+		return parent::update($id, $key, $value);
     }
 
     public function remove($id) {
-		$database = new Database();
+		$this->table = "businesses";
 
-		$database->connect();
-
-		$query = "DELETE FROM businesses WHERE id='$id'";
-
-		$resp = $database->conn->query($query);
-
-		if ($resp === TRUE) {
-			echo "Business has been removed: " . $id . "<br>";
-		} else {
-			echo "Failed to remove business with the following error: " . $database->conn->error . "<br>";
-		}
-
-		$database->close();
+		return parent::remove($id);
     }
 }
 
