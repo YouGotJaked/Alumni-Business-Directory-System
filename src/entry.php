@@ -1,5 +1,5 @@
 <?php
-    include 'database.php';
+    include "database.php";
     
     class Entry {
         public $table;
@@ -27,14 +27,14 @@
             $database->connect();
             $query = "SELECT * FROM $this->table WHERE email='$email'";
             $resp = $database->conn->query($query);
-            $json_obj;
+            $json;
             $rows = [];
             while ($new_row = mysqli_fetch_assoc($resp)) {
                 $rows[] = $new_row;
             }
-            $json_obj = json_encode($rows, JSON_NUMERIC_CHECK);
+            $json = json_encode($rows, JSON_NUMERIC_CHECK);
             $database->close();
-            return $json_obj;
+            return $json;
         }
         
         public function update($id, $key, $value) {

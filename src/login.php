@@ -1,8 +1,8 @@
 <?php
-    include 'user.php';
+    include "user.php";
     
     // create new account
-    function create_user($id, $first_name, $last_name, $degree, $graduation_year, $email, $password, $role, $business_id) {
+    function create_account($id, $first_name, $last_name, $degree, $graduation_year, $email, $password, $role, $business_id) {
         // check if user already exists with that email
         // hash password
         password_hash($password, PASSWORD_DEFAULT);
@@ -21,8 +21,9 @@
     // attempt to login user with provided credentials
     function login($email, $password) {
         $user = new User();
-        $json_obj = $user->get_by_email($email);
-        //$json_arr = json_decode($json_obj);
-        return password_verify($password, $json_obj->hashed_password);
+        //$json = $user->get_by_email($email);
+        //$json_obj = json_decode($json);
+        $json = $user->get(0);
+        return password_verify($password, $json->hashed_password);
     }
 ?>

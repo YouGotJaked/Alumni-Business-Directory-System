@@ -1,5 +1,5 @@
 <?php
-    include 'entry.php';
+    include "entry.php";
     
     class User extends Entry {
         public function add($json) {
@@ -38,7 +38,7 @@
         
         public function get_by_email($email) {
             $this->table = "users";
-            return parent::get_by_email($email)
+            return parent::get_by_email($email);
         }
         
         public function update($id, $key, $value) {

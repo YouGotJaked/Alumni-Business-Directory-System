@@ -1,6 +1,4 @@
 <?php
-    include 'config.php';
-    
     class Database {
         public $host = "dbserver.engr.scu.edu";
         public $user = "pahrens";
