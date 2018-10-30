@@ -1,5 +1,5 @@
 <?php
-    include "database.php";
+    include "../src/database.php";
     
     $database = new Database();
     $connected = $database->connect();
