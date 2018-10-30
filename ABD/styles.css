@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/* CSS Document */
+
+nav {
+	background-color: #b50043;
+}
+
+.homebutton, .postbusiness{
+	color: white;
+}
+
+.homebutton:hover {
+	text-decoration: none;
+	color: white;
+}
