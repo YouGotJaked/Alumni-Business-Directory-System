@@ -11,47 +11,60 @@
 
 <body>
 	<nav class="navbar navbar-toggleable-md container-fluid">
-  		<a href="#" class="homebutton">HOME</a>
-		<a class="navbar-brand navbar-right postbusiness" href="#"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
+  		<a href="http://students.engr.scu.edu/~sstauber/Alumni-Business-Directory-System/ABD/ABD-home.html" class="homebutton">HOME</a>
+		<a class="navbar-brand navbar-right postbusiness" href="http://students.engr.scu.edu/~sstauber/Alumni-Business-Directory-System/ABD/ABD-submit-business.html"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
 	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<form class="container">
+	<form class="container col-8">
   		<div class="form-row mb-3">
     		<div class="col">
-				<label for="validationServer01">First name</label>
-      			<input type="text" class="form-control is-invalid" placeholder="First name" required>
-				<div class="invalid-feedback">Required Field</div>
-    		</div>
-			<div class="col-2">
-				<label for="validationServer01">Middle Initial</label>
-				<input type="text" class="form-control is-invalid" placeholder="Middle Initial" required>
-				<div class="invalid-feedback">Required Field</div>
-			</div>
-    		<div class="col">
-				<label for="validationServer01">Last name</label>
-      			<input type="text" class="form-control is-invalid" placeholder="Last name" required>
-				<div class="invalid-feedback">Required Field</div>
+				<label for="validationServer01">Business Name</label>
+      			<input type="text" class="form-control" placeholder="Business Name" required>
     		</div>
   		</div>
 		<div class="form-row mb-3">
-			<div class="col">
-				<label for="validationServer01">SCU Email</label>
-      			<input type="text" class="form-control" placeholder="SCU Email">
-    		</div>
-    		<div class="col-2">
-				<label for="validationServer01">Graduation Year</label>
-      			<input type="text" class="form-control is-invalid" placeholder="Graduation Year" required>
-				<div class="invalid-feedback">Required Field</div>
-    		</div>
-    		<div class="col">
-				<label for="validationServer01">Major(s)</label>
-      			<input type="text" class="form-control is-invalid" placeholder="Major(s)" required>
-				<div class="invalid-feedback">Required Field</div>
-    		</div>
+			<div class="form-group col">
+    			<label for="exampleFormControlTextarea1">Business Description</label>
+    			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Business Description..."></textarea>
+  			</div>
+		</div>
+		<div class="form-row mb-3">
+    		<label for="exampleFormControlSelect1">Type of Business</label>
+    		<select class="form-control" id="exampleFormControlSelect1">
+				<option>Restaurant</option>
+     			<option>Shopping</option>
+      			<option>Professional Services</option>
+				<option>Local Services</option>
+				<option>Home Services</option>
+    		</select>
   		</div>
-		<button class="btn btn-primary" type="submit">Submit form</button>
+		<div class="form-row mb-3">
+			<div class="col">
+				<label for="validationServer01">Street</label>
+      			<input type="text" class="form-control" placeholder="Street">
+    		</div>
+			<div class="col-4">
+				<label for="validationServer01">City</label>
+      			<input type="text" class="form-control" placeholder="City">
+    		</div>
+			<div class="col-2">
+				<label for="validationServer01">State</label>
+      			<input type="text" class="form-control" placeholder="State">
+    		</div>
+		</div>
+		<div class="form-row mb-3">
+			<div class="col-4">
+				<label for="validationServer01">Zip Code</label>
+      			<input type="text" class="form-control" placeholder="Zip Code">
+    		</div>
+			<div class="col">
+				<label for="validationServer01">Country</label>
+      			<input type="text" class="form-control" placeholder="Country">
+    		</div>
+		</div>
+		<button class="btn btn-primary" type="submit">Submit</button>
 	</form>
 </body>
 </html>
