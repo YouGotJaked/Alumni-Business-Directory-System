@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-
->>>>>>> 1fcca3f56a0fb4ed9db6d0f1db9dd62217913377
 include 'entry.php';
 
 class User extends Entry {
