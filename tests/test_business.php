@@ -1,6 +1,6 @@
 <?php
 
-include "business.php";
+include "../src/business.php";
 
 $business = new Business();
 

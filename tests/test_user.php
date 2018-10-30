@@ -1,6 +1,6 @@
 <?php
 
-include "user.php";
+include "../src/user.php";
 
 $user = new User();
 
