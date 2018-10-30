@@ -24,7 +24,8 @@ if ($add_resp) {
     echo "Failed to add user" . "<br>";
 }
 
-echo $user->get(0) . "<br>";
+echo $user->get_one("id", 0) . "<br>";
+echo $user->get_one("degree", "philosophy") . "<br>";
 
 $update_resp = $user->update(0, "first_name", "THE");
 
@@ -34,7 +35,8 @@ if ($update_resp) {
     echo "Failed to update user" . "<br>";
 }
 
-echo $user->get(0) . "<br>";
+echo $user->get_one("id", 0) . "<br>";
+echo $user->get_one("degree", "philosophy") . "<br>";
 
 $remove_resp = $user->remove(0);
 

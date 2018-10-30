@@ -11,10 +11,10 @@ class Entry {
 		$this->database = new Database();
 	}
 
-    public function get($id) {
+    public function get_one($key, $value) {
 		$this->database->connect();
 
-		$query = "SELECT * FROM $this->table WHERE id='$id'";
+		$query = "SELECT * FROM $this->table WHERE $key='$value' LIMIT 1";
 
 		$resp = $this->database->conn->query($query);
 
@@ -33,7 +33,12 @@ class Entry {
 		$this->database->close();
 
 		return $json_obj;
-    }
+	}
+	
+	public function get_all($key, $value) {
+		//TODO 
+		return TRUE;
+	}
 
     public function update($id, $key, $value) {
 		$this->database->connect();

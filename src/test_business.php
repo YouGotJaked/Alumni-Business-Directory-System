@@ -26,7 +26,8 @@ if ($add_resp) {
     echo "Failed to add business". "<br>";
 }
 
-echo $business->get(0) . "<br>";
+echo $business->get_one("id", 0) . "<br>";
+echo $business->get_one("category", "Old") . "<br>";
 
 $update_resp = $business->update(0, "name", "HELLO");
 
@@ -36,7 +37,8 @@ if ($update_resp) {
     echo "Failed to update business" . "<br>";
 }
 
-echo $business->get(0) . "<br>";
+echo $business->get_one("id", 0) . "<br>";
+echo $business->get_one("category", "Old") . "<br>";
 
 $remove_resp = $business->remove(0);
 

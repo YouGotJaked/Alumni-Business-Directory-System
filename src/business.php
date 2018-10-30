@@ -42,10 +42,10 @@ class Business extends Entry {
 		return $resp;
     }
     
-    public function get($id) {
+    public function get_one($key, $value) {
 		$this->table = "businesses";
 
-		return parent::get($id);
+		return parent::get_one($key, $value);
     }
 
     public function update($id, $key, $value) {
