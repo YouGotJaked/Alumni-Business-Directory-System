@@ -5,9 +5,7 @@ include 'entry.php';
 class Business extends Entry {
 
     public function add($json) {
-		$database = new Database();
-
-		$database->connect();
+		$this->database->connect();
 
 		$json_obj = json_decode($json);
 
@@ -37,9 +35,9 @@ class Business extends Entry {
 			'$json_obj->owner_id'
 		)";
 
-		$resp = $database->conn->query($query);
+		$resp = $this->database->conn->query($query);
 
-		$database->close();
+		$this->database->close();
 
 		return $resp;
     }
