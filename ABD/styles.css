@@ -2,5 +2,14 @@
 /* CSS Document */
 
 nav {
-	background-color: grey;
+	background-color: #b50043;
+}
+
+.homebutton, .postbusiness{
+	color: white;
+}
+
+.homebutton:hover {
+	text-decoration: none;
+	color: white;
 }
