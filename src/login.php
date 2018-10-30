@@ -4,10 +4,10 @@
     // create new account
     function create_account($id, $first_name, $last_name, $degree, $graduation_year, $email, $password, $role, $business_id) {
         // check if user already exists with that email
-        // hash password
-        password_hash($password, PASSWORD_DEFAULT);
+        // hash password, always 60 char
+        password_hash($password, PASSWORD_BCRYPT);
         // create json object with parameters
-        $json = // create_json()
+        //$json = create_json()
         $user = new User();
         $add_resp = $user->add($json);
         if ($add_resp) {

@@ -21,6 +21,9 @@
         echo "Failed to add user" . "<br>";
     }
     
+    //get_one($key, $value);
+    //get_all($key, $value);
+    
     echo $user->get(0) . "<br>";
     $update_resp = $user->update(0, "first_name", "THE");
     if ($update_resp) {
