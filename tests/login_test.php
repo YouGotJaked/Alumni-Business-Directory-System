@@ -14,7 +14,6 @@
     "business_id":0
     }';
     
-    $json_obj = json_decode($json);
     $add_resp = $user->add($json);
     
     if ($add_resp) {
