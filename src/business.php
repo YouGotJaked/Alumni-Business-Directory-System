@@ -5,7 +5,6 @@ class Business extends Entry {
 
     public function add($json) {
 		$this->database->connect();
-
 		$json_obj = json_decode($json);
 
 		$query = "INSERT INTO businesses (
@@ -35,7 +34,6 @@ class Business extends Entry {
 		)";
 
 		$resp = $this->database->conn->query($query);
-
 		$this->database->close();
 
 		return $resp;
@@ -43,19 +41,16 @@ class Business extends Entry {
     
     public function get_one($key, $value) {
 		$this->table = "businesses";
-
 		return parent::get_one($key, $value);
     }
 
     public function update($id, $key, $value) {
 		$this->table = "businesses";
-
 		return parent::update($id, $key, $value);
     }
 
     public function remove($id) {
 		$this->table = "businesses";
-
 		return parent::remove($id);
     }
 }
