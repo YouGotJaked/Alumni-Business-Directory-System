@@ -60,8 +60,9 @@
     include "../src/login.php";
     function submit() {
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"]);
+        create_user("Jake", "Day", "COEN", 2019, "jday@scu.edu", "hunter2");
     }
-    if (isset($_POST['submit'])) {
+    if (isset($_POST["submit"])) {
         submit();
     }
     ?>
