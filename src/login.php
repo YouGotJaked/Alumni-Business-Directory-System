@@ -2,7 +2,7 @@
     include "user.php";
     
     // create new user account
-    function create_user($id, $first_name, $last_name, $degree, $graduation_year, $email, $password, $role, $business_id) {
+    function create_user($first_name, $last_name, $degree, $graduation_year, $email, $password, $role, $business_id) {
         // check if user already exists with that email
         $user = new User();
         $exists = $user->get_one('email', $email);
