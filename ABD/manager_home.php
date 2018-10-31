@@ -11,15 +11,15 @@
 
 <body>
 	<nav class="navbar navbar-toggleable-md container-fluid">
-  		<a href="manager-home.html" class="homebutton">HOME</a>
-		<a class="navbar-brand navbar-right postbusiness" href="submit-business.html"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
+  		<a href="manager_home.php" class="homebutton">HOME</a>
+		<a class="navbar-brand navbar-right postbusiness" href="submit_business.php"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
 	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
 	<div class="container col-3">
-		<a href="verify-business.html"><button class="btn btn-dark btn-block text-center mb-3">Verify Business</button></a>
-		<a href="edit-business.html"><button class="btn btn-dark btn-block text-center">Edit / Remove Business</button></a>
+		<a href="verify_business.php"><button class="btn btn-dark btn-block text-center mb-3">Verify Business</button></a>
+		<a href="edit_business.php"><button class="btn btn-dark btn-block text-center">Edit / Remove Business</button></a>
 	</div>
 </body>
 </html>
