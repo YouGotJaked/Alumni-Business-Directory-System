@@ -6,5 +6,7 @@ create_user('Tom',
     'RSOC',
     1969,
     'troth@scu.edu',
-    'hunter2')
+    'hunter2',
+    'Visitor',
+    0);
 ?>
