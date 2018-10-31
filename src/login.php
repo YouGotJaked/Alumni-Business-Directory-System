@@ -13,8 +13,7 @@
         // hash password, always 60 char
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
         // DELETE $ID
-        $json = ['id' => $id,
-        'first_name' => $first_name,
+        $json = ['first_name' => $first_name,
         'last_name' => $last_name,
         'degree' => $degree,
         'graduation_year' => $graduation_year,
@@ -22,9 +21,10 @@
         'hashed_password' => $hashed_password,
         'role' => $role,
         'business_id' => $business_id];
+        
         $json_obj = json_encode($json, JSON_PRETTY_PRINT);
-        echo $json_obj . "<br>";
         $add_resp = $user->add($json_obj);
+        
         if ($add_resp) {
             echo "User has been added" . "<br>";
         } else {
