@@ -6,7 +6,7 @@ class User extends Entry {
     public function add($json) {
         $this->database->connect();
         $json_obj = json_decode($json);
-
+        echo $json_obj . "<br>";
         $query = "INSERT INTO users (
             id,
             first_name,
