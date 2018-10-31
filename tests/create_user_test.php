@@ -1,12 +1,10 @@
 <?php
 include "../src/login.php";
 
-create_user('Jake',
-    'Snake',
-    'comm',
-    2069,
-    'jsnake@scu.edu',
-    'hunter2',
-    'Owner',
-    0);
+create_user('Tom',
+    'Roth',
+    'RSOC',
+    1969,
+    'troth@scu.edu',
+    'hunter2')
 ?>
