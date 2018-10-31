@@ -19,42 +19,51 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<form class="container">
+	<form class="container" action="signup.php">
   		<div class="form-row mb-3">
     		<div class="col">
 				<label for="validationServer01">First name</label>
-      			<input type="text" class="form-control" placeholder="First name" required>
+      			<input type="text" name="first" class="form-control" placeholder="First name" required>
     		</div>
     		<div class="col">
 				<label for="validationServer01">Last name</label>
-      			<input type="text" class="form-control" placeholder="Last name" required>
+      			<input type="text" name="last" class="form-control" placeholder="Last name" required>
     		</div>
   		</div>
 		<div class="form-row mb-3">
     		<div class="col-2">
 				<label for="validationServer01">Graduation Year</label>
-      			<input type="number" class="form-control" placeholder="Graduation Year" required>
+      			<input type="number" name="year" class="form-control" placeholder="Graduation Year" required>
     		</div>
     		<div class="col">
 				<label for="validationServer01">Degree</label>
-      			<input type="text" class="form-control" placeholder="Degree" required>
+      			<input type="text" name="degree" class="form-control" placeholder="Degree" required>
     		</div>
   		</div>
 		<div class="form-row mb-3">
 			<div class="col">
 				<label for="validationServer01">Email</label>
-      			<input type="text" class="form-control" placeholder="Email" required>
+      			<input type="text" name="email" class="form-control" placeholder="Email" required>
     		</div>
 			<div class="col">
 				<label for="validationServer01">Password</label>
-      			<input type="password" class="form-control" placeholder="Password" required>
+      			<input type="password" name="password" class="form-control" placeholder="Password" required>
     		</div>
 			<div class="col">
 				<label for="validationServer01">Confirm Password</label>
-      			<input type="password" class="form-control" placeholder="Confirm Password" required>
+      			<input type="password" name = "confirm_password" class="form-control" placeholder="Confirm Password" required>
     		</div>
 		</div>
-		<button class="btn btn-primary" type="submit">Submit</button>
+		<button class="btn btn-primary" name="submit" type="submit">Submit</button>
 	</form>
+    <?php
+    require_once("../src/login.php");
+    function submit() {
+        create_user($_POST['first'], $_POST['last'], $_POST['degree'], $_POST['year'], $_POST['email'], $_POST['password']);
+    }
+    if (isset($_POST['submit'])) {
+        submit();
+    }
+    ?>
 </body>
 </html>
