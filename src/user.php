@@ -20,7 +20,7 @@ class User extends Entry {
             role,
 			business_id
 		) VALUES (
-            '$json_obj->id',
+            DEFAULT,
 			'$json_obj->first_name',
 			'$json_obj->last_name',
             '$json_obj->degree',
