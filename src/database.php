@@ -1,5 +1,4 @@
 <?php
-
 class Database {
     public $host = "dbserver.engr.scu.edu";
     public $user = "pahrens";
@@ -20,9 +19,7 @@ class Database {
 
     public function close() {
         $this->conn->close();
-
         return !is_resource($this->conn);
     }
 }
-
 ?>

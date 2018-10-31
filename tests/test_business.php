@@ -1,6 +1,5 @@
 <?php
-
-include "business.php";
+include "../src/business.php";
 
 $business = new Business();
 
@@ -79,5 +78,4 @@ if ($remove_resp) {
 } else {
     echo "Failed to remove business" . "<br>";
 }
-
 ?>
