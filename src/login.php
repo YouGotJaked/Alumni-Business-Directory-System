@@ -6,14 +6,12 @@
         // check if user already exists with that email
         $user = new User();
         $exists = $user->get_one('email', $email);
-        echo $exists;
         if ($exists) {
-            echo "User $exists already exists" . "<br>";
+            echo "User already exists" . "<br>";
             return;
         }
         // hash password, always 60 char
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-        // create json object with parameters
         // DELETE $ID
         $json = ['id' => $id,
         'first_name' => $first_name,
