@@ -2,7 +2,7 @@
 include "user.php";
     
 // Create new user account
-function create_user($first_name, $last_name, $degree, $graduation_year, $email, $password) {
+function create_user($first_name, $last_name, $degree, $graduation_year, $email, $password, $role, $business_id) {
     $user = new User();
     $exists = $user->get_one('email', $email);  // check if user already exists with that email
     if ($exists) {
@@ -17,8 +17,8 @@ function create_user($first_name, $last_name, $degree, $graduation_year, $email,
         'graduation_year' => $graduation_year,
         'email' => $email,
         'hashed_password' => $hashed_password,
-        'role' => "Visitor",
-        'business_id' => NULL];
+        'role' => $role,
+        'business_id' => $business_id];
         
     $json_obj = json_encode($json, JSON_PRETTY_PRINT);
     $add_resp = $user->add($json_obj);
