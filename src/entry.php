@@ -47,31 +47,6 @@ class Entry {
         $this->database->close();
         return $json_obj;
     }
-	
-	public function get_all($key, $value) {
-		$this->database->connect();
-
-		$query = "SELECT * FROM $this->table WHERE $key='$value'";
-
-		$resp = $this->database->conn->query($query);
-
-		// Extraction method adapted from https://stackoverflow.com/questions/383631/json-encode-mysql-results
-
-		$json_obj;
-
-		$rows = [];
-
-		while($new_row = mysqli_fetch_assoc($resp)) {
-			$rows[] = $new_row;
-		}
-
-		$json_obj = json_encode($rows, JSON_NUMERIC_CHECK);
-
-		$this->database->close();
-
-		return $json_obj;
-	}
->>>>>>> master
 
     public function update($id, $key, $value) {
         $this->database->connect();
