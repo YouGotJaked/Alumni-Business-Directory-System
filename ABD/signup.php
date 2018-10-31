@@ -59,6 +59,12 @@
     <?php
     include "../src/login.php";
     function submit() {
+        echo $_POST['first'];
+        echo $_POST['last'];
+        echo $_POST['degree'];
+        echo $_POST['year'];
+        echo $_POST['email'];
+        echo $_POST['password'];
         create_user($_POST['first'], $_POST['last'], $_POST['degree'], $_POST['year'], $_POST['email'], $_POST['password']);
     }
     if (isset($_POST['submit'])) {
