@@ -57,7 +57,7 @@
 		<button class="btn btn-primary" name="submit" type="submit">Submit</button>
 	</form>
     <?php
-    require_once("../src/login.php");
+    include "../src/login.php";
     function submit() {
         create_user($_POST['first'], $_POST['last'], $_POST['degree'], $_POST['year'], $_POST['email'], $_POST['password']);
     }
