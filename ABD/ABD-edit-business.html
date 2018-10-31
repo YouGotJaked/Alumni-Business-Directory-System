@@ -12,7 +12,7 @@
 <body>
 	<nav class="navbar navbar-toggleable-md container-fluid">
   		<a href="http://students.engr.scu.edu/~sstauber/Alumni-Business-Directory-System/ABD/ABD-manager-home.html" class="homebutton">HOME</a>
-		<a class="navbar-brand navbar-right postbusiness" href="#"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
+		<a class="navbar-brand navbar-right postbusiness" href="http://students.engr.scu.edu/~sstauber/Alumni-Business-Directory-System/ABD/ABD-submit-business.html"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
 	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
@@ -20,56 +20,31 @@
 	<div class="card">
  		<h3 class="card-header text-center font-weight-bold text-uppercase py-4">Businesses</h3>
   		<div class="card-body">
-    	<div id="table" class="table-editable">
-      		<span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a></span>
-      		<table class="table table-bordered table-responsive-md table-striped text-center">
-       		<tr>
-          		<th class="text-center">Primary Key</th>
-          		<th class="text-center">Company Name</th>
-          		<th class="text-center">Business Owner</th>
-          		<th class="text-center">Type of Business</th>
-          		<th class="text-center">Remove</th>
-        </tr>
-        <tr>
-          <td class="pt-3-half" contenteditable="true">1</td>
-          <td class="pt-3-half" contenteditable="true">Ben's Burritos</td>
-          <td class="pt-3-half" contenteditable="true">Ben</td>
-          <td class="pt-3-half" contenteditable="true">Restaurant</td>
-          <td>
-            <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
-          </td>
-        </tr>
-        <tr>
-          <td class="pt-3-half" contenteditable="true">2</td>
-          <td class="pt-3-half" contenteditable="true">Carl's Coffee</td>
-          <td class="pt-3-half" contenteditable="true">Carl</td>
-          <td class="pt-3-half" contenteditable="true">Restaurant</td>
-          <td>
-            <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
-          </td>
-        </tr>
-        <tr>
-          <td class="pt-3-half" contenteditable="true">3</td>
-          <td class="pt-3-half" contenteditable="true">Pete's Pizza</td>
-          <td class="pt-3-half" contenteditable="true">Pete</td>
-          <td class="pt-3-half" contenteditable="true">Restaurant</td>
-          <td>
-            <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
-          </td>
-        </tr>
-        <tr class="hide">
-          <td class="pt-3-half" contenteditable="true">4</td>
-          <td class="pt-3-half" contenteditable="true">Sam's Sushi</td>
-          <td class="pt-3-half" contenteditable="true">Sam</td>
-          <td class="pt-3-half" contenteditable="true">Restaurant</td>
-          <td>
-            <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-<!-- Editable table -->
+    		<div id="table" class="table-editable">
+				<table class="table table-bordered table-responsive-md table-hover text-center">
+       			<tr>
+          			<th class="text-center">ID</th>
+          			<th class="text-center">Business Owner</th>
+          			<th class="text-center">Business Name</th>
+          			<th class="text-center">Type of Business</th>
+					<th class="text-center">Description</th>
+					<th class="text-center">Address</th>
+          			<th class="text-center">Remove</th>
+       		 	</tr>
+        		<tr>
+          			<td class="pt-3-half" contenteditable="true">1</td>
+          			<td class="pt-3-half" contenteditable="true">Ben Bronco</td>
+          			<td class="pt-3-half" contenteditable="true">Ben's Burritos</td>
+          			<td class="pt-3-half" contenteditable="true">Restaurant</td>
+					<td class="pt-3-half" contenteditable="true">Short description for Ben's Burritos. This place is pretty good.</td>
+					<td class="pt-3-half" contenteditable="true">500 El Camino Real, Santa Clara, CA 95053, USA</td>
+          			<td>
+            			<span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+          			</td>
+        		</tr>
+      		</table>
+    		</div>
+  		</div>
+	</div>
 </body>
 </html>
