@@ -1,9 +1,7 @@
 <?php
-
 include "../src/user.php";
 
 $user = new User();
-
 $json = '{
     "id":0,
     "first_name":"The",
@@ -45,5 +43,4 @@ if ($remove_resp) {
 } else {
     echo "Failed to remove user" . "<br>";
 }
-
 ?>

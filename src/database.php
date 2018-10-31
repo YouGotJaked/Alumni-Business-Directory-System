@@ -19,7 +19,6 @@ class Database {
 
     public function close() {
         $this->conn->close();
-
         return !is_resource($this->conn);
     }
 }

@@ -1,9 +1,7 @@
 <?php
-
 include "../src/database.php";
 
 $database = new Database();
-
 $connected = $database->connect();
 
 if ($connected) {
@@ -19,5 +17,4 @@ if ($closed) {
 } else {
     echo "Connection failed to close" . "<br>";
 }
-
 ?>

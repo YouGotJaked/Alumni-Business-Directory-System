@@ -1,5 +1,4 @@
 <?php
-    
 include "database.php";
 
 class Entry {
@@ -24,6 +23,7 @@ class Entry {
         }
 
         $json_obj = json_encode($rows, JSON_NUMERIC_CHECK);
+        
         if ($json_obj == '[]') {
             return FALSE; // empty JSON array
         }
@@ -40,11 +40,14 @@ class Entry {
         // Extraction method adapted from https://stackoverflow.com/questions/383631/json-encode-mysql-results
         $json_obj;
         $rows = [];
+        
         while($new_row = mysqli_fetch_assoc($resp)) {
             $rows[] = $new_row;
         }
+        
         $json_obj = json_encode($rows, JSON_NUMERIC_CHECK);
         $this->database->close();
+        
         return $json_obj;
     }
 

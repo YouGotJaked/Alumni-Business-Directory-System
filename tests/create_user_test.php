@@ -1,7 +1,7 @@
 <?php
-    include "../src/login.php";
+include "../src/login.php";
 
-    create_user('Jake',
+create_user('Jake',
     'Snake',
     'comm',
     2069,
