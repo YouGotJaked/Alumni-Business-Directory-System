@@ -20,7 +20,7 @@ class Business extends Entry {
 			country,
 			owner_id
 		) VALUES (
-			'$json_obj->id',
+			DEFAULT,
 			'$json_obj->name',
 			'$json_obj->status',
 			'$json_obj->description',
