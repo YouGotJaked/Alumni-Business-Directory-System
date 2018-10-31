@@ -31,7 +31,7 @@ class User extends Entry {
 
         $resp = $this->database->conn->query($query);
         $this->database->close();
-
+        echo $resp . "<br>";
         return $resp;
     }
     
