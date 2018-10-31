@@ -13,19 +13,22 @@
 
 <body>
 	<nav class="navbar navbar-toggleable-md container-fluid">
-  		<a href="#" class="homebutton">HOME</a>
-		<a class="navbar-brand navbar-right postbusiness" href="#"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
+  		<a href="http://students.engr.scu.edu/~sstauber/Alumni-Business-Directory-System/ABD/user-home.html" class="homebutton">HOME</a>
+		<a class="navbar-brand navbar-right postbusiness" href="http://students.engr.scu.edu/~sstauber/Alumni-Business-Directory-System/ABD/submit-business.html"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
 	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="container">
-		<div class="list-group">
-  			<span class="list-group-item list-group-item-action list-group-item-dark">What type of business are you looking for?</span>
- 			<a href="#" class="list-group-item list-group-item-action">Restaurants</a>
-  			<a href="#" class="list-group-item list-group-item-action">Sporting Goods</a>
-  			<a href="#" class="list-group-item list-group-item-action">Apparel</a>
-		</div>
-	</div>
+	<div class="container mb-3 col-6">
+    		<label for="exampleFormControlSelect1">What type of business are you looking for?</label>
+    		<select class="form-control" id="exampleFormControlSelect1">
+				<option disabled selected value> -- select an option -- </option>
+      			<option>Restaurant</option>
+     			<option>Shopping</option>
+      			<option>Professional Services</option>
+				<option>Local Services</option>
+				<option>Home Services</option>
+    		</select>
+  		</div>
 </body>
 </html>
