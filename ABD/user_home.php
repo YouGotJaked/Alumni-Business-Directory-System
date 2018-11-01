@@ -22,7 +22,7 @@
 	<div class="container mb-3 col-6">
 		<label for="exampleFormControlSelect1">What type of business are you looking for?</label>
 		<form action="user_home.php" method="post">
-		<select class="form-control" id="exampleFormControlSelect1" name="category" value="">
+		<select class="form-control mb-3" id="exampleFormControlSelect1" name="category" value="">
 			<option disabled selected value> -- select an option -- </option>
 			<option value="Restaurant">Restaurant</option>
 			<option value="Shopping">Shopping</option>
@@ -30,8 +30,8 @@
 			<option value="Local Services">Local Services</option>
 			<option value="Home Services">Home Services</option>
 		</select>
-		<input type="text" class="form-control" placeholder="City" name="city">
-		<input type="submit" name="submit"/>
+		<input type="text" class="form-control mb-3" placeholder="City" name="city">
+		<input type="submit" class="btn btn-info" name="submit">
 		</form>
 	</div>
 

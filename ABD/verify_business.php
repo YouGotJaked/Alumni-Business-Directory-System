@@ -54,7 +54,7 @@
 					echo '<input class="form-check-input" type="radio" name="choice" value="deny' . $json->id . '">';
 					echo '<label class="form-check-label" for="exampleRadios2">Deny</label>';
 				echo '</div>';
-				echo '<input type="submit" name="submit">';
+				echo '<input type="submit" class="btn btn-info" name="submit">';
 			echo '</div>';
 			echo '</form>';
 		echo '</div>';
