@@ -84,7 +84,7 @@
             // check if business already exists
             // get id of current user
 
-            $owner_id = $business->get_one("owner_id", $_SESSION['user']);
+            $owner_id = $user->get_one("id", $_SESSION['user']);
             
             $json = ['name' => $_POST["name"],
             'status' => "Requested",
