@@ -57,10 +57,13 @@
 		<button class="btn btn-primary" name="submit" type="submit">Submit</button>
 	</form>
     <?php
+    /*
     include "../src/login.php";
     if (isset($_POST["submit"])) {
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
     }
+    */
+    echo "HEY HEY HEY" . "<br>";
     ?>
 </body>
 </html>
