@@ -19,7 +19,8 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<form method="post" action="signup.php">
+
+	<form class="container" method="post" action="user_home.php">
   		<div class="form-row mb-3">
     		<div class="col">
 				<label for="validationServer01">First name</label>
@@ -55,14 +56,14 @@
     		</div>
 		</div>
 		<input type="submit" class="btn btn-info" name="submit">
+        <?php echo $error_submit; ?>
 	</form>
     <?php
     include "../src/login.php";
-        
-    echo "Work pls" . "<br>";
-        
+    
+    $error_submit = "";
     if (isset($_POST["submit"])) {
-        echo "Form Submitted" . "<br>";
+        $error_submit = "Form Submitted.";
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
     }
     ?>
