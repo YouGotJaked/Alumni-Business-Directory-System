@@ -23,10 +23,6 @@ class Entry {
         }
 
         $json_obj = json_encode($rows, JSON_NUMERIC_CHECK);
-        
-        if ($json_obj == '[]') {
-            return FALSE; // empty JSON array
-        }
 
         $this->database->close();
 
