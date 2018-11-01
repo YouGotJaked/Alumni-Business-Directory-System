@@ -17,24 +17,30 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<form class="container col-5" action="login.php">
+    <?php $login_error = ""; ?>
+	<form class="container col-5" method="post" action="login.php">
   	<div class="form-group">
     	<label for="exampleInputEmail1">Email</label>
-    	<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+    	<input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
   	</div>
   	<div class="form-group">
     	<label for="exampleInputPassword1">Password</label>
-    	<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" required>
+    	<input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" required>
   	</div>
 	<div class="form-group">
 		<a href="signup.php">Don't have an account?</a>	
 	</div>
-  	<button type="submit" name="submit" class="btn btn-outline-dark">Sign In</button>
+  	<input type="submit" name="submit" class="btn btn-outline-dark">
+    <?php echo $login_error; ?>
 	</form>
     <?php
-    require_once "../src/login.php";
+    include "../src/login.php";
     if (isset($_POST["submit"])) {
-        header('Location: https://reddit.com');
+        if login($_POST["email"], $_POST["password"]) {
+            header('Location: user_home.php');
+        } else {
+            $login_error = "Invalid credentials."
+        }
     }
     ?>
 </body>
