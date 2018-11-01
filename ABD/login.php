@@ -45,7 +45,7 @@
 		<a href="signup.php">Don't have an account?</a>	
 	</div>
   	<input type="submit" name="submit" class="btn btn-outline-dark">
-    <?php echo "<br>" . '<span style="color=#B50043;">$login_error</span>'; ?>
+    <?php echo "<br>" . $login_error; ?>
 	</form>
 </body>
 </html>
