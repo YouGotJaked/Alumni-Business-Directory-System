@@ -63,8 +63,6 @@
 		<input type="submit" class="btn btn-info" name="submit">
 	</form>
     <?php
-    error_reporting(0);
-    // "
     include "../src/login.php";
         
     echo "Work pls" . "<br>";
