@@ -57,13 +57,9 @@
 		<button class="btn btn-primary" name="submit" type="submit">Submit</button>
 	</form>
     <?php
-    require_once "../src/login.php";
-    function submit() {
-        echo $_POST["first"];
-        create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
-    }
+    include "../src/login.php";
     if (isset($_POST["submit"])) {
-        submit();
+        create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
     }
     ?>
 </body>
