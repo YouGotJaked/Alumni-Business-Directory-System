@@ -54,7 +54,7 @@
       			<input type="password" name ="confirm_password" class="form-control" placeholder="Confirm Password" required>
     		</div>
 		</div>
-		<input type="submit" name="submit" class="btn btn-info" value="HIT ME">
+		<input type="submit" name="submit" class="btn btn-info">
 	</form>
     <?php
     include "../src/login.php";
