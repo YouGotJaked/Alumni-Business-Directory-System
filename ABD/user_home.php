@@ -66,7 +66,7 @@
 		if (($city !== "" && $category !== "" && $city === $json->city && $category === $json->category)) {
 			echo '<div class="card border-dark mb-3 container col-4">';
 				echo '<div class="card-body">';
-					echo '<a href="individual-business.php"><h5 class="card-header bg-transparent">' . $json->name . '</h5></a>';
+					echo '<a href="individual_business.php"><h5 class="card-header bg-transparent">' . $json->name . '</h5></a>';
 					echo '<p class="card-body">' . $json->city . '</p>';
 					echo '<p class="card-body">' . $json->description . '</p>';
 					echo '<p class="card-body">' . $json->category . '</p>';
@@ -75,7 +75,7 @@
 		} else if ($city !== "" && $city === $json->city) {
 			echo '<div class="card border-dark mb-3 container col-4">';
 				echo '<div class="card-body">';
-					echo '<a href="individual-business.php"><h5 class="card-header bg-transparent">' . $json->name . '</h5></a>';
+					echo '<a href="individual_business.php"><h5 class="card-header bg-transparent">' . $json->name . '</h5></a>';
 					echo '<p class="card-body">' . $json->city . '</p>';
 					echo '<p class="card-body">' . $json->description . '</p>';
 					echo '<p class="card-body">' . $json->category . '</p>';
@@ -84,7 +84,7 @@
 		} else if ($category !== "" && $category === $json->category) {
 			echo '<div class="card border-dark mb-3 container col-4">';
 				echo '<div class="card-body">';
-					echo '<a href="individual-business.php"><h5 class="card-header bg-transparent">' . $json->name . '</h5></a>';
+					echo '<a href="individual_business.php"><h5 class="card-header bg-transparent">' . $json->name . '</h5></a>';
 					echo '<p class="card-body">' . $json->city . '</p>';
 					echo '<p class="card-body">' . $json->description . '</p>';
 					echo '<p class="card-body">' . $json->category . '</p>';

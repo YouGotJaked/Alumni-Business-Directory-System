@@ -11,7 +11,7 @@
 
 <body>
 	<nav class="navbar navbar-toggleable-md container-fluid">
-  		<a href="user-home.php" class="homebutton">HOME</a>
+  		<a href="user_home.php" class="homebutton">HOME</a>
 		<a class="navbar-brand navbar-right postbusiness" href="submit_business.php"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
 	</nav>
 	<div class="jumbotron">
