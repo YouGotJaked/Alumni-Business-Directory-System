@@ -69,6 +69,10 @@
         <?php
         require_once "../src/business.php";
         require_once "../src/user.php";
+        session_start([
+            'cookie_lifetime' => 86400,
+            'read_and_close' => true,
+        ]);
         include $_SESSION['user']."login.php";
         
         if (isset($_POST["submit"])) {
@@ -76,10 +80,7 @@
             $user = new User();
             // check if business already exists
             // get id of current user
-            session_start([
-                          'cookie_lifetime' => 86400,
-                          'read_and_close' => true,
-                          ]);
+
             $owner_id = $business->get_one("owner_id", $_SESSION['user']);
             
             $json = ['name' => $_POST["name"],
