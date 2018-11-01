@@ -27,7 +27,7 @@
     	<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" required>
   	</div>
 	<div class="form-group">
-		<a href="signup.html">Don't have an account?</a>	
+		<a href="signup.php">Don't have an account?</a>	
 	</div>
   	<button type="submit" name="submit" class="btn btn-outline-dark">Sign In</button>
 	</form>
