@@ -58,7 +58,7 @@
 	</form>
     <?php
     include "../src/login.php";
-    if (isset($_POST['submit'])) {
+    if (isset($_POST["submit"])) {
         echo "YE YE YE" . "<br>";
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
     }
