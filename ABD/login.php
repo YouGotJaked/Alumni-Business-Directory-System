@@ -17,7 +17,7 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<form class="container col-5">
+	<form class="container col-5" action="login.php">
   	<div class="form-group">
     	<label for="exampleInputEmail1">Email</label>
     	<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
