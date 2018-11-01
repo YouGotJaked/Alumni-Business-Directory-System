@@ -17,7 +17,22 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-    <?php $login_error = ""; ?>
+    <?php
+    include "../src/login.php";
+    $login_error = "";
+    if (isset($_POST["submit"])) {
+        try {
+            if (login($_POST["email"], $_POST["password"])) {
+                $login_error = "Login successful.";
+                header('Location: user_home.php');
+            } else {
+                $login_error = "Invalid credentials.";
+            }
+        } catch(Exception $e) {
+            echo $e . "<br>";
+        }
+    }
+    ?>
 	<form class="container col-5" method="post" action="login.php">
   	<div class="form-group">
     	<label for="exampleInputEmail1">Email</label>
@@ -33,20 +48,5 @@
   	<input type="submit" name="submit" class="btn btn-outline-dark">
     <?php echo $login_error; ?>
 	</form>
-    <?php
-    include "../src/login.php";
-    if (isset($_POST["submit"])) {
-        try {
-            if (login($_POST["email"], $_POST["password"])) {
-                $login_error = "Login successful.";
-                header('Location: user_home.php');
-            } else {
-                $login_error = "Invalid credentials.";
-            }
-        } catch(Exception $e) {
-            echo $e . "<br>";
-        }
-    }
-    ?>
 </body>
 </html>
