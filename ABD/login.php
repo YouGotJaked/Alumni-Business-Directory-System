@@ -34,7 +34,7 @@
     <?php
     require_once "../src/login.php";
     if (isset($_POST["submit"])) {
-        header('Location: user_home.php');
+        header('Location: https://reddit.com');
     }
     ?>
 </body>
