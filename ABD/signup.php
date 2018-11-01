@@ -62,6 +62,7 @@
 
     if (isset($_POST["submit"])) {
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
+        header('Location: user_home.php');
     }
     ?>
 </body>
