@@ -96,7 +96,7 @@
             'state' => $_POST["state"],
             'zip' => $_POST["zip"],
             'country' => $_POST["country"],
-            'owner_id' => $owner_id;
+            'owner_id' => $owner_id];
             
             $json_obj = json_encode($json, JSON_PRETTY_PRINT);
             echo $json_obj . "<br>";
