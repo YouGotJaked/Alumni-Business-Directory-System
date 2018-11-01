@@ -37,6 +37,6 @@ function login($email, $password) {
     $user = new User();
     $json = $user->get_one('email', $email);
     $json_obj = json_decode($json);
-    return isset($json_obj) && password_verify($password, $json_obj[0]->hashed_password);
+    return isset($json_obj[0]) && password_verify($password, $json_obj[0]->hashed_password);
 }
 ?>
