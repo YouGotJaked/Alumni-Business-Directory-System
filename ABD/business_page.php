@@ -11,7 +11,7 @@
 
 <body>
 	<nav class="navbar navbar-toggleable-md container-fluid">
-  		<a href="user-home.php" class="homebutton">HOME</a>
+  		<a href="user_home.php" class="homebutton">HOME</a>
 		<a class="navbar-brand navbar-right postbusiness" href="submit_business.php"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
 	</nav>
 	<div class="jumbotron">
@@ -19,7 +19,7 @@
 	</div>
 	<div class="card border-dark mb-3 container col-4">
   		<div class="card-body">
-    		<a href="individual-business.html"><h5 class="card-header bg-transparent">Pete's Pizza</h5></a>
+    		<a href="individual_business.php"><h5 class="card-header bg-transparent">Pete's Pizza</h5></a>
     		<p class="card-body">Description: </p>
 			<p class="card-body">Type of business: </p>
   		</div>
