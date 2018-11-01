@@ -36,7 +36,8 @@
     <?php
     include "../src/login.php";
     if (isset($_POST["submit"])) {
-        try (login($_POST["email"], $_POST["password"])) {
+        try {
+            login($_POST["email"], $_POST["password"]);
             header('Location: user_home.php');
         } catch(Exception $e) {
             $login_error = "Invalid credentials.";
