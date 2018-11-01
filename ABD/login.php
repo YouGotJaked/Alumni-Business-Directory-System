@@ -36,5 +36,6 @@
     if (isset($_POST["submit"])) {
         header('Location: user_home.php');
     }
+    ?>
 </body>
 </html>
