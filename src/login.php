@@ -22,7 +22,7 @@ function create_user($first_name, $last_name, $degree, $graduation_year, $email,
         
     $json_obj = json_encode($json, JSON_PRETTY_PRINT);
     $add_resp = $user->add($json_obj);
-    echo $json_obj . "<br>";
+
     if ($add_resp) {
         echo "User has been added" . "<br>";
     } else {

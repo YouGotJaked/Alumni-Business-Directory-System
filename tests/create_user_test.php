@@ -8,5 +8,5 @@ create_user('Tom',
     'troth@scu.edu',
     'hunter2',
     'Visitor',
-    0);
+    1);
 ?>

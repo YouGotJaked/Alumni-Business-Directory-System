@@ -29,7 +29,12 @@
 	<div class="form-group">
 		<a href="signup.html">Don't have an account?</a>	
 	</div>
-  	<button type="submit" class="btn btn-outline-dark">Sign In</button>
+  	<button type="submit" name="submit" class="btn btn-outline-dark">Sign In</button>
 	</form>
+    <?php
+    require_once "../src/login.php";
+    if (isset($_POST["submit"])) {
+        header('Location: user_home.php');
+    }
 </body>
 </html>
