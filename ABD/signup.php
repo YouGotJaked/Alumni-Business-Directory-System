@@ -19,12 +19,11 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<form class="container" action="signup.php">
+	<form method="post" action="signup.php">
   		<div class="form-row mb-3">
     		<div class="col">
 				<label for="validationServer01">First name</label>
       			<input type="text" class="form-control" placeholder="First name" required name="first">
-                <?php echo $error_first; ?>
     		</div>
     		<div class="col">
 				<label for="validationServer01">Last name</label>
@@ -58,13 +57,9 @@
 		<input type="submit" class="btn btn-info" name="submit">
 	</form>
     <?php
-    //include "../src/login.php";
+    include "../src/login.php";
         
     echo "Work pls" . "<br>";
-        
-    if (empty($_POST["first"])) {
-        $error_first = "Please enter your first name";
-    }
         
     if (isset($_POST["submit"])) {
         echo "Form Submitted" . "<br>";
