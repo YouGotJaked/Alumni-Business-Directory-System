@@ -28,7 +28,11 @@
     if (isset($_POST["submit"])) {
         try {
             if (login($_POST["email"], $_POST["password"])) {
-                session_start();
+                // Persistent cookie that lasts a day, read and close rightaway 
+                session_start([
+                    'cookie_lifetime' => 86400,
+                    'read_and_close' => true,
+                ]);
                 $user_id = $user->get_one("email", $_POST["email"]);
                 $_SESSION['user'] = $user_id->id;
                 header('Location: user_home.php');

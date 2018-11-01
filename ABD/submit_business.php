@@ -69,7 +69,6 @@
         <?php
         require_once "../src/business.php";
         require_once "../src/user.php";
-        require_once "login.php";
         
         if (isset($_POST["submit"])) {
             $business = new Business();
