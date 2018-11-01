@@ -19,6 +19,7 @@
 	</div>
 
     <?php
+    session_start();
     require_once "../src/login.php";
     require_once "../src/user.php";
     
@@ -28,13 +29,11 @@
     if (isset($_POST["submit"])) {
         try {
             if (login($_POST["email"], $_POST["password"])) {
-                // Persistent cookie that lasts a day, read and close rightaway
-                session_start();
                 $json = $user->get_one("email", $_POST["email"]);
                 $json_obj = json_decode($json);
                 $user_id = $json_obj[0]->id;
-                $_SESSION['user'] = $user_id;
-                header('Location: user_home.php');
+                $_SESSION['user'] = $user_id;       // Track user id
+                header('Location: user_home.php');  // Go to home page
             } else {
                 $login_error = "Invalid credentials.";
             }

@@ -67,21 +67,15 @@
 		</div>
 		<input type="submit" class="btn btn-primary mb-4" name="submit">
         <?php
+        session_start();
         require_once "../src/business.php";
         require_once "../src/user.php";
-        /*
-        session_start([
-            'cookie_lifetime' => 86400,
-            'read_and_close' => true,
-        ]);
-         */
-        session_start();
-        //include $_SESSION['user']."login.php";
         
         if (isset($_POST["submit"])) {
             $business = new Business();
             $user = new User();
-            // check if business already exists
+            // check if business already exists??
+            
             // get id of current user
             $json = $user->get_one("id", $_SESSION['user']);
             $json_obj = json_decode($json);
@@ -99,7 +93,6 @@
             'owner_id' => $owner_id];
             
             $json_obj = json_encode($json, JSON_PRETTY_PRINT);
-            echo $json_obj . "<br>";
             $add_resp = $business->add($json_obj);
         }
         ?>
