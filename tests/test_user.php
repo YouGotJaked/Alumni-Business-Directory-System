@@ -2,8 +2,7 @@
 include "../src/user.php";
 
 $user = new User();
-$json = '{
-    "id":0,
+$json0 = '{
     "first_name":"The",
     "last_name":"Thinker",
     "degree":"philosophy",
@@ -14,8 +13,53 @@ $json = '{
     "business_id":0
 }';
 
-$add_resp = $user->add($json);
+$json1 = '{
+    "first_name":"The",
+    "last_name":"Thinker",
+    "degree":"philosophy",
+    "graduation_year":2077,
+    "email":"hello@world.com",
+    "hashed_password":"k342342n",
+    "role":"Owner",
+    "business_id":0
+}';
 
+$json2 = '{
+    "first_name":"The",
+    "last_name":"Thinker",
+    "degree":"philosophy",
+    "graduation_year":2077,
+    "email":"hello@world.com",
+    "hashed_password":"k342342n",
+    "role":"Owner",
+    "business_id":0
+}';
+
+$add_resp = $user->add($json0);
+
+if ($add_resp) {
+    echo "User has been added" . "<br>";
+} else {
+    echo "Failed to add user" . "<br>";
+}
+
+$add_resp = $user->add($json1);
+
+if ($add_resp) {
+    echo "User has been added" . "<br>";
+} else {
+    echo "Failed to add user" . "<br>";
+}
+
+$add_resp = $user->add($json2);
+
+if ($add_resp) {
+    echo "User has been added" . "<br>";
+} else {
+    echo "Failed to add user" . "<br>";
+}
+
+/*
 if ($add_resp) {
     echo "User has been added" . "<br>";
 } else {
@@ -42,5 +86,7 @@ if ($remove_resp) {
     echo "User has been removed" . "<br>";
 } else {
     echo "Failed to remove user" . "<br>";
-}
+}*/
 ?>
+
+

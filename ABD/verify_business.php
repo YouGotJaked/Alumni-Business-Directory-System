@@ -17,30 +17,67 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="card border-dark mb-3 mx-auto" style="max-width: 18rem;">
-  		<div class="card-header">Business Name: </div>
- 		<div class="card-body text-dark">
-    		<p class="card-text">Business Owner: </p>
-			<p class="card-text">Business Description: </p>
-			<p class="card-text">Owner Email: </p>
-			<p class="card-text">Degree: </p>
-			<p class="card-text">Graduation Year: </p>
-			<p class="card-text">Street: </p>
-			<p class="card-text">City: </p>
-			<p class="card-text">State: </p>
-			<p class="card-text">Zip Code: </p>
-			<p class="card-text">Country: </p>
-		<div class="card-footer bg-transparent">
-			<div class="form-check">
-  				<input class="form-check-input" type="radio" name="card1" value="confirm">
-  				<label class="form-check-label" for="exampleRadios1">Confirm</label>
-			</div>
-			<div class="form-check">
-  				<input class="form-check-input" type="radio" name="card1" value="deny">
-  				<label class="form-check-label" for="exampleRadios2">Deny</label>
-			</div>
-		</div>
-  		</div>
-	</div>
+	<?php 
+	
+	include "../src/business.php";
+	include "../src/user.php";
+
+	$business = new Business();
+	$user = new User();
+
+	$requested = $business->get_all("status", "Requested");
+	
+	foreach (json_decode($requested) as &$json) {
+		$owner = json_decode($user->get_one("id", $json->owner_id))[0];
+
+		echo '<div class="card border-dark mb-3 mx-auto" style="max-width: 18rem;">';
+			echo '<div class="card-header">Business Name: ' . $json->name . '</div>';
+			echo '<div class="card-body text-dark">';
+				echo '<p class="card-text">Business Owner: ' . $owner->first_name . ' ' . $owner->last_name . '</p>';
+				echo '<p class="card-text">Business Description: ' . $json->description . '</p>';
+				echo '<p class="card-text">Owner Email: ' . $owner->email . '</p>';
+				echo '<p class="card-text">Degree: ' . $owner->degree . '</p>';
+				echo '<p class="card-text">Graduation Year: ' . $owner->graduation_year . '</p>';
+				echo '<p class="card-text">Street: ' . $json->street. '</p>';
+				echo '<p class="card-text">City: ' . $json->city . '</p>';
+				echo '<p class="card-text">State: ' . $json->state . '</p>';
+				echo '<p class="card-text">Zip Code: ' . $json->zip . '</p>';
+				echo '<p class="card-text">Country: ' . $json->country . '</p>';
+			
+			echo '<form class="card-footer bg-transparent" action="verify_business.php" method="post">';
+			echo '<div>';
+				echo '<div class="form-check">';
+					echo '<input class="form-check-input" type="radio" name="choice" value="confirm' . $json->id . '">';
+					echo '<label class="form-check-label" for="exampleRadios1">Confirm</label>';
+				echo '</div>';
+				echo '<div class="form-check">';
+					echo '<input class="form-check-input" type="radio" name="choice" value="deny' . $json->id . '">';
+					echo '<label class="form-check-label" for="exampleRadios2">Deny</label>';
+				echo '</div>';
+				echo '<input type="submit" name="submit">';
+			echo '</div>';
+			echo '</form>';
+		echo '</div>';
+		echo '</div>';
+	}
+
+	if (isset($_POST['submit'])) {
+		$choice = $_POST["choice"];
+
+		if (strpos($choice, "confirm") === 0) {
+			$id = str_replace("confirm", "", $choice);
+			
+			$business->update($id, "status", "Approved");
+		} else if (strpos($choice, "deny") === 0) {
+			$id = str_replace("deny", "", $choice);
+
+			$business->update($id, "status", "Denied");
+		} else {
+			echo "REEEEEE";
+		}
+	} 
+
+	?>
+	
 </body>
 </html>

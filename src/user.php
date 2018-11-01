@@ -1,5 +1,5 @@
 <?php
-include "entry.php";
+require_once "entry.php";
 
 class User extends Entry {
 
@@ -30,6 +30,7 @@ class User extends Entry {
         )";
 
         $resp = $this->database->conn->query($query);
+
         $this->database->close();
 
         return $resp;

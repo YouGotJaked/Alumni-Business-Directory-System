@@ -1,5 +1,5 @@
 <?php
-include "entry.php";
+require_once "entry.php";
 
 class Business extends Entry {
     public function add($json) {
@@ -41,6 +41,11 @@ class Business extends Entry {
     public function get_one($key, $value) {
         $this->table = "businesses";
         return parent::get_one($key, $value);
+    }
+
+    public function get_all($key, $value) {
+        $this->table = "businesses";
+        return parent::get_all($key, $value);
     }
 
     public function update($id, $key, $value) {
