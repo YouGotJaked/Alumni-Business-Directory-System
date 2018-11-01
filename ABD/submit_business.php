@@ -94,6 +94,9 @@
             
             $json_obj = json_encode($json, JSON_PRETTY_PRINT);
             $add_resp = $business->add($json_obj);
+            if ($add_resp) {
+                echo "<br> Business request sent for approval.";
+            }
         }
         ?>
 	</form>
