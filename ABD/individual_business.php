@@ -12,7 +12,7 @@
 <body>
 	<nav class="navbar navbar-toggleable-md container-fluid">
   		<a href="user-home.html" class="homebutton">HOME</a>
-		<a class="navbar-brand navbar-right postbusiness" href="submit-business.html"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
+		<a class="navbar-brand navbar-right postbusiness" href="submit_business.php"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
 	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>

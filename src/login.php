@@ -1,5 +1,5 @@
 <?php
-include "user.php";
+require_once "user.php";
     
 // Create new user account
 function create_user($first_name, $last_name, $degree, $graduation_year, $email, $password, $role, $business_id) {

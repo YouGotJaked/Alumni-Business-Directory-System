@@ -12,27 +12,27 @@
 <body>
 	<nav class="navbar navbar-toggleable-md container-fluid">
   		<a href="user-home.html" class="homebutton">HOME</a>
-		<a class="navbar-brand navbar-right postbusiness" href="submit-business.html"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
+		<a class="navbar-brand navbar-right postbusiness" href="submit_business.php"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
 	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<form class="container col-8">
+	<form class="container col-8" method="post" action="submit_business.php">
   		<div class="form-row mb-3">
     		<div class="col">
 				<label for="validationServer01">Business Name</label>
-      			<input type="text" class="form-control" placeholder="Business Name" required>
+      			<input type="text" name="name" class="form-control" placeholder="Business Name" required>
     		</div>
   		</div>
 		<div class="form-row mb-3">
 			<div class="form-group col">
     			<label for="exampleFormControlTextarea1">Business Description</label>
-    			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Business Description..." required></textarea>
+    			<textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" placeholder="Business Description..." required></textarea>
   			</div>
 		</div>
 		<div class="form-row mb-3">
     		<label for="exampleFormControlSelect1">Type of Business</label>
-    		<select class="form-control" id="exampleFormControlSelect1" required>
+    		<select class="form-control" name="category" id="exampleFormControlSelect1" required>
 				<option disabled selected value> -- select an option -- </option>
 				<option>Restaurant</option>
      			<option>Shopping</option>
@@ -44,28 +44,55 @@
 		<div class="form-row mb-3">
 			<div class="col">
 				<label for="validationServer01">Street</label>
-      			<input type="text" class="form-control" placeholder="Street" required>
+      			<input type="text" name="street" class="form-control" placeholder="Street" required>
     		</div>
 			<div class="col-4">
 				<label for="validationServer01">City</label>
-      			<input type="text" class="form-control" placeholder="City" required>
+      			<input type="text" name="city" class="form-control" placeholder="City" required>
     		</div>
 			<div class="col-2">
 				<label for="validationServer01">State</label>
-      			<input type="text" class="form-control" placeholder="State" required>
+      			<input type="text" name="state" class="form-control" placeholder="State" required>
     		</div>
 		</div>
 		<div class="form-row mb-3">
 			<div class="col-4">
 				<label for="validationServer01">Zip Code</label>
-      			<input type="text" class="form-control" placeholder="Zip Code" required>
+      			<input type="text" name="zip" class="form-control" placeholder="Zip Code" required>
     		</div>
 			<div class="col">
 				<label for="validationServer01">Country</label>
-      			<input type="text" class="form-control" placeholder="Country" required>
+      			<input type="text" name="county" class="form-control" placeholder="Country" required>
     		</div>
 		</div>
-		<button class="btn btn-primary mb-4" type="submit">Submit</button>
+		<input type="submit" class="btn btn-primary mb-4" name="submit">
+        <?php
+        include "../src/business.php";
+        include "../src/user.php";
+        
+        if (isset($_POST["submit"])) {
+            $business = new Business();
+            $user = new User();
+            // check if business already exists
+            // get id of current user
+            $owner_id = $business->get_one("owner_id", $_SESSION['user']);
+            
+            $json = ['name' => $_POST["name"],
+            'status' => $_POST["status"],
+            'description' => $_POST["description"],
+            'category' => $_POST["category"],
+            'street' => $_POST["street"],
+            'city' => $_POST["city"],
+            'state' => $_POST["state"],
+            'zip' => $_POST["zip"],
+            'country' => $_POST["country"],
+            'owner_id' => $owner_id];
+            
+            $json_obj = json_encode($json, JSON_PRETTY_PRINT);
+            echo $json_obj . "<br>";
+            $add_resp = $business->add($json_obj);
+        }
+        ?>
 	</form>
 </body>
 </html>
