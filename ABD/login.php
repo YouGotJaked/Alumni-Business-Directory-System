@@ -19,8 +19,8 @@
 	</div>
 
     <?php
-    include "../src/login.php";
-    include "../src/user.php";
+    require_once "../src/login.php";
+    require_once "../src/user.php";
     
     $user = new User();
     $login_error = "";

@@ -58,7 +58,7 @@
 		<input type="submit" class="btn btn-info" name="submit">
 	</form>
     <?php
-    include "../src/login.php";
+    require_once "../src/login.php";
 
     if (isset($_POST["submit"])) {
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);

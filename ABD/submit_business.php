@@ -67,8 +67,8 @@
 		</div>
 		<input type="submit" class="btn btn-primary mb-4" name="submit">
         <?php
-        include "../src/business.php";
-        include "../src/user.php";
+        require_once "../src/business.php";
+        require_once "../src/user.php";
         
         if (isset($_POST["submit"])) {
             $business = new Business();
