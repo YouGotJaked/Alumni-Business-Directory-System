@@ -54,7 +54,7 @@
       			<input type="password" name ="confirm_password" class="form-control" placeholder="Confirm Password" required>
     		</div>
 		</div>
-		<input type="submit" class="btn btn-info" value="Submit">
+		<input type="submit" name="submit" class="btn btn-info" value="Submit">
 	</form>
     <?php
     /*
@@ -63,7 +63,7 @@
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
     }
     */
-    if (isset($_POST['submit'])) {
+    if (isset($_POST["submit"])) {
         echo "YE YE YE" . "<br>";
     }
     echo "HEY OK HEY" . "<br>";
