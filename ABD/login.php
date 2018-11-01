@@ -23,7 +23,6 @@
     if (isset($_POST["submit"])) {
         try {
             if (login($_POST["email"], $_POST["password"])) {
-                $login_error = "Login successful.";
                 header('Location: user_home.php');
             } else {
                 $login_error = "Invalid credentials.";
@@ -46,7 +45,7 @@
 		<a href="signup.php">Don't have an account?</a>	
 	</div>
   	<input type="submit" name="submit" class="btn btn-outline-dark">
-    <?php echo $login_error; ?>
+    <?php echo "<br>" . '<span style="color=#B50043;">$login_error</span>'; ?>
 	</form>
 </body>
 </html>
