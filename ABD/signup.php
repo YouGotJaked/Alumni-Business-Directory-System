@@ -60,12 +60,14 @@
       			<input type="password" name ="confirm_password" class="form-control" placeholder="Confirm Password" required>
     		</div>
 		</div>
-		<input type="submit" name="submit"/>
+		<input type="submit" class="btn btn-info" name="submit">
 	</form>
     <?php
     error_reporting(0);
-    // class="btn btn-info" value="Submit"
+    // "
     include "../src/login.php";
+        
+    echo "Work pls" . "<br>";
         
     if (empty($_POST["first"])) {
         $error_first = "Please enter your first name";
