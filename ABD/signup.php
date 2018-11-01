@@ -56,14 +56,11 @@
     		</div>
 		</div>
 		<input type="submit" class="btn btn-info" name="submit">
-        <?php echo $error_submit; ?>
 	</form>
     <?php
     include "../src/login.php";
-    
-    $error_submit = "";
+
     if (isset($_POST["submit"])) {
-        $error_submit = "Form Submitted.";
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
     }
     ?>
