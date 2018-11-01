@@ -62,13 +62,14 @@
     		</div>
 			<div class="col">
 				<label for="validationServer01">Country</label>
-      			<input type="text" name="county" class="form-control" placeholder="Country" required>
+      			<input type="text" name="country" class="form-control" placeholder="Country" required>
     		</div>
 		</div>
 		<input type="submit" class="btn btn-primary mb-4" name="submit">
         <?php
         require_once "../src/business.php";
         require_once "../src/user.php";
+        require_once "login.php"
         
         if (isset($_POST["submit"])) {
             $business = new Business();
