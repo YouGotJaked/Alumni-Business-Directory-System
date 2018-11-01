@@ -30,8 +30,10 @@
             if (login($_POST["email"], $_POST["password"])) {
                 // Persistent cookie that lasts a day, read and close rightaway
                 session_start();
-                $user_id = $user->get_one("email", $_POST["email"]);
-                $_SESSION['user'] = $user_id->id;
+                $json = $user->get_one("email", $_POST["email"]);
+                $json_obj = json_decode($json);
+                $user_id = $json_obj[0]->id;
+                $_SESSION['user'] = $user_id;
                 header('Location: user_home.php');
             } else {
                 $login_error = "Invalid credentials.";
