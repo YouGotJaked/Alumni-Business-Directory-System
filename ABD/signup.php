@@ -61,10 +61,9 @@
     if (isset($_POST['submit'])) {
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
     }
-    if (isset($_POST["submit"])) {
+    if (isset($_POST)) {
         echo "YE YE YE" . "<br>";
     }
-    echo "HEY OK HEY" . "<br>";
     ?>
 </body>
 </html>
