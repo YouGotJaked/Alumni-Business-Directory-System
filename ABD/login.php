@@ -38,7 +38,8 @@
     if (isset($_POST["submit"])) {
         try {
             if (login($_POST["email"], $_POST["password"])) {
-                header('Location: user_home.php');
+                $login_error = "Login successful.";
+                //header('Location: user_home.php');
             } else {
                 $login_error = "Invalid credentials.";
             }
