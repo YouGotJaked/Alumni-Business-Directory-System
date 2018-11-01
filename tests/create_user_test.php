@@ -1,6 +1,6 @@
 <?php
 include "../src/login.php";
-
+/*
 create_user('Tom',
     'Roth',
     'RSOC',
@@ -9,7 +9,7 @@ create_user('Tom',
     'hunter2',
     'Visitor',
     1);
-    
+*/
 create_user('Gary',
                 'Snail',
                 'Racing',
