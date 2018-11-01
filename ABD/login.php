@@ -29,6 +29,7 @@
         try {
             if (login($_POST["email"], $_POST["password"])) {
                 // Persistent cookie that lasts a day, read and close rightaway
+                session_start();
                 $user_id = $user->get_one("email", $_POST["email"]);
                 $_SESSION['user'] = $user_id->id;
                 header('Location: user_home.php');

@@ -69,11 +69,14 @@
         <?php
         require_once "../src/business.php";
         require_once "../src/user.php";
+        /*
         session_start([
             'cookie_lifetime' => 86400,
             'read_and_close' => true,
         ]);
-        include $_SESSION['user']."login.php";
+         */
+        session_start();
+        //include $_SESSION['user']."login.php";
         
         if (isset($_POST["submit"])) {
             $business = new Business();
@@ -84,7 +87,7 @@
             $owner_id = $business->get_one("owner_id", $_SESSION['user']);
             
             $json = ['name' => $_POST["name"],
-            'status' => $_POST["status"],
+            'status' => "Requested",
             'description' => $_POST["description"],
             'category' => $_POST["category"],
             'street' => $_POST["street"],
@@ -97,6 +100,7 @@
             $json_obj = json_encode($json, JSON_PRETTY_PRINT);
             echo $json_obj . "<br>";
             $add_resp = $business->add($json_obj);
+            session_close();
         }
         ?>
 	</form>
