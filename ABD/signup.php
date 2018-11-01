@@ -54,9 +54,10 @@
       			<input type="password" name ="confirm_password" class="form-control" placeholder="Confirm Password" required>
     		</div>
 		</div>
-		<input type="submit" name="submit" class="btn btn-info">
+		<input type="submit" name="submit" value="Submit">
 	</form>
     <?php
+    // class="btn btn-info"
     include "../src/login.php";
     if (isset($_POST["submit"])) {
         echo "YE YE YE" . "<br>";
