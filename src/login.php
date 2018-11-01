@@ -22,6 +22,7 @@ function create_user($first_name, $last_name, $degree, $graduation_year, $email,
         'business_id' => $business_id];
         
     $json_obj = json_encode($json, JSON_PRETTY_PRINT);
+    echo $json_obj . "<br>";
     $add_resp = $user->add($json_obj);
 
     if ($add_resp) {
