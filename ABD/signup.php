@@ -19,7 +19,7 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<form method="post" action="signup_action.php">
+	<form method="post" action="user_home.php">
   		<div class="form-row mb-3">
     		<div class="col">
 				<label for="validationServer01">First name</label>
@@ -54,15 +54,16 @@
       			<input type="password" name ="confirm_password" class="form-control" placeholder="Confirm Password" required>
     		</div>
 		</div>
-		<input type="submit" name="submit" class="btn btn-info" value="Submit">
+		<input type="submit" name="submit">
 	</form>
-    /*<?php
+    <?php
+    error_reporting(0);
+    // class="btn btn-info" value="Submit"
     include "../src/login.php";
-    if (isset($_POST["submit"])) {
+    if (isset($_POST['submit'])) {
         echo "Form Submitted" . "<br>";
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
     }
     ?>
-    */
 </body>
 </html>
