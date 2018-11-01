@@ -54,7 +54,7 @@
       			<input type="password" name ="confirm_password" class="form-control" placeholder="Confirm Password" required>
     		</div>
 		</div>
-		<button class="btn btn-primary" name="submit" type="submit">Submit</button>
+		<button class="btn btn-primary" name='submit' type="submit">Submit</button>
 	</form>
     <?php
     /*
@@ -66,7 +66,7 @@
     if (isset($_POST['submit'])) {
         echo "YE YE YE" . "<br>";
     }
-    echo "HEY HEY HEY" . "<br>";
+    echo "HEY OK HEY" . "<br>";
     ?>
 </body>
 </html>
