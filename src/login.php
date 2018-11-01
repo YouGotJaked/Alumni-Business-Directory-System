@@ -5,7 +5,8 @@ include "user.php";
 function create_user($first_name, $last_name, $degree, $graduation_year, $email, $password, $role, $business_id) {
     $user = new User();
     $exists = $user->get_one('email', $email);  // check if user already exists with that email
-    if ($exists != '[]') {
+    $json_arr = json_decode($exists, true);
+    if (count($json_arr) > 0) {
         echo "User already exists" . "<br>";
         return;
     }
