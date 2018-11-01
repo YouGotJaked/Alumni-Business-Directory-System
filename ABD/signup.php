@@ -19,7 +19,7 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<form method="post" action="user_home.php">
+	<form class="form" method="post" action="user_home.php">
   		<div class="form-row mb-3">
     		<div class="col">
 				<label for="validationServer01">First name</label>
