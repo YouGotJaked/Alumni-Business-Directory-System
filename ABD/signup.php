@@ -19,42 +19,42 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<form class="form" method="post" action="user_home.php">
+	<form method="post" action="user_home.php">
   		<div class="form-row mb-3">
     		<div class="col">
 				<label for="validationServer01">First name</label>
-      			<input type="text" name="first" class="form-control" placeholder="First name" required>
+      			<input type="text" class="form-control" placeholder="First name" required name="first">
     		</div>
     		<div class="col">
 				<label for="validationServer01">Last name</label>
-      			<input type="text" name="last" class="form-control" placeholder="Last name" required>
+      			<input type="text" class="form-control" placeholder="Last name" required name="last">
     		</div>
   		</div>
 		<div class="form-row mb-3">
     		<div class="col-2">
 				<label for="validationServer01">Graduation Year</label>
-      			<input type="number" name="year" class="form-control" placeholder="Graduation Year" required>
+      			<input type="number" class="form-control" placeholder="Graduation Year" required name="year">
     		</div>
     		<div class="col">
 				<label for="validationServer01">Degree</label>
-      			<input type="text" name="degree" class="form-control" placeholder="Degree" required>
+      			<input type="text" class="form-control" placeholder="Degree" required name="degree">
     		</div>
   		</div>
 		<div class="form-row mb-3">
 			<div class="col">
 				<label for="validationServer01">Email</label>
-      			<input type="text" name="email" class="form-control" placeholder="Email" required>
+      			<input type="text" class="form-control" placeholder="Email" required name="email">
     		</div>
 			<div class="col">
 				<label for="validationServer01">Password</label>
-      			<input type="password" name="password" class="form-control" placeholder="Password" required>
+      			<input type="password" class="form-control" placeholder="Password" required name="password">
     		</div>
 			<div class="col">
 				<label for="validationServer01">Confirm Password</label>
       			<input type="password" name ="confirm_password" class="form-control" placeholder="Confirm Password" required>
     		</div>
 		</div>
-		<input type="submit" name="submit">
+		<input type="submit" name="submit"/>
 	</form>
     <?php
     error_reporting(0);
