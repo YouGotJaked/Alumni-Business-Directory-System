@@ -24,30 +24,36 @@
     		<div class="col">
 				<label for="validationServer01">First name</label>
       			<input type="text" class="form-control" placeholder="First name" required name="first">
+                <?php echo $error_first; ?>
     		</div>
     		<div class="col">
 				<label for="validationServer01">Last name</label>
       			<input type="text" class="form-control" placeholder="Last name" required name="last">
+                <?php echo $error_last; ?>
     		</div>
   		</div>
 		<div class="form-row mb-3">
     		<div class="col-2">
 				<label for="validationServer01">Graduation Year</label>
       			<input type="number" class="form-control" placeholder="Graduation Year" required name="year">
+                <?php echo $error_year; ?>
     		</div>
     		<div class="col">
 				<label for="validationServer01">Degree</label>
       			<input type="text" class="form-control" placeholder="Degree" required name="degree">
+                <?php echo $error_degree; ?>
     		</div>
   		</div>
 		<div class="form-row mb-3">
 			<div class="col">
 				<label for="validationServer01">Email</label>
       			<input type="text" class="form-control" placeholder="Email" required name="email">
+                <?php echo $error_email; ?>
     		</div>
 			<div class="col">
 				<label for="validationServer01">Password</label>
       			<input type="password" class="form-control" placeholder="Password" required name="password">
+                <?php echo $error_password; ?>
     		</div>
 			<div class="col">
 				<label for="validationServer01">Confirm Password</label>
@@ -60,7 +66,12 @@
     error_reporting(0);
     // class="btn btn-info" value="Submit"
     include "../src/login.php";
-    if (isset($_POST['submit'])) {
+        
+    if (empty($_POST["first"])) {
+        $error_first = "Please enter your first name";
+    }
+        
+    if (isset($_POST["submit"])) {
         echo "Form Submitted" . "<br>";
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
     }
