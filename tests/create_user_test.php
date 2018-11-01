@@ -17,7 +17,7 @@ create_user('Gary',
                 'gsnail@scu.edu',
                 'hunter2',
                 'Visitor',
-                1);
+                2);
     
 create_user('Sponge',
                 'Bob',
@@ -26,5 +26,5 @@ create_user('Sponge',
                 'sbob@scu.edu',
                 'hunter2',
                 'Visitor',
-                1);
+                3);
 ?>
