@@ -24,6 +24,7 @@
     		<div class="col">
 				<label for="validationServer01">First name</label>
       			<input type="text" class="form-control" placeholder="First name" required name="first">
+                <?php echo $error_first; >
     		</div>
     		<div class="col">
 				<label for="validationServer01">Last name</label>
