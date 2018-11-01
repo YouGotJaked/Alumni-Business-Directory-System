@@ -51,7 +51,7 @@
     		</div>
 			<div class="col">
 				<label for="validationServer01">Confirm Password</label>
-      			<input type="password" name = "confirm_password" class="form-control" placeholder="Confirm Password" required>
+      			<input type="password" name ="confirm_password" class="form-control" placeholder="Confirm Password" required>
     		</div>
 		</div>
 		<button class="btn btn-primary" name="submit" type="submit">Submit</button>
@@ -63,6 +63,9 @@
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
     }
     */
+    if (isset($_POST['submit'])) {
+        echo "YE YE YE" . "<br>";
+    }
     echo "HEY HEY HEY" . "<br>";
     ?>
 </body>
