@@ -1,11 +1,12 @@
 <?php
-include "user.php";
+require_once "user.php";
     
 // Create new user account
 function create_user($first_name, $last_name, $degree, $graduation_year, $email, $password, $role, $business_id) {
     $user = new User();
     $exists = $user->get_one('email', $email);  // check if user already exists with that email
-    if ($exists) {
+    $json_arr = json_decode($exists, true);
+    if (count($json_arr) > 0) {
         echo "User already exists" . "<br>";
         return;
     }
@@ -21,8 +22,9 @@ function create_user($first_name, $last_name, $degree, $graduation_year, $email,
         'business_id' => $business_id];
         
     $json_obj = json_encode($json, JSON_PRETTY_PRINT);
+    echo $json_obj . "<br>";
     $add_resp = $user->add($json_obj);
-        
+
     if ($add_resp) {
         echo "User has been added" . "<br>";
     } else {
@@ -35,6 +37,6 @@ function login($email, $password) {
     $user = new User();
     $json = $user->get_one('email', $email);
     $json_obj = json_decode($json);
-    return password_verify($password, $json_obj[0]->hashed_password);
+    return isset($json_obj[0]) && password_verify($password, $json_obj[0]->hashed_password);
 }
 ?>

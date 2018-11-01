@@ -14,47 +14,56 @@
 <body>
 	<nav class="navbar navbar-toggleable-md container-fluid">
   		<a href="user-home.html" class="homebutton">HOME</a>
-		<a class="navbar-brand navbar-right postbusiness" href="submit-business.html"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
+		<a class="navbar-brand navbar-right postbusiness" href="submit_business.php"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
 	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<form class="container">
+
+	<form class="container" method="post" action="signup.php">
   		<div class="form-row mb-3">
     		<div class="col">
 				<label for="validationServer01">First name</label>
-      			<input type="text" class="form-control" placeholder="First name" required>
+      			<input type="text" class="form-control" placeholder="First name" required name="first">
     		</div>
     		<div class="col">
 				<label for="validationServer01">Last name</label>
-      			<input type="text" class="form-control" placeholder="Last name" required>
+      			<input type="text" class="form-control" placeholder="Last name" required name="last">
     		</div>
   		</div>
 		<div class="form-row mb-3">
     		<div class="col-2">
 				<label for="validationServer01">Graduation Year</label>
-      			<input type="number" class="form-control" placeholder="Graduation Year" required>
+      			<input type="number" class="form-control" placeholder="Graduation Year" required name="year">
     		</div>
     		<div class="col">
 				<label for="validationServer01">Degree</label>
-      			<input type="text" class="form-control" placeholder="Degree" required>
+      			<input type="text" class="form-control" placeholder="Degree" required name="degree">
     		</div>
   		</div>
 		<div class="form-row mb-3">
 			<div class="col">
 				<label for="validationServer01">Email</label>
-      			<input type="text" class="form-control" placeholder="Email" required>
+      			<input type="text" class="form-control" placeholder="Email" required name="email">
     		</div>
 			<div class="col">
 				<label for="validationServer01">Password</label>
-      			<input type="password" class="form-control" placeholder="Password" required>
+      			<input type="password" class="form-control" placeholder="Password" required name="password">
     		</div>
 			<div class="col">
 				<label for="validationServer01">Confirm Password</label>
-      			<input type="password" class="form-control" placeholder="Confirm Password" required>
+      			<input type="password" name ="confirm_password" class="form-control" placeholder="Confirm Password" required>
     		</div>
 		</div>
-		<button class="btn btn-primary" type="submit">Submit</button>
+		<input type="submit" class="btn btn-info" name="submit">
 	</form>
+    <?php
+    require_once "../src/login.php";
+
+    if (isset($_POST["submit"])) {
+        create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
+        header('Location: user_home.php');
+    }
+    ?>
 </body>
 </html>
