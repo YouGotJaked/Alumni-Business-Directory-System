@@ -56,8 +56,19 @@
 		</div>
 		<input type="submit" class="btn btn-info" name="submit">
 	</form>
-    <?php    
+    <?php
+    //include "../src/login.php";
+        
     echo "Work pls" . "<br>";
+        
+    if (empty($_POST["first"])) {
+        $error_first = "Please enter your first name";
+    }
+        
+    if (isset($_POST["submit"])) {
+        echo "Form Submitted" . "<br>";
+        create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
+    }
     ?>
 </body>
 </html>
