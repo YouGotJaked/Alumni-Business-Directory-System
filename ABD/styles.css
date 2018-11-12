@@ -5,11 +5,22 @@ nav {
 	background-color: #b50043;
 }
 
-.homebutton, .postbusiness{
+.navbutton, .postbusiness{
 	color: white;
 }
 
-.homebutton:hover {
+.navbutton:hover {
 	text-decoration: none;
+	background-color: #820529;
+	color: white;
+}
+
+.submitbtn {
+	background-color: #b50043;
+	color: white;
+}
+
+.submitbtn:hover {
+	background-color: #820529;
 	color: white;
 }
