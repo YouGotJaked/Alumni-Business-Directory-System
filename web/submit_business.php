@@ -31,6 +31,7 @@
             <li class="nav-item">
                 <span class="nav-link" style="color: white" href="#">
                     <?php
+                    session_start();
                     echo $_SESSION['email'];
                     ?>
                 </span>
