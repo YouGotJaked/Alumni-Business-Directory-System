@@ -5,66 +5,73 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<title>Alumni Business Directory</title>
 </head>
 
 <body>
-	<nav class="navbar navbar-expand">
+    <nav class="navbar navbar-expand-sm">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link navbutton" href="user_home.php">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link navbutton" href="submit_business.php">Submit Business</a>
-            </li>
         </ul>
+		
+		<button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+			<img src="Assets/three-bars.svg" width="20px">
+		</button>
+		
+		<div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+                <a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
+            </li>
             <li class="nav-item">
-                <span class="nav-link" style="color: white" href="#">Name</span>
+                <span class="nav-link" style="color: white">Name</span>
             </li>
             <li class="nav-item">
                 <a class="nav-link navbutton" href="login.php">Logout</a>
             </li>
         </ul>
+		</div>
 	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
 
 	<form class="container" method="post" action="signup.php">
-  		<div class="form-row mb-3">
-    		<div class="col">
+  		<div class="form-row">
+    		<div class="col-lg col-sm-12 mb-3">
 				<label for="validationServer01">First name</label>
       			<input type="text" class="form-control" placeholder="First name" required name="first">
     		</div>
-    		<div class="col">
+    		<div class="col-lg col-sm-12 mb-3">
 				<label for="validationServer01">Last name</label>
       			<input type="text" class="form-control" placeholder="Last name" required name="last">
     		</div>
   		</div>
-		<div class="form-row mb-3">
-    		<div class="col-2">
+		<div class="form-row">
+    		<div class="col-lg-2 col-sm-12 mb-3">
 				<label for="validationServer01">Graduation Year</label>
       			<input type="number" class="form-control" placeholder="Graduation Year" required name="year">
     		</div>
-    		<div class="col">
+    		<div class="col-lg col-sm-12 mb-3">
 				<label for="validationServer01">Degree</label>
       			<input type="text" class="form-control" placeholder="Degree" required name="degree">
     		</div>
   		</div>
-		<div class="form-row mb-3">
-			<div class="col">
+		<div class="form-row">
+			<div class="col-lg col-sm-12 mb-3">
 				<label for="validationServer01">Email</label>
       			<input type="text" class="form-control" placeholder="Email" required name="email">
     		</div>
-			<div class="col">
+			<div class="col-lg col-sm-12 mb-3">
 				<label for="validationServer01">Password</label>
       			<input type="password" class="form-control" placeholder="Password" required name="password">
     		</div>
-			<div class="col">
+			<div class="col-lg col-lg-12 mb-3">
 				<label for="validationServer01">Confirm Password</label>
       			<input type="password" name ="confirm_password" class="form-control" placeholder="Confirm Password" required>
     		</div>

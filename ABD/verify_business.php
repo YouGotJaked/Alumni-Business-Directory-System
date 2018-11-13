@@ -5,28 +5,37 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<title>Alumni Business Directory</title>
 </head>
 
 <body>
-	<nav class="navbar navbar-expand">
+    <nav class="navbar navbar-expand-sm">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link navbutton" href="manager_home.php">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link navbutton" href="submit_business.php">Submit Business</a>
-            </li>
         </ul>
+		
+		<button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+			<img src="Assets/three-bars.svg" width="20px">
+		</button>
+		
+		<div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+                <a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
+            </li>
             <li class="nav-item">
-                <span class="nav-link" style="color: white" href="#">Name</span>
+                <span class="nav-link" style="color: white">Name</span>
             </li>
             <li class="nav-item">
                 <a class="nav-link navbutton" href="login.php">Logout</a>
             </li>
         </ul>
+		</div>
 	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
@@ -35,15 +44,12 @@
 	
 	include "../src/business.php";
 	include "../src/user.php";
-
 	$business = new Business();
 	$user = new User();
-
 	$requested = $business->get_all("status", "Requested");
 	
 	foreach (json_decode($requested) as &$json) {
 		$owner = json_decode($user->get_one("id", $json->owner_id))[0];
-
 		echo '<div class="card border-dark mb-3 mx-auto" style="max-width: 18rem;">';
 			echo '<div class="card-header">Business Name: ' . $json->name . '</div>';
 			echo '<div class="card-body text-dark">';
@@ -74,23 +80,19 @@
 		echo '</div>';
 		echo '</div>';
 	}
-
 	if (isset($_POST['submit'])) {
 		$choice = $_POST["choice"];
-
 		if (strpos($choice, "confirm") === 0) {
 			$id = str_replace("confirm", "", $choice);
 			
 			$business->update($id, "status", "Approved");
 		} else if (strpos($choice, "deny") === 0) {
 			$id = str_replace("deny", "", $choice);
-
 			$business->update($id, "status", "Denied");
 		} else {
 			echo "REEEEEE";
 		}
 	} 
-
 	?>
 	
 </body>
