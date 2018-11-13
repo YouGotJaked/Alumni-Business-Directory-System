@@ -41,39 +41,42 @@
 
 	$requested = $business->get_all("status", "Requested");
 	
-	foreach (json_decode($requested) as &$json) {
-		$owner = json_decode($user->get_one("id", $json->owner_id))[0];
+	// TODO turn this function into jQuery stuff so that its easier to manipulate - populateVerifyBusinessList()
+	// have the function trigger onchange of any of the field states 
+	foreach (json_decode($requested) as &$json) : ?>	
+		<?php $owner = json_decode($user->get_one("id", $json->owner_id))[0]; ?>
 
-		echo '<div class="card border-dark mb-3 mx-auto" style="max-width: 18rem;">';
-			echo '<div class="card-header">Business Name: ' . $json->name . '</div>';
-			echo '<div class="card-body text-dark">';
-				echo '<p class="card-text">Business Owner: ' . $owner->first_name . ' ' . $owner->last_name . '</p>';
-				echo '<p class="card-text">Business Description: ' . $json->description . '</p>';
-				echo '<p class="card-text">Owner Email: ' . $owner->email . '</p>';
-				echo '<p class="card-text">Degree: ' . $owner->degree . '</p>';
-				echo '<p class="card-text">Graduation Year: ' . $owner->graduation_year . '</p>';
-				echo '<p class="card-text">Street: ' . $json->street. '</p>';
-				echo '<p class="card-text">City: ' . $json->city . '</p>';
-				echo '<p class="card-text">State: ' . $json->state . '</p>';
-				echo '<p class="card-text">Zip Code: ' . $json->zip . '</p>';
-				echo '<p class="card-text">Country: ' . $json->country . '</p>';
+		<div class="card border-dark mb-3 mx-auto" style="max-width: 18rem;">
+			<div class="card-header">Business Name: <?= $json->name ?></div>
+			<div class="card-body text-dark">
+				<p class="card-text">Business Owner: <?= $owner->first_name . ' ' . $owner->last_name ?></p>
+				<p class="card-text">Business Description: <?= $json->description ?></p>
+				<p class="card-text">Owner Email: <?= $owner->email ?></p>
+				<p class="card-text">Degree: <?=  $owner->degree ?></p>
+				<p class="card-text">Graduation Year: <?= $owner->graduation_year ?></p>
+				<p class="card-text">Street: <?= $json->street ?></p>
+				<p class="card-text">City: <?= $json->city ?></p>
+				<p class="card-text">State: <?= $json->state ?></p>
+				<p class="card-text">Zip Code: <?= $json->zip ?></p>
+				<p class="card-text">Country: <?= $json->country ?></p>
 			
-			echo '<form class="card-footer bg-transparent" action="verify_business.php" method="post">';
-			echo '<div>';
-				echo '<div class="form-check">';
-					echo '<input class="form-check-input" type="radio" name="choice" value="confirm' . $json->id . '">';
-					echo '<label class="form-check-label" for="exampleRadios1">Confirm</label>';
-				echo '</div>';
-				echo '<div class="form-check">';
-					echo '<input class="form-check-input" type="radio" name="choice" value="deny' . $json->id . '">';
-					echo '<label class="form-check-label" for="exampleRadios2">Deny</label>';
-				echo '</div>';
-				echo '<input type="submit" class="btn btn-primary" name="submit">';
-			echo '</div>';
-			echo '</form>';
-		echo '</div>';
-		echo '</div>';
-	}
+			<form class="card-footer bg-transparent" action="verify_business.php" method="post">
+			<div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="choice" value="confirm'<?= $json->id ?>">
+					<label class="form-check-label" for="exampleRadios1">Confirm</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="choice" value="deny'<?= $json->id ?>">
+					<label class="form-check-label" for="exampleRadios2">Deny</label>
+				</div>
+				<input type="submit" class="btn btn-primary" name="submit">
+			</div>
+			</form>
+		</div>
+	<?php endforeach ?>
+
+	<?php 
 
 	if (isset($_POST['submit'])) {
 		$choice = $_POST["choice"];

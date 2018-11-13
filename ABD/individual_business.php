@@ -43,10 +43,24 @@
         <div id="business-zip"></div>
         <div id="business-country"></div>
 	</div>
+    <?php 
+	
+	error_reporting(0);
+
+	include "../src/business.php";
+
+	$business = new Business();
+
+    $individual_business = $business->get_one("id", $_GET["business_id"]);
+
+    ?>
+
     <script>
         $(function () {
-            populateIndividualBusinessFields(<?php echo json_encode($_POST); ?>)
+            populateIndividualBusinessFields(<?php echo $individual_business; ?>)
         });
     </script>
+
+    
 </body>
 </html>

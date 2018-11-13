@@ -62,6 +62,12 @@
 
 	if (isset($_POST['submit'])) {
 		try {
+			$name = $_POST["name"];
+		} catch(Exception $e) {
+			$name = "";
+		}
+		
+		try {
 			$category = $_POST["category"];
 		} catch(Exception $e) {
 			$category = "";
@@ -76,10 +82,12 @@
 
 	$approved = $business->get_all("status", "Approved");
 	
+	// TODO turn this function into jQuery stuff so that its easier to manipulate - populateBusinessList(approved, name, city, category)
+	// have the function trigger onchange of any of the field states 
 	foreach (json_decode($approved) as &$json) : ?>	
 		<div class="card border-dark mb-3 container col-4">
 			<div class="card-body">
-				<a href="individual_business.php?business_id="<?= $json->id ?>><h5 class="card-header bg-transparent"><?= $json->name ?></h5></a>
+				<a href="<?php echo htmlspecialchars('individual_business.php?business_id=' .  $json->id . '')?>"><h5 class="card-header bg-transparent"><?= $json->name ?></h5></a>
 				<p class="card-body"><?= $json->city ?></p>
 				<p class="card-body"><?= $json->description ?></p>
 				<p class="card-body"><?= $json->category ?></p>
