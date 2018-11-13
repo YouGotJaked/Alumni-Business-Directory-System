@@ -12,31 +12,6 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link navbutton" href="user_home.php">Home</a>
-            </li>
-        </ul>
-		
-		<button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
-			<img src="Assets/three-bars.svg" width="20px">
-		</button>
-		
-		<div class="collapse navbar-collapse" id="collapse_target">
-        <ul class="navbar-nav ml-auto">
-			<li class="nav-item">
-                <a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
-            </li>
-            <li class="nav-item">
-                <span class="nav-link" style="color: white">Name</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link navbutton" href="login.php">Logout</a>
-            </li>
-        </ul>
-		</div>
-	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>

@@ -14,25 +14,13 @@
 <body>
     <nav class="navbar navbar-expand-sm">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link navbutton" href=
-                    <?php
-                        session_start();
-                        if ($_SESSION['role'] == "Manager") {
-                            echo "manager_home.php";
-                        } else {
-                            echo "user_home.php";
-                        }
-                    ?>
-                >Home</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link navbutton" href="user_home.php">Home</a>
             </li>
         </ul>
 		
 		<button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
-			<img src="Assets/three-bars.svg" width="20px">
+			<img src="../img/three-bars.svg" width="20px">
 		</button>
 		
 		<div class="collapse navbar-collapse" id="collapse_target">
