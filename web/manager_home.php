@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<link href="styles.css" rel="stylesheet" type="text/css"/>
+	<link href="../css/styles.css" rel="stylesheet" type="text/css"/>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -15,7 +15,7 @@
     <nav class="navbar navbar-expand-sm">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link navbutton" href="user_home.php">Home</a>
+                <a class="nav-link navbutton" href="manager_home.php">Home</a>
             </li>
         </ul>
 		
@@ -29,10 +29,15 @@
                 <a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
             </li>
             <li class="nav-item">
-                <span class="nav-link" style="color: white">Name</span>
+                <span class="nav-link" style="color: white" href="#">
+                    <?php
+                    session_start();
+                    echo $_SESSION['email'];
+                    ?>
+                </span>
             </li>
             <li class="nav-item">
-                <a class="nav-link navbutton" href="login.php">Logout</a>
+                <a class="nav-link navbutton" href="../src/logout.php">Logout</a>
             </li>
         </ul>
 		</div>
@@ -40,10 +45,19 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="container text-center">
-		<h1>Business: </h1>
-		<p class="col-6 mx-auto">Description: </p>
-		<p>Address: <a href="...">...</a></p>
+	<div class="container col-3">
+		<a href="verify_business.php"><button class="btn submitbtn btn-block text-center mb-3">Verify Business</button></a>
+		<a href="edit_business.php"><button class="btn submitbtn btn-block text-center">Edit / Remove Business</button></a>
 	</div>
+
+    <?php
+    // Verify user is logged as administrator
+    if (!$_SESSION['login']) {
+        header('Location: login.php');
+    } else if ($_SESSION['role'] != "Manager") {
+        header('Location: user_home.php');
+    }
+    ?>
+
 </body>
 </html>

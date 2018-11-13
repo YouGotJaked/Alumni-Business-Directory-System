@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<link href="styles.css" rel="stylesheet" type="text/css"/>
+	<link href="../css/styles.css" rel="stylesheet" type="text/css"/>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -14,6 +14,18 @@
 <body>
     <nav class="navbar navbar-expand-sm">
         <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link navbutton" href=
+                    <?php
+                        session_start();
+                        if ($_SESSION['role'] == "Manager") {
+                            echo "manager_home.php";
+                        } else {
+                            echo "user_home.php";
+                        }
+                    ?>
+                >Home</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link navbutton" href="user_home.php">Home</a>
             </li>
@@ -29,10 +41,14 @@
                 <a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
             </li>
             <li class="nav-item">
-                <span class="nav-link" style="color: white">Name</span>
+                <span class="nav-link" style="color: white" href="#">
+                    <?php
+                    echo $_SESSION['email'];
+                    ?>
+                </span>
             </li>
             <li class="nav-item">
-                <a class="nav-link navbutton" href="login.php">Logout</a>
+                <a class="nav-link navbutton" href="../src/logout.php">Logout</a>
             </li>
         </ul>
 		</div>
@@ -92,9 +108,13 @@
 		</div>
 		<input type="submit" class="btn btn-primary mb-4" name="submit">
         <?php
-        session_start();
         require_once "../src/business.php";
         require_once "../src/user.php";
+            
+        // Verify user is logged in
+        if (!$_SESSION['login']) {
+            header('Location: login.php');
+        }
         
         if (isset($_POST["submit"])) {
             $business = new Business();
@@ -102,9 +122,11 @@
             // check if business already exists??
             
             // get id of current user
+            /*
             $json = $user->get_one("id", $_SESSION['user']);
             $json_obj = json_decode($json);
             $owner_id = $json_obj[0]->id;
+            */
             
             $json = ['name' => $_POST["name"],
             'status' => "Requested",
@@ -115,7 +137,7 @@
             'state' => $_POST["state"],
             'zip' => $_POST["zip"],
             'country' => $_POST["country"],
-            'owner_id' => $owner_id];
+            'owner_id' => $_SESSION['user']];
             
             $json_obj = json_encode($json, JSON_PRETTY_PRINT);
             $add_resp = $business->add($json_obj);
