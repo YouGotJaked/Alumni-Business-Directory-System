@@ -123,7 +123,7 @@
             'state' => $_POST["state"],
             'zip' => $_POST["zip"],
             'country' => $_POST["country"],
-            'owner_id' => $_SESSION['user'];
+            'owner_id' => $_SESSION['user']];
             
             $json_obj = json_encode($json, JSON_PRETTY_PRINT);
             $add_resp = $business->add($json_obj);
