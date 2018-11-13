@@ -38,7 +38,7 @@
                 $_SESSION['user'] = $user_id;       // Track user id
                 
                 $loc = ($user_role == "Manager") ? "manager_home.php" : "user_home.php";
-                header("Location: '$loc'");            // Go to home page
+                header("Location:" . $loc);            // Go to home page
             } else {
                 $login_error = "Invalid credentials.";
             }
