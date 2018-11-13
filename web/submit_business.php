@@ -29,7 +29,7 @@
                 </span>
             </li>
             <li class="nav-item">
-                <a class="nav-link navbutton" href="login.php">Logout</a>
+                <a class="nav-link navbutton" href="../src/logout.php">Logout</a>
             </li>
         </ul>
 	</nav>
