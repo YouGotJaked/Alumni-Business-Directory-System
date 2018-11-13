@@ -37,9 +37,11 @@
         
     session_start();
         
-    // Verify user is logged in
+    // Verify user is logged as administrator
     if (!$_SESSION['login']) {
         header('Location: login.php');
+    } else if ($_SESSION['role'] != "Manager") {
+        header('Location: user_home.php');
     }
 
 	$business = new Business();

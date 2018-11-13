@@ -21,7 +21,12 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <span class="nav-link" style="color: white" href="#">Name</span>
+                <span class="nav-link" style="color: white" href="#">
+                    <?php
+                    session_start();
+                    echo $_SESSION['email'];
+                    ?>
+                </span>
             </li>
             <li class="nav-item">
                 <a class="nav-link navbutton" href="login.php">Logout</a>
