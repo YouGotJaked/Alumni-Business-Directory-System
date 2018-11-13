@@ -20,14 +20,11 @@
         </ul>
 		
 		<button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
-			<img src="Assets/three-bars.svg" width="20px">
+			<img src="../img/three-bars.svg" width="20px">
 		</button>
 		
 		<div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
-			<li class="nav-item">
-                <a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
-            </li>
             <li class="nav-item">
                 <span class="nav-link" style="color: white" href="#">
                     <?php
