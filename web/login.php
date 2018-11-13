@@ -29,16 +29,15 @@
     if (isset($_POST["submit"])) {
         try {
             $_SESSION['login'] = login($_POST["email"], $_POST["password"]);
+            
             if ($_SESSION['login']) {
                 $json = $user->get_one("email", $_POST["email"]);
                 $json_obj = json_decode($json);
                 $user_id = $json_obj[0]->id;
                 $user_role = $json_obj[0]->role;
                 $_SESSION['user'] = $user_id;       // Track user id
-                $loc = "user_home.php";
-                if ($user_role = "Manager") {
-                    $loc = "manager_home.php";
-                }
+                
+                $loc = ($user_role == "Manager") ? "manager_home.php" : "user_home.php";
                 header('Location: $loc');            // Go to home page
             } else {
                 $login_error = "Invalid credentials.";
