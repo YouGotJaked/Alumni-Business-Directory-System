@@ -76,37 +76,15 @@
 
 	$approved = $business->get_all("status", "Approved");
 	
-	foreach (json_decode($approved) as &$json) {	
-		if (($city !== "" && $category !== "" && $city === $json->city && $category === $json->category)) {
-			echo '<div class="card border-dark mb-3 container col-4">';
-				echo '<div class="card-body">';
-					echo '<a href="individual_business.php"><h5 class="card-header bg-transparent">' . $json->name . '</h5></a>';
-					echo '<p class="card-body">' . $json->city . '</p>';
-					echo '<p class="card-body">' . $json->description . '</p>';
-					echo '<p class="card-body">' . $json->category . '</p>';
-				echo '</div>';
-			echo '</div>';
-		} else if ($city !== "" && $city === $json->city) {
-			echo '<div class="card border-dark mb-3 container col-4">';
-				echo '<div class="card-body">';
-					echo '<a href="individual_business.php"><h5 class="card-header bg-transparent">' . $json->name . '</h5></a>';
-					echo '<p class="card-body">' . $json->city . '</p>';
-					echo '<p class="card-body">' . $json->description . '</p>';
-					echo '<p class="card-body">' . $json->category . '</p>';
-				echo '</div>';
-			echo '</div>';
-		} else if ($category !== "" && $category === $json->category) {
-			echo '<div class="card border-dark mb-3 container col-4">';
-				echo '<div class="card-body">';
-					echo '<a href="individual_business.php"><h5 class="card-header bg-transparent">' . $json->name . '</h5></a>';
-					echo '<p class="card-body">' . $json->city . '</p>';
-					echo '<p class="card-body">' . $json->description . '</p>';
-					echo '<p class="card-body">' . $json->category . '</p>';
-				echo '</div>';
-			echo '</div>';
-		}
-	}
-
-	?>
+	foreach (json_decode($approved) as &$json) : ?>	
+		<div class="card border-dark mb-3 container col-4">
+			<div class="card-body">
+				<a href="individual_business.php?business_id="<?= $json->id ?>><h5 class="card-header bg-transparent"><?= $json->name ?></h5></a>
+				<p class="card-body"><?= $json->city ?></p>
+				<p class="card-body"><?= $json->description ?></p>
+				<p class="card-body"><?= $json->category ?></p>
+			</div>
+		</div>
+	<?php endforeach ?>
 </body>
 </html>
