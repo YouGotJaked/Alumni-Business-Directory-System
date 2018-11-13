@@ -89,8 +89,6 @@
         require_once "../src/business.php";
         require_once "../src/user.php";
             
-        session_start();
-            
         // Verify user is logged in
         if (!$_SESSION['login']) {
             header('Location: login.php');
