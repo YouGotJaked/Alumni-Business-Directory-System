@@ -54,14 +54,13 @@
             if ($_SESSION['login']) {
                 $json = $user->get_one("email", $_POST["email"]);
                 $json_obj = json_decode($json);
-                $user_id = $json_obj[0]->id;
-                $user_role = $json_obj[0]->role;
                 
-                // Track user email and ID
+                // Track user email, role and ID
                 $_SESSION['email'] = $json_obj[0]->email;
-                $_SESSION['user'] = $user_id;
+                $_SESSION['role'] = $json_obj[0]->role;
+                $_SESSION['user'] = $json_obj[0]->id;
                 
-                $loc = ($user_role == "Manager") ? "manager_home.php" : "user_home.php";
+                $loc = ($_SESSION['role'] == "Manager") ? "manager_home.php" : "user_home.php";
                 header("Location:" . $loc);         // Go to home page
             } else {
                 $login_error = "Invalid Email or Password";
