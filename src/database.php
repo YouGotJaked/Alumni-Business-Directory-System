@@ -1,6 +1,6 @@
 <?php
 class Database {
-    static $conn;
+    public $conn;   // should this be static?
 
     public function connect() {
         // Connect to database if connection not yet established
