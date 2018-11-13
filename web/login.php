@@ -11,6 +11,7 @@
 
 <body>
 	<nav class="navbar navbar-expand">
+        <!--
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link navbutton" href="user_home.php">Home</a>
@@ -19,15 +20,9 @@
                 <a class="nav-link navbutton" href="submit_business.php">Submit Business</a>
             </li>
         </ul>
-        <!--
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <span class="nav-link" style="color: white" href="#">
-                    <?php
-                    session_start();
-                    echo $_SESSION['email'];
-                    ?>
-                </span>
+                <span class="nav-link" style="color: white" href="#">Logged out.</span>
             </li>
             <li class="nav-item">
                 <a class="nav-link navbutton" href="../src/logout.php">Logout</a>
