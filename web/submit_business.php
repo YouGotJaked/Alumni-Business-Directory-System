@@ -67,9 +67,15 @@
 		</div>
 		<input type="submit" class="btn btn-primary mb-4" name="submit">
         <?php
-        session_start();
         require_once "../src/business.php";
         require_once "../src/user.php";
+            
+        session_start();
+            
+        // Verify user is logged in
+        if (!$_SESSION['login']) {
+            header('Location: login.php');
+        }
         
         if (isset($_POST["submit"])) {
             $business = new Business();

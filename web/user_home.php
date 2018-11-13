@@ -36,14 +36,13 @@
 	</div>
 
 	<?php
-	error_reporting(0);
-    session_start();
-
 	include "../src/business.php";
-    
+
+    error_reporting(0);
+    session_start();
+        
     // Verify user is logged in
     if (!$_SESSION['login']) {
-        echo $_SESSION['login'] . "<br";
         header('Location: login.php');
     }
 

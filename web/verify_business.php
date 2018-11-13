@@ -17,10 +17,16 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<?php 
-	
+	<?php
 	include "../src/business.php";
 	include "../src/user.php";
+        
+    session_start();
+        
+    // Verify user is logged in
+    if (!$_SESSION['login']) {
+        header('Location: login.php');
+    }
 
 	$business = new Business();
 	$user = new User();
