@@ -31,7 +31,7 @@
                 </span>
             </li>
             <li class="nav-item">
-                <a class="nav-link navbutton" href="login.php">Logout</a>
+                <a class="nav-link navbutton" href="logout.php">Logout</a>
             </li>
         </ul>
 	</nav>
@@ -57,7 +57,6 @@
 	<?php
 	include "../src/business.php";
 
-    error_reporting(0);
     session_start();
         
     // Verify user is logged in

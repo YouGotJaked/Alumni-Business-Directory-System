@@ -19,6 +19,7 @@
                 <a class="nav-link navbutton" href="submit_business.php">Submit Business</a>
             </li>
         </ul>
+        /*
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <span class="nav-link" style="color: white" href="#">Name</span>
@@ -27,14 +28,17 @@
                 <a class="nav-link navbutton" href="login.php">Logout</a>
             </li>
         </ul>
+        */
 	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
 
     <?php
+    ini_set('session.gc.maxlifetime', 3600);    // server keeps session data for at least 1 hour
+    session_set_cookie_params(3600);            // clients remember their session id for 1 hour
     session_start();
-    // session_regenerate_id(true);
+    session_regenerate_id(true);
         
     require_once "../src/login.php";
     require_once "../src/user.php";
