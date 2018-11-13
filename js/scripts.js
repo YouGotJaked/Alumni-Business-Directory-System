@@ -1,17 +1,13 @@
-function populateIndividualBusinessFields($_POST) {
-    // get the id of the business which is populating with
-    id = $_POST["id"]
-    // do a get_one with the id of the business
-
-    console.log(id)
+function populateIndividualBusinessFields(business) {   
+    business = business[0]
 
     // set the text of the fields
-    $("#business-name").text()
-    $("#business-description").text()
-    $("#business-category").text()
-    $("#business-street").text()
-    $("#business-city").text()
-    $("#business-state").text()
-    $("#business-zip").text()
-    $("#business-country").text()
+    $("#business-name").text(business.name)
+    $("#business-description").text(business.description)
+    $("#business-category").text(business.category)
+    $("#business-street").text(business.street)
+    $("#business-city").text(business.city)
+    $("#business-state").text(business.state)
+    $("#business-zip").text(business.zip)
+    $("#business-country").text(business.country)
 }
