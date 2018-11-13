@@ -21,10 +21,15 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <span class="nav-link" style="color: white" href="#">Name</span>
+                <span class="nav-link" style="color: white" href="#">
+                    <?php
+                    session_start();
+                    echo $_SESSION['email'];
+                    ?>
+                </span>
             </li>
             <li class="nav-item">
-                <a class="nav-link navbutton" href="login.php">Logout</a>
+                <a class="nav-link navbutton" href="../src/logout.php">Logout</a>
             </li>
         </ul>
 	</nav>
@@ -35,5 +40,15 @@
 		<a href="verify_business.php"><button class="btn submitbtn btn-block text-center mb-3">Verify Business</button></a>
 		<a href="edit_business.php"><button class="btn submitbtn btn-block text-center">Edit / Remove Business</button></a>
 	</div>
+
+    <?php
+    // Verify user is logged as administrator
+    if (!$_SESSION['login']) {
+        header('Location: login.php');
+    } else if ($_SESSION['role'] != "Manager") {
+        header('Location: user_home.php');
+    }
+    ?>
+
 </body>
 </html>
