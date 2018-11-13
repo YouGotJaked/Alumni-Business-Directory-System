@@ -10,9 +10,23 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-toggleable-md container-fluid">
-  		<a href="manager_home.php" class="homebutton">HOME</a>
-		<a class="navbar-brand navbar-right postbusiness" href="submit_business.php"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
+	<nav class="navbar navbar-expand">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link navbutton" href="manager_home.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbutton" href="submit_business.php">Submit Business</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <span class="nav-link" style="color: white" href="#">Name</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbutton" href="login.php">Logout</a>
+            </li>
+        </ul>
 	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
@@ -60,7 +74,7 @@
 					echo '<input class="form-check-input" type="radio" name="choice" value="deny' . $json->id . '">';
 					echo '<label class="form-check-label" for="exampleRadios2">Deny</label>';
 				echo '</div>';
-				echo '<input type="submit" class="btn btn-info" name="submit">';
+				echo '<input type="submit" class="btn btn-primary" name="submit">';
 			echo '</div>';
 			echo '</form>';
 		echo '</div>';

@@ -10,17 +10,31 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-toggleable-md container-fluid">
-  		<a href="user_home.php" class="homebutton">HOME</a>
-		<a class="navbar-brand navbar-right postbusiness" href="submit_business.php"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
+    <nav class="navbar navbar-expand">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link navbutton" href="user_home.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbutton" href="submit_business.php">Submit Business</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <span class="nav-link" style="color: white" href="#">Name</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbutton" href="login.php">Logout</a>
+            </li>
+        </ul>
 	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
 	<div class="container text-center">
-		<h1>Pete's Pizza</h1>
-		<p class="col-6 mx-auto">Pete's Pizza is a local pizza place owned by Santa Clara alumni Pete Guy '89. <em>78</em> Santa Clara customers have checked in</p>
-		<a href="...">Address</a>
+		<h1>Business: </h1>
+		<p class="col-6 mx-auto">Description: </p>
+		<p>Address: <a href="...">...</a></p>
 	</div>
 </body>
 </html>

@@ -10,9 +10,23 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-toggleable-md container-fluid">
-  		<a href="user_home.php" class="homebutton">HOME</a>
-		<a class="navbar-brand navbar-right postbusiness" href="submit_business.php"><button class="btm btn-sm btn-outline-light">Submit Business</button></a>
+	<nav class="navbar navbar-expand">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link navbutton" href="user_home.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbutton" href="submit_business.php">Submit Business</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <span class="nav-link" style="color: white" href="#">Name</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbutton" href="login.php">Logout</a>
+            </li>
+        </ul>
 	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
@@ -41,7 +55,7 @@
                 $loc = ($user_role == "Manager") ? "manager_home.php" : "user_home.php";
                 header("Location:" . $loc);         // Go to home page
             } else {
-                $login_error = "Invalid credentials.";
+                $login_error = "Invalid Email or Password";
             }
         } catch(Exception $e) {
             echo $e . "<br>";
@@ -61,7 +75,7 @@
 	<div class="form-group">
 		<a href="signup.php">Don't have an account?</a>	
 	</div>
-  	<input type="submit" name="submit" class="btn btn-outline-dark">
+  	<input type="submit" name="submit" class="btn submitbtn">
     <?php echo "<br>" . $login_error; ?>
 	</form>
 </body>
