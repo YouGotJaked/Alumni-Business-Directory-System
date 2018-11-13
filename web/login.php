@@ -19,7 +19,7 @@
                 <a class="nav-link navbutton" href="submit_business.php">Submit Business</a>
             </li>
         </ul>
-        /*
+        <!--
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <span class="nav-link" style="color: white" href="#">Name</span>
@@ -28,7 +28,7 @@
                 <a class="nav-link navbutton" href="login.php">Logout</a>
             </li>
         </ul>
-        */
+        -->
 	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
