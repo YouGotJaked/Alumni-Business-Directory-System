@@ -64,8 +64,8 @@
 
 	$business = new Business();
 
-	$category; 
-	$city;
+	$category = "";
+	$city = "";
 
 	if (isset($_POST['submit'])) {
 		try {

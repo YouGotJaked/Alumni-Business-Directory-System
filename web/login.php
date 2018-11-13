@@ -10,8 +10,8 @@
 </head>
 
 <body>
+    <!--
 	<nav class="navbar navbar-expand">
-        <!--
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link navbutton" href="user_home.php">Home</a>
@@ -28,8 +28,8 @@
                 <a class="nav-link navbutton" href="../src/logout.php">Logout</a>
             </li>
         </ul>
-        -->
 	</nav>
+    -->
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
@@ -45,6 +45,7 @@
     
     $user = new User();
     $login_error = "";
+        
     // When user clicks Submit button
     if (isset($_POST["submit"])) {
         try {
