@@ -43,7 +43,7 @@
     
     // Verify user is logged in
     if (!_SESSION['login']) {
-        header(Location: 'login.php');
+        header('Location: login.php');
     }
 
 	$business = new Business();

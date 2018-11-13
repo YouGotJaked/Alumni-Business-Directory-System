@@ -39,7 +39,7 @@
                 if ($user_role = "Manager") {
                     $loc = "manager_home.php";
                 }
-                header(Location: $loc);            // Go to home page
+                header('Location: $loc');            // Go to home page
             } else {
                 $login_error = "Invalid credentials.";
             }
