@@ -51,7 +51,11 @@
                 $json_obj = json_decode($json);
                 $user_id = $json_obj[0]->id;
                 $user_role = $json_obj[0]->role;
-                $_SESSION['user'] = $user_id;       // Track user id
+                
+                // Track user email and ID
+                $_SESSION['email'] = $json_obj[0]->email;
+                $_SESSION['user'] = $user_id;
+                
                 $loc = ($user_role == "Manager") ? "manager_home.php" : "user_home.php";
                 header("Location:" . $loc);         // Go to home page
             } else {
