@@ -56,8 +56,6 @@
 
 	<?php
 	include "../src/business.php";
-
-    session_start();
         
     // Verify user is logged in
     if (!$_SESSION['login']) {
