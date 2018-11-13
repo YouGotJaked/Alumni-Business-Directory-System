@@ -31,6 +31,13 @@
 			<option value="Home Services">Home Services</option>
 		</select>
 		<input type="text" class="form-control mb-3" placeholder="City" name="city">
+        <?php
+            // Verify user is logged in
+            if (!$_SESSION['login']) {
+                echo $_SESSION['login'] . "<br";
+                //header('Location: login.php');
+            }
+        ?>
 		<input type="submit" class="btn btn-info" name="submit">
 		</form>
 	</div>
