@@ -13,7 +13,15 @@
 	<nav class="navbar navbar-expand">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link navbutton" href="user_home.php">Home</a>
+                <a class="nav-link navbutton" href=
+                    <?php
+                        if ($_SESSION['role'] == "Manager") {
+                            echo "manager_home.php";
+                        } else {
+                            echo "user_home.php";
+                        }
+                    ?>
+                >Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link navbutton" href="submit_business.php">Submit Business</a>
