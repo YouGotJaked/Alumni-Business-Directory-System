@@ -108,9 +108,11 @@
             // check if business already exists??
             
             // get id of current user
+            /*
             $json = $user->get_one("id", $_SESSION['user']);
             $json_obj = json_decode($json);
             $owner_id = $json_obj[0]->id;
+            */
             
             $json = ['name' => $_POST["name"],
             'status' => "Requested",
@@ -121,7 +123,7 @@
             'state' => $_POST["state"],
             'zip' => $_POST["zip"],
             'country' => $_POST["country"],
-            'owner_id' => $owner_id];
+            'owner_id' => $_SESSION['user'];
             
             $json_obj = json_encode($json, JSON_PRETTY_PRINT);
             $add_resp = $business->add($json_obj);
