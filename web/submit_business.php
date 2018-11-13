@@ -15,6 +15,7 @@
             <li class="nav-item active">
                 <a class="nav-link navbutton" href=
                     <?php
+                        session_start();
                         if ($_SESSION['role'] == "Manager") {
                             echo "manager_home.php";
                         } else {
@@ -31,7 +32,6 @@
             <li class="nav-item">
                 <span class="nav-link" style="color: white" href="#">
                     <?php
-                    session_start();
                     echo $_SESSION['email'];
                     ?>
                 </span>
