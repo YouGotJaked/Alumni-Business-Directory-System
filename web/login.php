@@ -20,6 +20,7 @@
 
     <?php
     session_start();
+    // session_regenerate_id(true);
         
     require_once "../src/login.php";
     require_once "../src/user.php";
@@ -37,9 +38,8 @@
                 $user_id = $json_obj[0]->id;
                 $user_role = $json_obj[0]->role;
                 $_SESSION['user'] = $user_id;       // Track user id
-                
                 $loc = ($user_role == "Manager") ? "manager_home.php" : "user_home.php";
-                header("Location:" . $loc);            // Go to home page
+                header("Location:" . $loc);         // Go to home page
             } else {
                 $login_error = "Invalid credentials.";
             }
