@@ -42,7 +42,7 @@
 	include "../src/business.php";
     
     // Verify user is logged in
-    if (!_SESSION['login']) {
+    if (!$_SESSION['login']) {
         header('Location: login.php');
     }
 
