@@ -45,9 +45,9 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="container col-3">
+	<div class="container col-lg-3 col-sm-5">
 		<a href="verify_business.php"><button class="btn submitbtn btn-block text-center mb-3">Verify Business</button></a>
-		<a href="edit_business.php"><button class="btn submitbtn btn-block text-center">Edit / Remove Business</button></a>
+		<a href="edit_business.php"><button class="btn submitbtn btn-block text-center mb-3">Edit / Remove Business</button></a>
 	</div>
 
     <?php
