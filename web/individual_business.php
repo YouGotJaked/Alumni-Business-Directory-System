@@ -13,10 +13,10 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm">
+<nav class="navbar navbar-expand-sm">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link navbutton" href="user_home.php">Home</a>
+                <a class="nav-link navbutton" href="manager_home.php">Home</a>
             </li>
         </ul>
 		
@@ -26,11 +26,13 @@
 		
 		<div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
-			<li class="nav-item">
-                <a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
-            </li>
             <li class="nav-item">
-                <span class="nav-link" style="color: white">Name</span>
+                <span class="nav-link" style="color: white" href="#">
+                    <?php
+                    session_start();
+                    echo $_SESSION['email'];
+                    ?>
+                </span>
             </li>
             <li class="nav-item">
                 <a class="nav-link navbutton" href="login.php">Logout</a>
@@ -55,11 +57,11 @@
 	<?php
 
 	include "../src/business.php";
-			
+
 	// Verify user is logged in
-	//if (!$_SESSION['login']) {
-	//	header('Location: login.php');
-	//}
+	if (!$_SESSION['login']) {
+		header('Location: login.php');
+	}
 
 	$business = new Business();
 
