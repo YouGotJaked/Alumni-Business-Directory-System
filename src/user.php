@@ -41,6 +41,11 @@ class User extends Entry {
         return parent::get_one($key, $value);
     }
 
+    public function get_all($key, $value) {
+        $this->table = "users";
+        return parent::get_all($key, $value);
+    }
+
     public function update($id, $key, $value) {
         $this->table = "users";
         return parent::update($id, $key, $value);

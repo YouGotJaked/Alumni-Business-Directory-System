@@ -8,6 +8,7 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="../js/scripts.js"></script>
 	<title>Alumni Business Directory</title>
 </head>
 
@@ -42,34 +43,41 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="card">
- 		<h3 class="card-header text-center font-weight-bold text-uppercase py-4">Businesses</h3>
-  		<div class="card-body">
-    		<div id="table" class="table-editable">
-				<table class="table table-bordered table-responsive-md table-hover text-center">
-       			<tr>
-          			<th class="text-center">ID</th>
-          			<th class="text-center">Business Owner</th>
-          			<th class="text-center">Business Name</th>
-          			<th class="text-center">Type of Business</th>
-					<th class="text-center">Description</th>
-					<th class="text-center">Address</th>
-          			<th class="text-center">Remove</th>
-       		 	</tr>
-        		<tr>
-          			<td class="pt-3-half" contenteditable="true">1</td>
-          			<td class="pt-3-half" contenteditable="true">Ben Bronco</td>
-          			<td class="pt-3-half" contenteditable="true">Ben's Burritos</td>
-          			<td class="pt-3-half" contenteditable="true">Restaurant</td>
-					<td class="pt-3-half" contenteditable="true">Short description for Ben's Burritos. This place is pretty good.</td>
-					<td class="pt-3-half" contenteditable="true">500 El Camino Real, Santa Clara, CA 95053, USA</td>
-          			<td>
-            			<span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
-          			</td>
-        		</tr>
-      		</table>
-    		</div>
-  		</div>
+	<div class="container text-center">
+		<h1 id="user-name"></h1>
+		<div id="user-degree"></div>
+		<div id="user-graduation-year"></div>
+		<div id="user-email"></div>
+		<div id="user-role"></div>
 	</div>
+
+	<?php
+
+	include "../src/user.php";
+
+	// Verify user is logged as administrator
+    if (!$_SESSION['login']) {
+        header('Location: login.php');
+    } else if ($_SESSION['role'] != "Manager") {
+        header('Location: user_home.php');
+    }
+
+	$user = new User();
+
+	if (isset($_GET['user_id'])) {
+		$individual_user = $user->get_one("id", $_GET['user_id']);
+	} else {
+		$individual_user = 0;
+	}
+
+	// TODO if the user's role is an owner, get the business data as well and pass to the function
+
+	?>
+
+	<script>
+		$(function () {
+        	populateIndividualUserFields(<?php echo $individual_user ?>)
+    	});
+	</script>
 </body>
 </html>
