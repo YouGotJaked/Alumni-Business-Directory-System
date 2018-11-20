@@ -8,6 +8,7 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="../js/scripts.js"></script>
 	<title>Alumni Business Directory</title>
 </head>
 
@@ -45,22 +46,6 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="container mb-3 col-lg-6 col-sm-10">
-		<label for="exampleFormControlSelect1">What type of business are you looking for?</label>
-		<form action="business_list.php" method="post">
-		<input type="text" class="form-control mb-3" placeholder="Name" name="name">
-		<select class="form-control mb-3" id="exampleFormControlSelect1" name="category" value="">
-			<option disabled selected value> -- select an option -- </option>
-			<option value="Restaurant">Restaurant</option>
-			<option value="Shopping">Shopping</option>
-			<option value="Professional Services">Professional Services</option>
-			<option value="Local Services">Local Services</option>
-			<option value="Home Services">Home Services</option>
-		</select>
-		<input type="text" class="form-control mb-3" placeholder="City" name="city">
-		<input type="submit" class="btn submitbtn" name="submit">
-		</form>
-	</div>
 
 	<?php
 	include "../src/business.php";
@@ -70,8 +55,45 @@
         header('Location: login.php');
     }
 
-	// TODO fill the values of the category control with available options from the database
+	$business = new Business();
+
+	$name = "";
+	$category = "";
+	$city = "";
+
+	if (isset($_POST['submit'])) {
+		if (isset($_POST['name'])) {
+			$name = $_POST["name"];
+		} else {
+			$name = "";
+		}
+		
+		if (isset($_POST['category'])) {
+			$category = $_POST["category"];
+		} else {
+			$category = "";
+		}
+
+		if (isset($_POST['city'])) {
+			$city = $_POST["city"];
+		} else {
+			$city = "";
+		}
+	}
+
+	$approved = $business->get_all("status", "Approved");
 
 	?>
+
+	<script>
+		$(function () {
+			var approved = <?php echo $approved; ?>;
+			var name = "<?php echo $name; ?>"
+			var category = "<?php echo $category; ?>"
+			var city = "<?php echo $city; ?>"
+			
+			populateBusinessList(approved, name, category, city)
+		});
+	</script>
 </body>
 </html>
