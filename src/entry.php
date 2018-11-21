@@ -31,7 +31,15 @@ class Entry {
 
     public function get_all($key, $value) {
         $this->database->connect();
-        $query = "SELECT * FROM $this->table WHERE $key='$value'";
+
+        $query;
+
+        if ($key == "" and $value == "") {
+            $query = "SELECT * FROM $this->table";
+        } else {
+            $query = "SELECT * FROM $this->table WHERE $key='$value'";
+        }
+        
         $resp = $this->database->conn->query($query);
         // Extraction method adapted from https://stackoverflow.com/questions/383631/json-encode-mysql-results
         $json_obj;

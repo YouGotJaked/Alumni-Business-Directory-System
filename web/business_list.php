@@ -8,6 +8,7 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="../js/scripts.js"></script>
 	<title>Alumni Business Directory</title>
 </head>
 
@@ -15,7 +16,7 @@
 	<nav class="navbar navbar-expand-sm">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link navbutton" href="manager_home.php">Home</a>
+                <a class="nav-link navbutton" href="user_home.php">Home</a>
             </li>
         </ul>
 		
@@ -25,6 +26,9 @@
 		
 		<div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+                <a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
+            </li>
             <li class="nav-item">
                 <span class="nav-link" style="color: white" href="#">
                     <?php
@@ -42,34 +46,54 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="card">
- 		<h3 class="card-header text-center font-weight-bold text-uppercase py-4">Businesses</h3>
-  		<div class="card-body">
-    		<div id="table" class="table-editable">
-				<table class="table table-bordered table-responsive-md table-hover text-center">
-       			<tr>
-          			<th class="text-center">ID</th>
-          			<th class="text-center">Business Owner</th>
-          			<th class="text-center">Business Name</th>
-          			<th class="text-center">Type of Business</th>
-					<th class="text-center">Description</th>
-					<th class="text-center">Address</th>
-          			<th class="text-center">Remove</th>
-       		 	</tr>
-        		<tr>
-          			<td class="pt-3-half" contenteditable="true">1</td>
-          			<td class="pt-3-half" contenteditable="true">Ben Bronco</td>
-          			<td class="pt-3-half" contenteditable="true">Ben's Burritos</td>
-          			<td class="pt-3-half" contenteditable="true">Restaurant</td>
-					<td class="pt-3-half" contenteditable="true">Short description for Ben's Burritos. This place is pretty good.</td>
-					<td class="pt-3-half" contenteditable="true">500 El Camino Real, Santa Clara, CA 95053, USA</td>
-          			<td>
-            			<span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
-          			</td>
-        		</tr>
-      		</table>
-    		</div>
-  		</div>
-	</div>
+
+	<?php
+	include "../src/business.php";
+        
+    // Verify user is logged in
+    if (!$_SESSION['login']) {
+        header('Location: login.php');
+    }
+
+	$business = new Business();
+
+	$name = "";
+	$category = "";
+	$city = "";
+
+	if (isset($_POST['submit'])) {
+		if (isset($_POST['name'])) {
+			$name = $_POST["name"];
+		} else {
+			$name = "";
+		}
+		
+		if (isset($_POST['category'])) {
+			$category = $_POST["category"];
+		} else {
+			$category = "";
+		}
+
+		if (isset($_POST['city'])) {
+			$city = $_POST["city"];
+		} else {
+			$city = "";
+		}
+	}
+
+	$approved = $business->get_all("status", "Approved");
+
+	?>
+
+	<script>
+		$(function () {
+			var approved = <?php echo $approved; ?>;
+			var name = "<?php echo $name; ?>"
+			var category = "<?php echo $category; ?>"
+			var city = "<?php echo $city; ?>"
+			
+			populateBusinessList(approved, name, category, city)
+		});
+	</script>
 </body>
 </html>

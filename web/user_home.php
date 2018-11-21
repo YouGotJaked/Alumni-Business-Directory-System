@@ -47,7 +47,8 @@
 	</div>
 	<div class="container mb-3 col-lg-6 col-sm-10">
 		<label for="exampleFormControlSelect1">What type of business are you looking for?</label>
-		<form action="user_home.php" method="post">
+		<form action="business_list.php" method="post">
+		<input type="text" class="form-control mb-3" placeholder="Name" name="name">
 		<select class="form-control mb-3" id="exampleFormControlSelect1" name="category" value="">
 			<option disabled selected value> -- select an option -- </option>
 			<option value="Restaurant">Restaurant</option>
@@ -69,57 +70,7 @@
         header('Location: login.php');
     }
 
-	$business = new Business();
-
-	$category = "";
-	$city = "";
-
-	if (isset($_POST['submit'])) {
-		try {
-			$category = $_POST["category"];
-		} catch(Exception $e) {
-			$category = "";
-		}
-
-		try {
-			$city = $_POST["city"];
-		} catch(Exception $e) {
-			$city = "";
-		}
-	}
-
-	$approved = $business->get_all("status", "Approved");
-	
-	foreach (json_decode($approved) as &$json) {	
-		if (($city !== "" && $category !== "" && $city === $json->city && $category === $json->category)) {
-			echo '<div class="card border-dark mb-3 container col-lg-6 col-sm-10">';
-				echo '<div class="card-body">';
-					echo '<a href="individual_business.php"><h5 class="card-header bg-transparent">' . $json->name . '</h5></a>';
-					echo '<p class="card-body">' . $json->city . '</p>';
-					echo '<p class="card-body">' . $json->description . '</p>';
-					echo '<p class="card-body">' . $json->category . '</p>';
-				echo '</div>';
-			echo '</div>';
-		} else if ($city !== "" && $city === $json->city) {
-			echo '<div class="card border-dark mb-3 container col-lg-6 col-sm-10">';
-				echo '<div class="card-body">';
-					echo '<a href="individual_business.php"><h5 class="card-header bg-transparent">' . $json->name . '</h5></a>';
-					echo '<p class="card-body">' . $json->city . '</p>';
-					echo '<p class="card-body">' . $json->description . '</p>';
-					echo '<p class="card-body">' . $json->category . '</p>';
-				echo '</div>';
-			echo '</div>';
-		} else if ($category !== "" && $category === $json->category) {
-			echo '<div class="card border-dark mb-3 container col-lg-6 col-sm-10">';
-				echo '<div class="card-body">';
-					echo '<a href="individual_business.php"><h5 class="card-header bg-transparent">' . $json->name . '</h5></a>';
-					echo '<p class="card-body">' . $json->city . '</p>';
-					echo '<p class="card-body">' . $json->description . '</p>';
-					echo '<p class="card-body">' . $json->category . '</p>';
-				echo '</div>';
-			echo '</div>';
-		}
-	}
+	// TODO fill the values of the category control with available options from the database
 
 	?>
 </body>
