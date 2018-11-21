@@ -56,7 +56,18 @@
 	$business = new Business();
 	$user = new User();
 
-	sleep(1);
+	if (isset($_POST['submit'])) {
+		$choice = $_POST["choice"];
+		if (strpos($choice, "confirm") === 0) {
+			$id = str_replace("confirm", "", $choice);
+			$business->update($id, "status", "Approved");
+		} else if (strpos($choice, "deny") === 0) {
+			$id = str_replace("deny", "", $choice);
+			$business->update($id, "status", "Denied");
+		} else {
+
+		}
+	} 
 
 	$requested = $business->get_all("status", "Requested");
 	
@@ -82,11 +93,11 @@
 			<form class="card-footer bg-transparent" action="verify_business.php" method="post">
 			<div>
 				<div class="form-check">
-					<input class="form-check-input" type="radio" name="choice" value="confirm'<?= $json->id ?>">
+					<input class="form-check-input" type="radio" name="choice" value="confirm<?= $json->id ?>">
 					<label class="form-check-label" for="exampleRadios1">Confirm</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="radio" name="choice" value="deny'<?= $json->id ?>">
+					<input class="form-check-input" type="radio" name="choice" value="deny<?= $json->id ?>">
 					<label class="form-check-label" for="exampleRadios2">Deny</label>
 				</div>
 				<input type="submit" class="btn btn-primary" name="submit">
@@ -94,24 +105,5 @@
 			</form>
 		</div>
 	<?php endforeach ?>
-
-	<?php 
-
-	if (isset($_POST['submit'])) {
-		$choice = $_POST["choice"];
-		if (strpos($choice, "confirm") === 0) {
-			$id = str_replace("confirm", "", $choice);
-			
-			$business->update($id, "status", "Approved");
-		} else if (strpos($choice, "deny") === 0) {
-			$id = str_replace("deny", "", $choice);
-			$business->update($id, "status", "Denied");
-		} else {
-
-		}
-	} 
-	
-	?>
-	
 </body>
 </html>
