@@ -64,7 +64,7 @@
             
             $owner_id = $business->get_one($id, "owner_id");
             
-            $update_resp = $user->update($owner_id, "status", "Owner");
+            $update_resp = $user->update($owner_id, "role", "Owner");
             if ($update_resp) {
                 echo "User has been updated" . "<br>";
             } else {
