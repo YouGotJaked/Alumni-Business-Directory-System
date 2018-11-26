@@ -48,7 +48,7 @@
 	<div class="container mb-3 col-lg-6 col-sm-10">
 		<label for="exampleFormControlSelect1">What type of business are you looking for?</label>
 		<form action="business_list.php" method="post">
-		<input type="text" class="form-control mb-3" placeholder="Name" name="name">
+		<input type="text" class="form-control mb-3" placeholder="Business Name" name="name">
 		<select class="form-control mb-3" id="exampleFormControlSelect1" name="category" value="">
 			<option disabled selected value> -- select an option -- </option>
 			<option value="Restaurant">Restaurant</option>

@@ -46,9 +46,9 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="container text-center">
+	<div class="container text-center col-lg-6 col-sm-10">
 		<h1 id="business-name"></h1>
-		<p id="business-description" class="col-6 mx-auto"></p>
+		<p id="business-description" class="mx-auto"></p>
 		<div id="business-category"></div>
 		<div id="business-street"></div>
 		<div id="business-city"></div>
