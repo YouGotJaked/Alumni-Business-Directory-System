@@ -61,7 +61,10 @@
 		if (strpos($choice, "confirm") === 0) {
 			$id = str_replace("confirm", "", $choice);
 			$business->update($id, "status", "Approved");
-            $update_resp = $user->update($business->owner_id, "status", "Owner");
+            
+            $owner_id = $business->get_one($id, "owner_id");
+            
+            $update_resp = $user->update($owner_id, "status", "Owner");
             if ($update_resp) {
                 echo "User has been updated" . "<br>";
             } else {
