@@ -61,6 +61,13 @@
 		if (strpos($choice, "confirm") === 0) {
 			$id = str_replace("confirm", "", $choice);
 			$business->update($id, "status", "Approved");
+            $update_resp = $user->update($business->owner_id, "status", "Owner");
+            if ($update_resp) {
+                echo "User has been updated" . "<br>";
+            } else {
+                echo "Failed to update user" . "<br>";
+            }
+            
 		} else if (strpos($choice, "deny") === 0) {
 			$id = str_replace("deny", "", $choice);
 			$business->update($id, "status", "Denied");
