@@ -53,6 +53,29 @@ class Business extends Entry {
         return parent::update($id, $key, $value);
     }
 
+    public function update_all_values($id, $json) {
+        $this->database->connect();
+        $json_obj = json_decode($json);
+
+        $query = "UPDATE businesses SET
+            name = '$json_obj->name',
+            status = '$json_obj->status',
+            description = '$json_obj->description',
+            category = '$json_obj->category',
+            street = '$json_obj->street',
+            city = '$json_obj->city',
+            state = '$json_obj->state',
+            zip = '$json_obj->zip',
+            country = '$json_obj->country',
+            owner_id = '$json_obj->owner_id'
+            WHERE id='$id'";
+
+        $resp = $this->database->conn->query($query);
+        $this->database->close();
+
+        return $resp;
+    }
+
     public function remove($id) {
         $this->table = "businesses";
         return parent::remove($id);

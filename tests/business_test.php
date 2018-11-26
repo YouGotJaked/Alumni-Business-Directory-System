@@ -1,9 +1,10 @@
 <?php
 include "../src/business.php";
 
+$test_business_id = 36;
+
 $business = new Business();
 $json = '{
-    "id":0,
     "name":"Hello",
     "status":"Darkness",
     "description":"My",
@@ -24,17 +25,40 @@ if ($add_resp) {
     echo "Failed to add business". "<br>";
 }
     
-echo $business->get(0) . "<br>";
-$update_resp = $business->update(0, "name", "HELLO");
+echo $business->get_one("id", $test_business_id) . "<br>";
+$update_resp = $business->update($test_business_id, "name", "HELLO");
     
 if ($update_resp) {
     echo "Business has been updated" . "<br>";
 } else {
     echo "Failed to update business" . "<br>";
 }
+
+echo $business->get_one("id", $test_business_id) . "<br>";
     
-echo $business->get(0) . "<br>";
-$remove_resp = $business->remove(0);
+$new_json = '{
+    "name":"THIS IS UPDATED",
+    "status":"DarknessWEW",
+    "description":"MyWEW",
+    "category":"Old",
+    "street":"FriendWEW",
+    "city":"Hello",
+    "state":"WorldWEW",
+    "zip":33333,
+    "country":"NO",
+    "owner_id":1
+}';
+
+$update_all_values_resp = $business->update_all_values($test_business_id, $new_json);
+
+if ($update_all_values_resp) {
+    echo "Business has been updated" . "<br>";
+} else {
+    echo "Failed to update business" . "<br>";
+}
+
+echo $business->get_one("id", $test_business_id) . "<br>";
+$remove_resp = $business->remove($test_business_id);
     
 if ($remove_resp) {
     echo "Business has been removed" . "<br>";
