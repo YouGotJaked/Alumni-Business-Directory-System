@@ -94,11 +94,11 @@
 			<div>
 				<div class="form-check">
 					<input class="form-check-input" type="radio" name="choice" value="confirm<?= $json->id ?>">
-					<label class="form-check-label" for="exampleRadios1">Confirm</label>
+					<label class="form-check-label mb-1" for="exampleRadios1">Confirm</label>
 				</div>
 				<div class="form-check">
 					<input class="form-check-input" type="radio" name="choice" value="deny<?= $json->id ?>">
-					<label class="form-check-label" for="exampleRadios2">Deny</label>
+					<label class="form-check-label mb-1" for="exampleRadios2">Deny</label>
 				</div>
 				<input type="submit" class="btn btn-primary" name="submit">
 			</div>
