@@ -13,10 +13,19 @@
 </head>
 
 <body>
+	<?php 
+		session_start();
+	?>
 	<nav class="navbar navbar-expand-sm">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link navbutton" href="user_home.php">Home</a>
+				<?php
+					if ($_SESSION['role'] == "User" || $_SESSION['role'] == "Owner") {
+						echo '<a class="nav-link navbutton" href="user_home.php">Home</a>';
+					} else if ($_SESSION['role'] == "Manager") {
+						echo '<a class="nav-link navbutton" href="manager_home.php">Home</a>';
+					}
+				?>
             </li>
         </ul>
 		
@@ -26,14 +35,15 @@
 		
 		<div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
-			<li class="nav-item">
-                <a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
-            </li>
+			<?php 
+				if ($_SESSION['role'] == "User" || $_SESSION['role'] == "Owner") {
+					echo '<li class="nav-item"><a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a></li>';
+				}
+			?>
             <li class="nav-item">
                 <span class="nav-link" style="color: white" href="#">
                     <?php
-                    session_start();
-                    echo $_SESSION['email'];
+                    	echo $_SESSION['email'];
                     ?>
                 </span>
             </li>
@@ -60,6 +70,7 @@
 	<?php
 
 	include "../src/business.php";
+	include "../src/user.php";
 
 	// Verify user is logged in
 	if (!$_SESSION['login']) {
@@ -67,9 +78,14 @@
 	}
 
 	$business = new Business();
+	$user = new User();
 
 	if (isset($_GET['business_id'])) {
 		$individual_business = $business->get_one("id", $_GET['business_id']);
+
+		$json_obj = json_decode($individual_business)[0];
+
+		$business_owner = $user->get_one("id", $json_obj->owner_id);
 	} else {
 		$individual_business = 0;
 	}
@@ -78,7 +94,7 @@
 
 	<script>
 		$(function () {
-        	populateIndividualBusinessFields(<?php echo $individual_business ?>)
+        	populateIndividualBusinessFields(<?php echo $individual_business ?>, <?php echo $business_owner ?>)
     	});
 	</script>
 </body>
