@@ -64,12 +64,12 @@
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
 	<div class="card">
- 		<h3 class="card-header text-center font-weight-bold text-uppercase py-4">Edit Business</h3>
+ 		<!--<h3 class="card-header text-center font-weight-bold text-uppercase py-4">Edit Business</h3>-->
         <form class="container col-lg-8" method="post" action="edit_business.php">
             <div class="form-row">
                 <div class="col-lg col-sm-12 mb-3">
                     <label for="validationServer01">Business Name</label>
-                    <input type="text" name="name" value='<?= $busn->name ?>'>
+                    <input type="text" name="name" class="form-control" value='<?= $busn->name ?>'>
                 </div>
             </div>
             <div class="form-row">
