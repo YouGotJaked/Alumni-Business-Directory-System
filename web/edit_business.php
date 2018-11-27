@@ -80,7 +80,7 @@
           			<th class="text-center">Update</th>
        		 	</tr>
         		<tr>
-          			<td class="pt-3-half">
+          			<td>
                         <input type="text" name="name" value='<?= $busn->name ?>'>
                     </td>
                     <td class="pt-3-half">
