@@ -65,15 +65,9 @@
             $json = $business->get_one("id", $id);
             $json_obj = json_decode($json);
             $owner_id = $json_obj[0]->owner_id;
-            
-            echo $owner_id . "<br>";
-            
-            $update_resp = $user->update($owner_id, "role", "Owner");
-            if ($update_resp) {
-                echo "User has been updated" . "<br>";
-            } else {
-                echo "Failed to update user" . "<br>";
-            }
+
+            $user->update($owner_id, "role", "Owner");
+            $user->update($owner_id, "business_id", $id);
             
 		} else if (strpos($choice, "deny") === 0) {
 			$id = str_replace("deny", "", $choice);
