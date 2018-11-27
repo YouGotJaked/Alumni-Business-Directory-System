@@ -36,6 +36,10 @@
 		<div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
 			<?php 
+				if ($_SESSION['role'] == "Owner") {
+                    echo '<a class="navbar-brand mr-2" href="edit_business.php"><button class="btn btn-sm btn-outline-light">Edit Business</button></a>';
+                }
+				
 				if ($_SESSION['role'] == "User" || $_SESSION['role'] == "Owner") {
 					echo '<li class="nav-item"><a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a></li>';
 				}
@@ -56,7 +60,7 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="card border-dark container text-center col-lg-6 col-sm-10">
+	<div class="card border-dark container text-center col-lg-6 col-sm-10 p-3">
 		<u><h1 id="business-name" class="text-uppercase"></h1></u>
 		<div id="business-category" class= "mb-3 text-uppercase"></div>
 		<p id="business-description" class="mx-auto"></p>

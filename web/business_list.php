@@ -13,10 +13,19 @@
 </head>
 
 <body>
+	<?php 
+		session_start();
+	?>
 	<nav class="navbar navbar-expand-sm">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link navbutton" href="user_home.php">Home</a>
+				<?php
+					if ($_SESSION['role'] == "User" || $_SESSION['role'] == "Owner") {
+						echo '<a class="nav-link navbutton" href="user_home.php">Home</a>';
+					} else if ($_SESSION['role'] == "Manager") {
+						echo '<a class="nav-link navbutton" href="manager_home.php">Home</a>';
+					}
+				?>
             </li>
         </ul>
 		
@@ -26,18 +35,20 @@
 		
 		<div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
-			<li class="nav-item">
-                <?php
-                session_start();
-                if ($_SESSION['role'] == "Owner") {
+			<?php 
+				if ($_SESSION['role'] == "Owner") {
                     echo '<a class="navbar-brand mr-2" href="edit_business.php"><button class="btn btn-sm btn-outline-light">Edit Business</button></a>';
                 }
-                ?>
-                <a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
-            </li>
+				
+				if ($_SESSION['role'] == "User" || $_SESSION['role'] == "Owner") {
+					echo '<li class="nav-item"><a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a></li>';
+				}
+			?>
             <li class="nav-item">
                 <span class="nav-link" style="color: white" href="#">
-                    <?php echo $_SESSION['email']; ?>
+                    <?php
+                    	echo $_SESSION['email'];
+                    ?>
                 </span>
             </li>
             <li class="nav-item">
