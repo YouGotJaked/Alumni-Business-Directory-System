@@ -81,7 +81,7 @@
        		 	</tr>
         		<tr>
           			<td class="pt-3-half" contenteditable="true">
-                        <input type="text" name="name" class="form-control" placeholder="<?= $busn->name ?>" required>
+                        <input type="text" name="name" value='<?= $busn->name ?>'>
                     </td>
                     <td class="pt-3-half" contenteditable="true" name="description"><?= $busn->description ?></td>
           			<td class="pt-3-half" contenteditable="true" name="category"><?= $busn->category ?></td>
@@ -90,7 +90,7 @@
                     <td class="pt-3-half" contenteditable="true" name="state"><?= $busn->state ?></td>
                     <td class="pt-3-half" contenteditable="true" name="zip"><?= $busn->zip ?></td>
                     <td class="pt-3-half" contenteditable="true" name="country"><?= $busn->country ?></td>
-          			<td><input type="submit" class="btn btn-primary mb-4" name="update"></td>
+          			<td><input type="submit" class="btn btn-primary mb-4" name="update" value="Update"></td>
         		</tr>
       		    </table>
     		</div>
