@@ -69,6 +69,7 @@
         $json_obj = json_decode($json);
         
         // Track user email, role and ID
+        $_SESSION['login'] = login($_POST["email"], $_POST["password"]);
         $_SESSION['email'] = $json_obj[0]->email;
         $_SESSION['role'] = $json_obj[0]->role;
         $_SESSION['user'] = $json_obj[0]->id;
