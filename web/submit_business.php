@@ -26,6 +26,12 @@
 		<div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
 			<li class="nav-item">
+                <?php
+                session_start();
+                if ($_SESSION['role'] == "Owner") {
+                    echo '<a class="navbar-brand mr-2" href="edit_business.php"><button class="btn btn-sm btn-outline-light">Edit Business</button></a>';
+                }
+                ?>
                 <a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
             </li>
             <li class="nav-item">
@@ -108,14 +114,6 @@
         if (isset($_POST["submit"])) {
             $business = new Business();
             $user = new User();
-            // check if business already exists??
-            
-            // get id of current user
-            /*
-            $json = $user->get_one("id", $_SESSION['user']);
-            $json_obj = json_decode($json);
-            $owner_id = $json_obj[0]->id;
-            */
             
             $json = ['name' => $_POST["name"],
             'status' => "Requested",
@@ -131,7 +129,7 @@
             $json_obj = json_encode($json, JSON_PRETTY_PRINT);
             $add_resp = $business->add($json_obj);
             if ($add_resp) {
-                echo "Business request sent for approval.";
+                echo "<br>" . "Business request sent for approval." . "<br>";
             }
         }
         ?>
