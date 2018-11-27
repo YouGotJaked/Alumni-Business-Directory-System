@@ -56,7 +56,7 @@
     $business = new Business();
     $user = new User();
     
-    $business_id = json_decode($user->get_one("id", _SESSION['user']))[0]->business_id;
+    $business_id = json_decode($user->get_one("id", $_SESSION['user']))[0]->business_id;
     $busn = json_decode($business->get_one("id", $business_id))[0];
     ?>
 
