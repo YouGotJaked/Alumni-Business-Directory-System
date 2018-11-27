@@ -12,20 +12,23 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-sm">
+    <nav class="navbar navbar-expand-sm">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link navbutton" href="manager_home.php">Home</a>
+                <a class="nav-link navbutton" href="user_home.php">Home</a>
             </li>
         </ul>
-		
-		<button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
-			<img src="../img/three-bars.svg" width="20px">
-		</button>
-		
-		<div class="collapse navbar-collapse" id="collapse_target">
+
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+            <img src="../img/three-bars.svg" width="20px">
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+                <a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
+            </li>
+            li class="nav-item">
                 <span class="nav-link" style="color: white" href="#">
                     <?php
                     session_start();
@@ -37,8 +40,8 @@
                 <a class="nav-link navbutton" href="../src/logout.php">Logout</a>
             </li>
         </ul>
-		</div>
-	</nav>
+        </div>
+    </nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
@@ -48,20 +51,29 @@
     		<div id="table" class="table-editable">
 				<table class="table table-bordered table-responsive-md table-hover text-center">
        			<tr>
-          			<th class="text-center">ID</th>
           			<th class="text-center">Business Owner</th>
           			<th class="text-center">Business Name</th>
-          			<th class="text-center">Type of Business</th>
+                    <th class="text-center">Status</th>
 					<th class="text-center">Description</th>
-					<th class="text-center">Address</th>
+                    <th class="text-center">Category</th>
+					<th class="text-center">Street</th>
+                    <th class="text-center">City</th>
+                    <th class="text-center">State</th>
+                    <th class="text-center">Zip</th>
+                    <th class="text-center">Country</th>
           			<th class="text-center">Remove</th>
        		 	</tr>
         		<tr>
-          			<td class="pt-3-half" contenteditable="true">1</td>
           			<td class="pt-3-half" contenteditable="true">Ben Bronco</td>
           			<td class="pt-3-half" contenteditable="true">Ben's Burritos</td>
+                    <td class="pt-3-half" contenteditable="true">Approved</td>
+                    <td class="pt-3-half" contenteditable="true">Short description for Ben's Burritos. This place is pretty good.</td>
           			<td class="pt-3-half" contenteditable="true">Restaurant</td>
-					<td class="pt-3-half" contenteditable="true">Short description for Ben's Burritos. This place is pretty good.</td>
+                    <td class="pt-3-half" contenteditable="true">500 El Camino Real</td>
+                    <td class="pt-3-half" contenteditable="true">Santa Clara</td>
+                    <td class="pt-3-half" contenteditable="true">CA</td>
+                    <td class="pt-3-half" contenteditable="true">95053</td>
+                    <td class="pt-3-half" contenteditable="true">USA</td>
 					<td class="pt-3-half" contenteditable="true">500 El Camino Real, Santa Clara, CA 95053, USA</td>
           			<td>
             			<span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
