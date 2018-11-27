@@ -62,7 +62,10 @@
 			$id = str_replace("confirm", "", $choice);
 			$business->update($id, "status", "Approved");
             
-            $owner_id = json_decode($business->get_one($id, "owner_id"))[0];
+            $json = $business->get_one("id", $id);
+            $json_obj = json_decode($json);
+            $owner_id = $json_obj[0]->owner_id;
+            
             echo $owner_id . "<br>";
             
             $update_resp = $user->update($owner_id, "role", "Owner");
