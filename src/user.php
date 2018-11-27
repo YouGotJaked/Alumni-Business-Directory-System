@@ -7,6 +7,11 @@ class User extends Entry {
         $this->database->connect();
         $json_obj = json_decode($json);
 
+        $json_obj->first_name = mysqli_real_escape_string($this->database->conn, $json_obj->first_name);
+        $json_obj->last_name = mysqli_real_escape_string($this->database->conn, $json_obj->last_name);
+        $json_obj->degree = mysqli_real_escape_string($this->database->conn, $json_obj->degree);
+        $json_obj->email = mysqli_real_escape_string($this->database->conn, $json_obj->email);
+
         $query = "INSERT INTO users (
             id,
             first_name,
