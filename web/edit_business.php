@@ -112,7 +112,13 @@
         'owner_id' => $busn->owner_id];
         
         $json_obj = json_encode($json, JSON_PRETTY_PRINT);
-        $business->update_all_values($business_id, $json_obj);
+        $update_busn = $business->update_all_values($business_id, $json_obj);
+        
+        if ($update_busn) {
+            echo "Business updated" . "<br>";
+        } else {
+            echo "Business failed to update" . "<br>";
+        }
     }
     ?>
 </body>
