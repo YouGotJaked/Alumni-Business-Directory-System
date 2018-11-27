@@ -75,44 +75,43 @@
             <div class="form-row">
                 <div class="form-group col-lg col-sm-12 mb-3">
                     <label for="exampleFormControlTextarea1">Business Description</label>
-                    <textarea name="description"><?= $busn->description ?></textarea>
+                    <textarea class="form-control" name="description"><?= $busn->description ?></textarea>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-lg col-sm-12 mb-3">
                     <label for="exampleFormControlSelect1">Type of Business</label>
-                    <select class="form-control" name="category" id="exampleFormControlSelect1" required>
-                        <option disabled selected value> -- select an option -- </option>
-                        <option>Restaurant</option>
-                        <option>Shopping</option>
-                        <option>Professional Services</option>
-                        <option>Local Services</option>
-                        <option>Home Services</option>
+                    <select class="form-control" name="category" id="category">
+                        <option <?php if ($busn->category == "Restaurant") echo 'selected' ; ?>>Restaurant</option>
+                        <option <?php if ($busn->category == "Shopping") echo 'selected' ; ?>>Shopping</option>
+                        <option <?php if ($busn->category == "Professional Services") echo 'selected' ; ?>>Professional Services</option>
+                        <option <?php if ($busn->category == "Local Services") echo 'selected' ; ?>>Local Services</option>
+                        <option <?php if ($busn->category == "Home Services") echo 'selected' ; ?>>Home Services</option>
                     </select>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-lg col-sm-12 mb-3">
                     <label for="validationServer01">Street</label>
-                    <input type="text" name="street" value='<?= $busn->street ?>'>
+                    <input type="text" name="street" class="form-control" value='<?= $busn->street ?>'>
                 </div>
                 <div class="col-lg-4 col-sm-12 mb-3">
                     <label for="validationServer01">City</label>
-                    <input type="text" name="city" value='<?= $busn->city ?>'>
+                    <input type="text" name="city" class="form-control" value='<?= $busn->city ?>'>
                 </div>
                 <div class="col-lg-2 col-sm-12 mb-3">
                     <label for="validationServer01">State</label>
-                    <input type="text" name="state" value='<?= $busn->state ?>'>
+                    <input type="text" name="state" class="form-control" value='<?= $busn->state ?>'>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-lg-4 col-sm-12 mb-3">
                     <label for="validationServer01">Zip Code</label>
-                    <input type="text" name="zip" value='<?= $busn->zip ?>'>
+                    <input type="text" name="zip" class="form-control" value='<?= $busn->zip ?>'>
                 </div>
                 <div class="col-lg col-sm-12 mb-3">
                     <label for="validationServer01">Country</label>
-                    <input type="text" name="country" value='<?= $busn->country ?>'>
+                    <input type="text" name="country" class="form-control" value='<?= $busn->country ?>'>
                 </div>
             </div>
             <input type="submit" class="btn btn-primary mb-4" name="submit">
