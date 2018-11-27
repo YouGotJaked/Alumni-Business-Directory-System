@@ -109,7 +109,7 @@
         'state' => $_POST["state"],
         'zip' => $_POST["zip"],
         'country' => $_POST["country"],
-        'owner_id' => $busn->owner_id;
+        'owner_id' => $busn->owner_id];
         
         $json_obj = json_encode($json, JSON_PRETTY_PRINT);
         $business->update_all_values($business_id, $json_obj);
