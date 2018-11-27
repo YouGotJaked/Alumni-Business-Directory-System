@@ -65,7 +65,7 @@
 	</div>
 	<div class="card">
  		<h3 class="card-header text-center font-weight-bold text-uppercase py-4">Edit Business</h3>
-  		<div class="card-body">
+  		<form class="card-body" method="post">
     		<div id="table" class="table-editable">
 				<table class="table table-bordered table-responsive-md table-hover text-center">
        			<tr>
@@ -88,38 +88,34 @@
                     <td class="pt-3-half" contenteditable="true" name="state"><?= $busn->state ?></td>
                     <td class="pt-3-half" contenteditable="true" name="zip"><?= $busn->zip ?></td>
                     <td class="pt-3-half" contenteditable="true" name="country"><?= $busn->country ?></td>
-          			<td>
-                        <form method="post" action="">
-                            <input type="submit" class="btn btn-primary mb-4" name="submit">
-                        </form>
-          			</td>
+          			<td><input type="submit" class="btn btn-primary mb-4" name="submit"></td>
         		</tr>
-      		</table>
+      		    </table>
     		</div>
-  		</div>
+            <?php
+            if (isset($_POST["update"]))  {
+                $json = ['name' => $_POST["name"],
+                'status' => $busn->status,
+                'description' => $_POST["description"],
+                'category' => $_POST["category"],
+                'street' => $_POST["street"],
+                'city' => $_POST["city"],
+                'state' => $_POST["state"],
+                'zip' => $_POST["zip"],
+                'country' => $_POST["country"],
+                'owner_id' => $busn->owner_id];
+        
+                $json_obj = json_encode($json, JSON_PRETTY_PRINT);
+                $update_busn = $business->update_all_values($business_id, $json_obj);
+        
+                if ($update_busn) {
+                    echo "Business updated" . "<br>";
+                } else {
+                    echo "Business failed to update" . "<br>";
+                }
+            }
+            ?>
+  		</form>
 	</div>
-    <?php
-    if (isset($_POST["update"]))  {
-        $json = ['name' => $_POST["name"],
-        'status' => $busn->status,
-        'description' => $_POST["description"],
-        'category' => $_POST["category"],
-        'street' => $_POST["street"],
-        'city' => $_POST["city"],
-        'state' => $_POST["state"],
-        'zip' => $_POST["zip"],
-        'country' => $_POST["country"],
-        'owner_id' => $busn->owner_id];
-        
-        $json_obj = json_encode($json, JSON_PRETTY_PRINT);
-        $update_busn = $business->update_all_values($business_id, $json_obj);
-        
-        if ($update_busn) {
-            echo "Business updated" . "<br>";
-        } else {
-            echo "Business failed to update" . "<br>";
-        }
-    }
-    ?>
 </body>
 </html>
