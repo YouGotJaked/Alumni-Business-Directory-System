@@ -47,14 +47,19 @@
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
 	<div class="container text-center col-lg-6 col-sm-10">
-		<h1 id="business-name"></h1>
+		<h1 id="business-name" class="text-uppercase"></h1>
 		<p id="business-description" class="mx-auto"></p>
 		<div id="business-category" class= "mb-3 text-uppercase"></div>
-			<div id="business-street"></div>
-			<div id="business-city"></div>
-			<div id="business-state"></div>
-			<div id="business-zip"></div>
-			<div id="business-country"></div>
+			<div id="business-street">
+				<div id="business-city">
+					<div id="business-state">
+						<div id="business-zip">
+							<div id="business-country">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 	</div>
 
 	<?php
