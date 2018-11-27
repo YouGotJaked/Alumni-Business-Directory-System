@@ -80,14 +80,14 @@
           			<th class="text-center">Update</th>
        		 	</tr>
         		<tr>
-          			<td class="pt-3-half" contenteditable="true"><?= $busn->name ?></td>
-                    <td class="pt-3-half" contenteditable="true"><?= $busn->description ?></td>
-          			<td class="pt-3-half" contenteditable="true"><?= $busn->category ?></td>
-                    <td class="pt-3-half" contenteditable="true"><?= $busn->street ?></td>
-                    <td class="pt-3-half" contenteditable="true"><?= $busn->city ?></td>
-                    <td class="pt-3-half" contenteditable="true"><?= $busn->state ?></td>
-                    <td class="pt-3-half" contenteditable="true"><?= $busn->zip ?></td>
-                    <td class="pt-3-half" contenteditable="true"><?= $busn->country ?></td>
+          			<td class="pt-3-half" contenteditable="true" name="name"><?= $busn->name ?></td>
+                    <td class="pt-3-half" contenteditable="true" name="description"><?= $busn->description ?></td>
+          			<td class="pt-3-half" contenteditable="true" name="category"><?= $busn->category ?></td>
+                    <td class="pt-3-half" contenteditable="true" name="street"><?= $busn->street ?></td>
+                    <td class="pt-3-half" contenteditable="true" name="city"><?= $busn->city ?></td>
+                    <td class="pt-3-half" contenteditable="true" name="state"><?= $busn->state ?></td>
+                    <td class="pt-3-half" contenteditable="true" name="zip"><?= $busn->zip ?></td>
+                    <td class="pt-3-half" contenteditable="true" name="country"><?= $busn->country ?></td>
           			<td>
                         <form method="post" action="">
             			    <span class="table-update"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0" name="update">Update</button></span>
@@ -100,8 +100,19 @@
 	</div>
     <?php
     if (isset($_POST['update']))  {
-        echo $busn . "<br>";
-        //$business->update_all_values($business_id, $json);
+        $json = ['name' => $_POST['name],
+        'status' => $busn->status,
+        'description' => $_POST["description"],
+        'category' => $_POST["category"],
+        'street' => $_POST["street"],
+        'city' => $_POST["city"],
+        'state' => $_POST["state"],
+        'zip' => $_POST["zip"],
+        'country' => $_POST["country"],
+        'owner_id' => $busn->owner_id;
+        
+        $json_obj = json_encode($json, JSON_PRETTY_PRINT);
+        $business->update_all_values($business_id, $json_obj);
     }
     ?>
 </body>
