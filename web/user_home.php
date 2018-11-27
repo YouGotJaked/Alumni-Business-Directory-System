@@ -26,6 +26,12 @@
 		<div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
 			<li class="nav-item">
+                <?php
+                session_start();
+                if ($_SESSION['role'] == "Owner") {
+                    echo '<a class="navbar-brand mr-2" href="edit_business.php"><button class="btn btn-sm btn-outline-light">Edit Business</button></a>';
+                }
+                ?>
                 <a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
             </li>
             <li class="nav-item">
