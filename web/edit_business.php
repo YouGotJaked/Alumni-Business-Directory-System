@@ -100,7 +100,7 @@
 	</div>
     <?php
     if (isset($_POST['update']))  {
-        $json = ['name' => $_POST['name],
+        $json = ['name' => $_POST["name"],
         'status' => $busn->status,
         'description' => $_POST["description"],
         'category' => $_POST["category"],
