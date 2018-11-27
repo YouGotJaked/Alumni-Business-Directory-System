@@ -65,51 +65,57 @@
 	</div>
 	<div class="card">
  		<h3 class="card-header text-center font-weight-bold text-uppercase py-4">Edit Business</h3>
-  		<form class="card-body" method="post" action="edit_business.php">
-    		<div id="table" class="table-editable">
-				<table class="table table-bordered table-responsive-md table-hover text-center">
-       			<tr>
-          			<th class="text-center">Business Name</th>
-					<th class="text-center">Description</th>
-                    <th class="text-center">Category</th>
-					<th class="text-center">Street</th>
-                    <th class="text-center">City</th>
-                    <th class="text-center">State</th>
-                    <th class="text-center">Zip</th>
-                    <th class="text-center">Country</th>
-          			<th class="text-center">Update</th>
-       		 	</tr>
-        		<tr>
-          			<td class="pt-3-half">
-                        <input type="text" name="name" value='<?= $busn->name ?>' width=100%>
-                    </td>
-                    <td class="pt-3-half">
-                        <input type="text" name="description" value='<?= $busn->description ?>'>
-                    </td>
-          			<td class="pt-3-half">
-                        <input type="text" name="category" value='<?= $busn->category ?>'>
-                    </td>
-                    <td class="pt-3-half">
-                        <input type="text" name="street" value='<?= $busn->street ?>'>
-                    </td>
-                    <td class="pt-3-half">
-                        <input type="text" name="city" value='<?= $busn->city ?>'>
-                    </td>
-                    <td class="pt-3-half">
-                        <input type="text" name="state" value='<?= $busn->state ?>'>
-                    </td>
-                    <td class="pt-3-half">
-                        <input type="text" name="zip" value='<?= $busn->zip ?>'>
-                    </td>
-                    <td class="pt-3-half">
-                        <input type="text" name="country" value='<?= $busn->country ?>'>
-                    </td>
-          			<td>
-                        <input type="submit" class="btn btn-primary mb-4" name="update" value="Update">
-                    </td>
-        		</tr>
-      		    </table>
-    		</div>
+        <form class="container col-lg-8" method="post" action="edit_business.php">
+            <div class="form-row">
+                <div class="col-lg col-sm-12 mb-3">
+                    <label for="validationServer01">Business Name</label>
+                    <input type="text" name="name" value='<?= $busn->name ?>'>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-lg col-sm-12 mb-3">
+                    <label for="exampleFormControlTextarea1">Business Description</label>
+                    <textarea name="description"><?= $busn->description ?></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-lg col-sm-12 mb-3">
+                    <label for="exampleFormControlSelect1">Type of Business</label>
+                    <select class="form-control" name="category" id="exampleFormControlSelect1" required>
+                        <option disabled selected value> -- select an option -- </option>
+                        <option>Restaurant</option>
+                        <option>Shopping</option>
+                        <option>Professional Services</option>
+                        <option>Local Services</option>
+                        <option>Home Services</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-lg col-sm-12 mb-3">
+                    <label for="validationServer01">Street</label>
+                    <input type="text" name="street" value='<?= $busn->street ?>'>
+                </div>
+                <div class="col-lg-4 col-sm-12 mb-3">
+                    <label for="validationServer01">City</label>
+                    <input type="text" name="city" value='<?= $busn->city ?>'>
+                </div>
+                <div class="col-lg-2 col-sm-12 mb-3">
+                    <label for="validationServer01">State</label>
+                    <input type="text" name="state" value='<?= $busn->state ?>'>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-lg-4 col-sm-12 mb-3">
+                    <label for="validationServer01">Zip Code</label>
+                    <input type="text" name="zip" value='<?= $busn->zip ?>'>
+                </div>
+                <div class="col-lg col-sm-12 mb-3">
+                    <label for="validationServer01">Country</label>
+                    <input type="text" name="country" value='<?= $busn->country ?>'>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary mb-4" name="submit">
             <?php
             if (isset($_POST["update"]))  {
                 $json = ['name' => $_POST["name"],
