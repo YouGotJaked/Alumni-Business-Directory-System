@@ -46,17 +46,15 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="container text-center col-lg-6 col-sm-10">
+	<div class="card border-dark container text-center col-lg-6 col-sm-10">
 		<u><h1 id="business-name" class="text-uppercase"></h1></u>
-		<p id="business-description" class="mx-auto"></p>
 		<div id="business-category" class= "mb-3 text-uppercase"></div>
-		<div class="col-12">
-			<div id="business-street"></div>
-			<div id="business-city"></div>
-			<div id="business-state"></div>
-			<div id="business-zip"></div>
-			<div id="business-country"></div>
-		</div>
+		<p id="business-description" class="mx-auto"></p>
+		<div id="business-street"></div>
+		<div id="business-city"></div>
+		<div id="business-state"></div>
+		<div id="business-zip"></div>
+		<div id="business-country"></div>
 	</div>
 
 	<?php
