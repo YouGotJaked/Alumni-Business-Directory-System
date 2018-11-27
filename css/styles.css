@@ -24,13 +24,3 @@ nav {
 	background-color: #820529;
 	color: white;
 }
-
-input{
-    position:absolute;
-    top:0px;
-    height:100%;
-}
-td{
-    position:relative;
-    width:200px;
-}
