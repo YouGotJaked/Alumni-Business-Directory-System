@@ -25,15 +25,12 @@ nav {
 	color: white;
 }
 
-input {
+input{
+    position:absolute;
+    top:0px;
     height:100%;
-    display:inline-block;
-    position:relative;
-    
 }
-
-td {
-    border:solid green 1px;
-    background:pink;
-    padding:0
+td{
+    position:relative;
+    width:200px;
 }

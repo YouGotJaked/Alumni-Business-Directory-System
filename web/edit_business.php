@@ -80,8 +80,8 @@
           			<th class="text-center">Update</th>
        		 	</tr>
         		<tr>
-          			<td>
-                        <input type="text" name="name" value='<?= $busn->name ?>'>
+          			<td class="pt-3-half">
+                        <input type="text" name="name" value='<?= $busn->name ?>' width=100%>
                     </td>
                     <td class="pt-3-half">
                         <input type="text" name="description" value='<?= $busn->description ?>'>
@@ -111,8 +111,6 @@
       		    </table>
     		</div>
             <?php
-            echo $_POST["name"];
-            echo $busn->status;
             if (isset($_POST["update"]))  {
                 $json = ['name' => $_POST["name"],
                 'status' => $busn->status,
@@ -129,9 +127,9 @@
                 $update_busn = $business->update_all_values($business_id, $json_obj);
         
                 if ($update_busn) {
-                    echo "Business updated" . "<br>";
+                    echo "Business updated." . "<br>";
                 } else {
-                    echo "Business failed to update" . "<br>";
+                    echo "Business failed to update." . "<br>";
                 }
             }
             ?>
