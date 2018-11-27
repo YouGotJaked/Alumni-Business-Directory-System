@@ -16,7 +16,7 @@
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
 
-	<form class="container" method="post" action="signup.php">
+	<form class="container" method="post" action="">
   		<div class="form-row">
     		<div class="col-lg col-sm-12 mb-3">
 				<label for="validationServer01">First name</label>
