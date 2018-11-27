@@ -94,6 +94,7 @@
     		</div>
             <?php
             echo $_POST["name"];
+            echo $busn->status;
             if (isset($_POST["update"]))  {
                 $json = ['name' => $_POST["name"],
                 'status' => $busn->status,
