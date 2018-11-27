@@ -65,7 +65,7 @@
 	</div>
 	<div class="card">
  		<h3 class="card-header text-center font-weight-bold text-uppercase py-4">Edit Business</h3>
-  		<form class="card-body" method="post">
+  		<form class="card-body" method="post" action="edit_business.php">
     		<div id="table" class="table-editable">
 				<table class="table table-bordered table-responsive-md table-hover text-center">
        			<tr>
