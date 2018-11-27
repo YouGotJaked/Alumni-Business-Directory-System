@@ -16,7 +16,7 @@
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
 
-	<form class="container" method="post" action="">
+	<form class="container" method="post" action="signup.php">
   		<div class="form-row">
     		<div class="col-lg col-sm-12 mb-3">
 				<label for="validationServer01">First name</label>
@@ -58,6 +58,7 @@
 
     if (isset($_POST["submit"])) {
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
+        login($_POST["email"], $_POST["password"])
         header('Location: user_home.php');
     }
     ?>
