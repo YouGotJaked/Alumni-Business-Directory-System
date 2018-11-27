@@ -63,6 +63,7 @@
 			$business->update($id, "status", "Approved");
             
             $owner_id = $business->get_one($id, "owner_id");
+            echo $owner_id . "<br>";
             
             $update_resp = $user->update($owner_id, "role", "Owner");
             if ($update_resp) {
