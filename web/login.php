@@ -22,27 +22,27 @@
     session_set_cookie_params(3600);            // clients remember their session id for 1 hour
     session_start();
     session_regenerate_id(true);
-        
+
     require_once "../src/login.php";
     require_once "../src/user.php";
-    
+
     $user = new User();
     $login_error = "";
-        
+
     // When user clicks Submit button
     if (isset($_POST["submit"])) {
         try {
             $_SESSION['login'] = login($_POST["email"], $_POST["password"]);
-            
+
             if ($_SESSION['login']) {
                 $json = $user->get_one("email", $_POST["email"]);
                 $json_obj = json_decode($json);
-                
+
                 // Track user email, role and ID
                 $_SESSION['email'] = $json_obj[0]->email;
                 $_SESSION['role'] = $json_obj[0]->role;
                 $_SESSION['user'] = $json_obj[0]->id;
-                
+
                 $loc = ($_SESSION['role'] == "Manager") ? "manager_home.php" : "user_home.php";
                 header("Location:" . $loc);         // Go to home page
             } else {
@@ -54,7 +54,7 @@
     }
     ?>
 
-	<form class="container col-5" method="post" action="login.php">
+	<form class="container col-lg-5 col-sm-10" method="post" action="login.php">
   	<div class="form-group">
     	<label for="exampleInputEmail1">Email</label>
     	<input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
@@ -64,7 +64,7 @@
     	<input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" required>
   	</div>
 	<div class="form-group">
-		<a href="signup.php">Don't have an account?</a>	
+		<a href="signup.php">Don't have an account?</a>
 	</div>
   	<input type="submit" name="submit" class="btn submitbtn">
     <?php echo "<br>" . $login_error; ?>
