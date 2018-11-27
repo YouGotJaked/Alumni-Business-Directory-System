@@ -80,17 +80,33 @@
           			<th class="text-center">Update</th>
        		 	</tr>
         		<tr>
-          			<td class="pt-3-half" contenteditable="true">
+          			<td class="pt-3-half">
                         <input type="text" name="name" value='<?= $busn->name ?>'>
                     </td>
-                    <td class="pt-3-half" contenteditable="true" name="description"><?= $busn->description ?></td>
-          			<td class="pt-3-half" contenteditable="true" name="category"><?= $busn->category ?></td>
-                    <td class="pt-3-half" contenteditable="true" name="street"><?= $busn->street ?></td>
-                    <td class="pt-3-half" contenteditable="true" name="city"><?= $busn->city ?></td>
-                    <td class="pt-3-half" contenteditable="true" name="state"><?= $busn->state ?></td>
-                    <td class="pt-3-half" contenteditable="true" name="zip"><?= $busn->zip ?></td>
-                    <td class="pt-3-half" contenteditable="true" name="country"><?= $busn->country ?></td>
-          			<td><input type="submit" class="btn btn-primary mb-4" name="update" value="Update"></td>
+                    <td class="pt-3-half">
+                        <input type="text" name="description" value='<?= $busn->description ?>'>
+                    </td>
+          			<td class="pt-3-half">
+                        <input type="text" name="category" value='<?= $busn->category ?>'>
+                    </td>
+                    <td class="pt-3-half">
+                        <input type="text" name="street" value='<?= $busn->street ?>'>
+                    </td>
+                    <td class="pt-3-half">
+                        <input type="text" name="city" value='<?= $busn->city ?>'>
+                    </td>
+                    <td class="pt-3-half">
+                        <input type="text" name="state" value='<?= $busn->state ?>'>
+                    </td>
+                    <td class="pt-3-half">
+                        <input type="text" name="zip" value='<?= $busn->zip ?>'>
+                    </td>
+                    <td class="pt-3-half">
+                        <input type="text" name="country" value='<?= $busn->country ?>'>
+                    </td>
+          			<td>
+                        <input type="submit" class="btn btn-primary mb-4" name="update" value="Update">
+                    </td>
         		</tr>
       		    </table>
     		</div>

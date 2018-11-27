@@ -24,3 +24,16 @@ nav {
 	background-color: #820529;
 	color: white;
 }
+
+input {
+    height:100%;
+    display:inline-block;
+    position:relative;
+    
+}
+
+td {
+    border:solid green 1px;
+    background:pink;
+    padding:0
+}
