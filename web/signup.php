@@ -51,7 +51,7 @@
       			<input type="password" name ="confirm_password" class="form-control" placeholder="Confirm Password" required>
     		</div>
 		</div>
-		<input type="submit" class="btn btn-primary mb-3" name="submit">
+		<input type="submit" class="btn submitbtn mb-3" name="submit">
 	</form>
     <?php
     require_once "../src/login.php";
