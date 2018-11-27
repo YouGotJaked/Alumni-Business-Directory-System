@@ -54,15 +54,24 @@
 		<input type="submit" class="btn submitbtn mb-3" name="submit">
 	</form>
     <?php
-        ini_set('session.gc.maxlifetime', 3600);    // server keeps session data for at least 1 hour
-        session_set_cookie_params(3600);            // clients remember their session id for 1 hour
-        session_start();
-        session_regenerate_id(true);
+    ini_set('session.gc.maxlifetime', 3600);    // server keeps session data for at least 1 hour
+    session_set_cookie_params(3600);            // clients remember their session id for 1 hour
+    session_start();
+    session_regenerate_id(true);
     require_once "../src/login.php";
+    require_once "../src/user.php";
+        
+    $user = new User();
 
     if (isset($_POST["submit"])) {
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
-        $_SESSION['login'] = login($_POST["email"], $_POST["password"]);
+        $json = $user->get_one("email", $_POST["email"]);
+        $json_obj = json_decode($json);
+        
+        // Track user email, role and ID
+        $_SESSION['email'] = $json_obj[0]->email;
+        $_SESSION['role'] = $json_obj[0]->role;
+        $_SESSION['user'] = $json_obj[0]->id;
         header('Location: user_home.php');
     }
     ?>
