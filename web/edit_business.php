@@ -80,7 +80,7 @@
           			<th class="text-center">Update</th>
        		 	</tr>
         		<tr>
-          			<td class="pt-3-half" contenteditable="true" name="name"><?= $busn->name ?></td>
+          			<td class="pt-3-half" contenteditable="true" type="text" name="name"><?= $busn->name ?></td>
                     <td class="pt-3-half" contenteditable="true" name="description"><?= $busn->description ?></td>
           			<td class="pt-3-half" contenteditable="true" name="category"><?= $busn->category ?></td>
                     <td class="pt-3-half" contenteditable="true" name="street"><?= $busn->street ?></td>
@@ -88,7 +88,7 @@
                     <td class="pt-3-half" contenteditable="true" name="state"><?= $busn->state ?></td>
                     <td class="pt-3-half" contenteditable="true" name="zip"><?= $busn->zip ?></td>
                     <td class="pt-3-half" contenteditable="true" name="country"><?= $busn->country ?></td>
-          			<td><input type="submit" class="btn btn-primary mb-4" name="update"></td>
+          			<td><input type="submit" class="btn btn-primary mb-4" name="update">Update</td>
         		</tr>
       		    </table>
     		</div>
