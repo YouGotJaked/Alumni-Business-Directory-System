@@ -49,7 +49,6 @@ function populateIndividualUserFields(user, business) {
     $("#user-role").text(user.role)
     
     if (user.role === "Owner") {
-        console.log(business)
         business = business[0]
         
         $(".container").append('<a href="individual_business.php?business_id=' + business.id + '" id="user-business">' + business.name + '</a>')
