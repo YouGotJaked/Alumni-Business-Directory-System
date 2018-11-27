@@ -54,11 +54,14 @@
 		<input type="submit" class="btn submitbtn mb-3" name="submit">
 	</form>
     <?php
+        ini_set('session.gc.maxlifetime', 3600);    // server keeps session data for at least 1 hour
+        session_set_cookie_params(3600);            // clients remember their session id for 1 hour
+        session_start();
+        session_regenerate_id(true);
     require_once "../src/login.php";
 
     if (isset($_POST["submit"])) {
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
-        session.start();
         $_SESSION['login'] = login($_POST["email"], $_POST["password"]);
         header('Location: user_home.php');
     }
