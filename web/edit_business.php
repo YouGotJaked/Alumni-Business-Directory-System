@@ -42,18 +42,25 @@
         </ul>
         </div>
     </nav>
+
+    <?php
+    $business = new Business();
+    $user = new User();
+    
+    $business_id = json_decode($user->get_one("id", _SESSION['user']))[0]->business_id;
+    $busn = json_decode($business->get_one("id", $business_id))[0];
+    ?>
+
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
 	<div class="card">
- 		<h3 class="card-header text-center font-weight-bold text-uppercase py-4">Businesses</h3>
+ 		<h3 class="card-header text-center font-weight-bold text-uppercase py-4">Edit Business</h3>
   		<div class="card-body">
     		<div id="table" class="table-editable">
 				<table class="table table-bordered table-responsive-md table-hover text-center">
        			<tr>
-          			<th class="text-center">Business Owner</th>
           			<th class="text-center">Business Name</th>
-                    <th class="text-center">Status</th>
 					<th class="text-center">Description</th>
                     <th class="text-center">Category</th>
 					<th class="text-center">Street</th>
@@ -64,16 +71,14 @@
           			<th class="text-center">Update</th>
        		 	</tr>
         		<tr>
-          			<td class="pt-3-half" contenteditable="true">Ben Bronco</td>
-          			<td class="pt-3-half" contenteditable="true">Ben's Burritos</td>
-                    <td class="pt-3-half" contenteditable="true">Approved</td>
-                    <td class="pt-3-half" contenteditable="true">Short description for Ben's Burritos. This place is pretty good.</td>
-          			<td class="pt-3-half" contenteditable="true">Restaurant</td>
-                    <td class="pt-3-half" contenteditable="true">500 El Camino Real</td>
-                    <td class="pt-3-half" contenteditable="true">Santa Clara</td>
-                    <td class="pt-3-half" contenteditable="true">CA</td>
-                    <td class="pt-3-half" contenteditable="true">95053</td>
-                    <td class="pt-3-half" contenteditable="true">USA</td>
+          			<td class="pt-3-half" contenteditable="true"><?= $busn->name ?></td>
+                    <td class="pt-3-half" contenteditable="true"><?= $busn->description ?></td>
+          			<td class="pt-3-half" contenteditable="true"><?= $busn->category ?></td>
+                    <td class="pt-3-half" contenteditable="true"><?= $busn->street ?></td>
+                    <td class="pt-3-half" contenteditable="true"><?= $busn->city ?></td>
+                    <td class="pt-3-half" contenteditable="true"><?= $busn->state ?></td>
+                    <td class="pt-3-half" contenteditable="true"><?= $busn->zip ?></td>
+                    <td class="pt-3-half" contenteditable="true"><?= $busn->country ?></td>
           			<td>
             			<span class="table-update"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Update</button></span>
           			</td>
