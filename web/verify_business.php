@@ -61,6 +61,14 @@
 		if (strpos($choice, "confirm") === 0) {
 			$id = str_replace("confirm", "", $choice);
 			$business->update($id, "status", "Approved");
+            
+            $json = $business->get_one("id", $id);
+            $json_obj = json_decode($json);
+            $owner_id = $json_obj[0]->owner_id;
+
+            $user->update($owner_id, "role", "Owner");
+            $user->update($owner_id, "business_id", $id);
+            
 		} else if (strpos($choice, "deny") === 0) {
 			$id = str_replace("deny", "", $choice);
 			$business->update($id, "status", "Denied");
