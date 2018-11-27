@@ -18,22 +18,25 @@
                 <a class="nav-link navbutton" href="user_home.php">Home</a>
             </li>
         </ul>
-		
+
 		<button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
 			<img src="../img/three-bars.svg" width="20px">
 		</button>
-		
+
 		<div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
 			<li class="nav-item">
+                <?php
+                session_start();
+                if ($_SESSION['role'] == "Owner") {
+                    echo '<a class="navbar-brand mr-2" href="edit_business.php"><button class="btn btn-sm btn-outline-light">Edit Business</button></a>';
+                }
+                ?>
                 <a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
             </li>
             <li class="nav-item">
                 <span class="nav-link" style="color: white" href="#">
-                    <?php
-                    session_start();
-                    echo $_SESSION['email'];
-                    ?>
+                    <?php echo $_SESSION['email']; ?>
                 </span>
             </li>
             <li class="nav-item">
@@ -95,28 +98,20 @@
       			<input type="text" name="country" class="form-control" placeholder="Country" required>
     		</div>
 		</div>
-		<input type="submit" class="btn btn-primary mb-4" name="submit">
+		<input type="submit" class="btn submitbtn mb-4" name="submit">
         <?php
         require_once "../src/business.php";
         require_once "../src/user.php";
-            
+
         // Verify user is logged in
         if (!$_SESSION['login']) {
             header('Location: login.php');
         }
-        
+
         if (isset($_POST["submit"])) {
             $business = new Business();
             $user = new User();
-            // check if business already exists??
-            
-            // get id of current user
-            /*
-            $json = $user->get_one("id", $_SESSION['user']);
-            $json_obj = json_decode($json);
-            $owner_id = $json_obj[0]->id;
-            */
-            
+          
             $json = ['name' => $_POST["name"],
             'status' => "Requested",
             'description' => $_POST["description"],
@@ -127,11 +122,11 @@
             'zip' => $_POST["zip"],
             'country' => $_POST["country"],
             'owner_id' => $_SESSION['user']];
-            
+
             $json_obj = json_encode($json, JSON_PRETTY_PRINT);
             $add_resp = $business->add($json_obj);
             if ($add_resp) {
-                echo "Business request sent for approval.";
+                echo "<br>" . "Business request sent for approval." . "<br>";
             }
         }
         ?>

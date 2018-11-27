@@ -56,11 +56,10 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="container text-center col-lg-6 col-sm-10">
-		<h1 id="business-name"></h1>
-		<div id="business-owner"></div>
-		<p id="business-description" class="mx-auto"></p>
+	<div class="card border-dark container text-center col-lg-6 col-sm-10">
+		<u><h1 id="business-name" class="text-uppercase"></h1></u>
 		<div id="business-category" class= "mb-3 text-uppercase"></div>
+		<p id="business-description" class="mx-auto"></p>
 		<div id="business-street"></div>
 		<div id="business-city"></div>
 		<div id="business-state"></div>
