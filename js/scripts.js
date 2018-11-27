@@ -24,7 +24,7 @@ function populateBusinessList(approved, name, category, city) {
     for (var i = 0; i < results.length; ++i) {
         var card_body_id = "business".concat('_', results[i].id)
 
-        $("body").append('<div id="business_card_' + results[i].id + '" class="card border-dark mb-3 container col-lg-6 col-sm-10"></div>')
+        $("body").append('<div id="business_card_' + results[i].id + '" class="card border-dark mb-3 container col-lg-6 col-sm-10 col-xs-10"></div>')
         $("#business_card_" + results[i].id + "").append('<div id="' + card_body_id + '" class="card-body"></div>')
         $("#" + card_body_id + "").append('<a id="business_link_' + results[i].id +'" href="individual_business.php?business_id=' + results[i].id + '"></a>')
         $("#business_link_" + results[i].id + "").append('<h5 class="card-header bg-transparent">' + results[i].name + '</h5>')
@@ -50,7 +50,7 @@ function populateUserList(users) {
     for (var i = 0; i < users.length; ++i) {
         var card_body_id = "user".concat('_', users[i].id)
 
-        $("body").append('<div id="user_card_' + users[i].id + '" class="card border-dark mb-3 container col-lg-6 col-sm-10"></div>')
+        $("body").append('<div id="user_card_' + users[i].id + '" class="card border-dark mb-3 container col-lg-6 col-sm-10 col-xs-10"></div>')
         $("#user_card_" + users[i].id + "").append('<div id="' + card_body_id + '" class="card-body"></div>')
         $("#" + card_body_id + "").append('<a id="user_link_' + users[i].id +'" href="individual_user.php?user_id=' + users[i].id + '"></a>')
         $("#user_link_" + users[i].id + "").append('<h5 class="card-header bg-transparent">' + users[i].first_name + ' ' + users[i].last_name + '</h5>')
