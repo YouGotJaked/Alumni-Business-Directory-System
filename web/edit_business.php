@@ -28,7 +28,7 @@
             <li class="nav-item">
                 <a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
             </li>
-            li class="nav-item">
+            <li class="nav-item">
                 <span class="nav-link" style="color: white" href="#">
                     <?php
                     session_start();
@@ -61,7 +61,7 @@
                     <th class="text-center">State</th>
                     <th class="text-center">Zip</th>
                     <th class="text-center">Country</th>
-          			<th class="text-center">Remove</th>
+          			<th class="text-center">Update</th>
        		 	</tr>
         		<tr>
           			<td class="pt-3-half" contenteditable="true">Ben Bronco</td>
@@ -74,9 +74,8 @@
                     <td class="pt-3-half" contenteditable="true">CA</td>
                     <td class="pt-3-half" contenteditable="true">95053</td>
                     <td class="pt-3-half" contenteditable="true">USA</td>
-					<td class="pt-3-half" contenteditable="true">500 El Camino Real, Santa Clara, CA 95053, USA</td>
           			<td>
-            			<span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+            			<span class="table-update"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Update</button></span>
           			</td>
         		</tr>
       		</table>
