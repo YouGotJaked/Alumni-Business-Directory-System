@@ -73,13 +73,13 @@
             <div class="form-row">
                 <div class="col-lg col-sm-12 mb-3">
                     <label for="validationServer01">Business Name</label>
-                    <input type="text" name="name" class="form-control" value='<?= $busn->name ?>'>
+                    <input type="text" name="name" class="form-control" value='<?php print htmlentities($busn->name, ENT_QUOTES); ?>'>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-lg col-sm-12 mb-3">
                     <label for="exampleFormControlTextarea1">Business Description</label>
-                    <textarea class="form-control" name="description"><?= $busn->description ?></textarea>
+                    <textarea class="form-control" name="description"><?php print htmlentities($busn->description, ENT_QUOTES); ?></textarea>
                 </div>
             </div>
             <div class="form-row">
@@ -97,25 +97,25 @@
             <div class="form-row">
                 <div class="col-lg col-sm-12 mb-3">
                     <label for="validationServer01">Street</label>
-                    <input type="text" name="street" class="form-control" value='<?= $busn->street ?>'>
+                    <input type="text" name="street" class="form-control" value='<?php print htmlentities($busn->street, ENT_QUOTES); ?>'>
                 </div>
                 <div class="col-lg-4 col-sm-12 mb-3">
                     <label for="validationServer01">City</label>
-                    <input type="text" name="city" class="form-control" value='<?= $busn->city ?>'>
+                    <input type="text" name="city" class="form-control" value='<?php print htmlentities($busn->city, ENT_QUOTES); ?>'>
                 </div>
                 <div class="col-lg-2 col-sm-12 mb-3">
                     <label for="validationServer01">State</label>
-                    <input type="text" name="state" class="form-control" value='<?= $busn->state ?>'>
+                    <input type="text" name="state" class="form-control" value='<?php print htmlentities($busn->state, ENT_QUOTES); ?>'>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-lg-4 col-sm-12 mb-3">
                     <label for="validationServer01">Zip Code</label>
-                    <input type="text" name="zip" class="form-control" value='<?= $busn->zip ?>'>
+                    <input type="text" name="zip" class="form-control" value='<?php print htmlentities($busn->zip, ENT_QUOTES); ?>'>
                 </div>
                 <div class="col-lg col-sm-12 mb-3">
                     <label for="validationServer01">Country</label>
-                    <input type="text" name="country" class="form-control" value='<?= $busn->country ?>'>
+                    <input type="text" name="country" class="form-control" value='<?php print htmlentities($busn->country, ENT_QUOTES); ?>'>
                 </div>
             </div>
             <input type="submit" class="btn btn-primary mb-4" name="submit">
