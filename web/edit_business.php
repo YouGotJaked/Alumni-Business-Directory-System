@@ -73,7 +73,7 @@
             <div class="form-row">
                 <div class="col-lg col-sm-12 mb-3">
                     <label for="validationServer01">Business Name</label>
-                    <input type="text" name="name" class="form-control" value='<?php htmlentities($busn->name, ENT_QUOTES); ?>'>
+                    <input type="text" name="name" class="form-control" value='<?php print htmlentities($busn->name, ENT_QUOTES); ?>'>
                 </div>
             </div>
             <div class="form-row">
