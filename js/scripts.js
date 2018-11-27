@@ -1,5 +1,6 @@
-function populateIndividualBusinessFields(business) {
+function populateIndividualBusinessFields(business, owner) {
     business = business[0]
+    owner = owner[0]
 
     // set the text of the fields
     $("#business-name").text(business.name)
@@ -10,6 +11,8 @@ function populateIndividualBusinessFields(business) {
     $("#business-state").text(business.state)
     $("#business-zip").text(business.zip)
     $("#business-country").text(business.country)
+   
+    $(".container").append('<a href="individual_user.php?user_id=' + owner.id + '" id="business-owner">' + owner.first_name + " " + owner.last_name + '</a>')
 }
 
 function populateBusinessList(approved, name, category, city) {
@@ -35,15 +38,22 @@ function populateBusinessList(approved, name, category, city) {
     }
 }
 
-function populateIndividualUserFields(user) {
+function populateIndividualUserFields(user, business) {
     user = user[0]
-
+    
     // set the text of the fields
     $("#user-name").text(user.first_name + ' ' + user.last_name)
     $("#user-degree").text(user.degree)
     $("#user-graduation-year").text(user.graduation_year)
     $("#user-email").text(user.email)
     $("#user-role").text(user.role)
+    
+    if (user.role === "Owner") {
+        console.log(business)
+        business = business[0]
+        
+        $(".container").append('<a href="individual_business.php?business_id=' + business.id + '" id="user-business">' + business.name + '</a>')
+    }
 }
 
 function populateUserList(users) {
