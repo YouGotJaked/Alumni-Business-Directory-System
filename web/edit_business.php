@@ -50,9 +50,12 @@
     // Verify user is logged as owner
     if (!$_SESSION['login']) {
         header('Location: login.php');
-    } else if ($_SESSION['role'] != "Owner") {
+    } else if ($_SESSION['role'] == "Visitor") {
         header('Location: user_home.php');
+    } else if ($_SESSION['role'] == "Manager") {
+        header('Location: manager_home.php');
     }
+        
     $business = new Business();
     $user = new User();
     
@@ -116,7 +119,7 @@
             </div>
             <input type="submit" class="btn btn-primary mb-4" name="submit">
             <?php
-            if (isset($_POST["update"]))  {
+            if (isset($_POST["submit"]))  {
                 $json = ['name' => $_POST["name"],
                 'status' => $busn->status,
                 'description' => $_POST["description"],
@@ -132,9 +135,9 @@
                 $update_busn = $business->update_all_values($business_id, $json_obj);
         
                 if ($update_busn) {
-                    echo "Business updated." . "<br>";
+                    echo "<br>" . "Business updated." . "<br>";
                 } else {
-                    echo "Business failed to update." . "<br>";
+                    echo "<br>" . "Business failed to update." . "<br>";
                 }
             }
             ?>
