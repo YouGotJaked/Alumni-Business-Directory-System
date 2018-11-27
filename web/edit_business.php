@@ -88,7 +88,7 @@
                     <td class="pt-3-half" contenteditable="true" name="state"><?= $busn->state ?></td>
                     <td class="pt-3-half" contenteditable="true" name="zip"><?= $busn->zip ?></td>
                     <td class="pt-3-half" contenteditable="true" name="country"><?= $busn->country ?></td>
-          			<td><input type="submit" class="btn btn-primary mb-4" name="submit"></td>
+          			<td><input type="submit" class="btn btn-primary mb-4" name="update"></td>
         		</tr>
       		    </table>
     		</div>
