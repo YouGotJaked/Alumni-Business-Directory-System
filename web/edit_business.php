@@ -69,8 +69,6 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="card">
- 		<!--<h3 class="card-header text-center font-weight-bold text-uppercase py-4">Edit Business</h3>-->
         <form class="container col-lg-8" method="post" action="edit_business.php">
             <div class="form-row">
                 <div class="col-lg col-sm-12 mb-3">
@@ -144,7 +142,6 @@
                 }
             }
             ?>
-  		</form>
-	</div>
+  	</form>
 </body>
 </html>
