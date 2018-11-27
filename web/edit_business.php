@@ -44,6 +44,15 @@
     </nav>
 
     <?php
+    include "../src/business.php";
+    include "../src/user.php";
+        
+    // Verify user is logged as owner
+    if (!$_SESSION['login']) {
+        header('Location: login.php');
+    } else if ($_SESSION['role'] != "Owner") {
+        header('Location: user_home.php');
+    }
     $business = new Business();
     $user = new User();
     
