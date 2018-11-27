@@ -90,7 +90,7 @@
                     <td class="pt-3-half" contenteditable="true" name="country"><?= $busn->country ?></td>
           			<td>
                         <form method="post" action="">
-            			    <span class="table-update"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0" name="update">Update</button></span>
+                            <input type="submit" class="btn btn-primary mb-4" name="submit">
                         </form>
           			</td>
         		</tr>
@@ -99,7 +99,7 @@
   		</div>
 	</div>
     <?php
-    if (isset($_POST['update']))  {
+    if (isset($_POST["update"]))  {
         $json = ['name' => $_POST["name"],
         'status' => $busn->status,
         'description' => $_POST["description"],
