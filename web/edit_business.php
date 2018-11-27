@@ -89,12 +89,20 @@
                     <td class="pt-3-half" contenteditable="true"><?= $busn->zip ?></td>
                     <td class="pt-3-half" contenteditable="true"><?= $busn->country ?></td>
           			<td>
-            			<span class="table-update"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Update</button></span>
+                        <form method="post" action="">
+            			    <span class="table-update"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0" name="update">Update</button></span>
+                        </form>
           			</td>
         		</tr>
       		</table>
     		</div>
   		</div>
 	</div>
+    <?php
+    if (isset($_POST['update']))  {
+        echo $busn . "<br>";
+        //$business->update_all_values($business_id, $json);
+    }
+    ?>
 </body>
 </html>
