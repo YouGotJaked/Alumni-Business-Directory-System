@@ -20,7 +20,7 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
 				<?php
-					if ($_SESSION['role'] == "User" || $_SESSION['role'] == "Owner") {
+					if ($_SESSION['role'] == "Visitor" || $_SESSION['role'] == "Owner") {
 						echo '<a class="nav-link navbutton" href="user_home.php">Home</a>';
 					} else if ($_SESSION['role'] == "Manager") {
 						echo '<a class="nav-link navbutton" href="manager_home.php">Home</a>';
@@ -40,7 +40,7 @@
                     echo '<a class="navbar-brand mr-2" href="edit_business.php"><button class="btn btn-sm btn-outline-light">Edit Business</button></a>';
                 }
 				
-				if ($_SESSION['role'] == "User" || $_SESSION['role'] == "Owner") {
+				if ($_SESSION['role'] == "Visitor" || $_SESSION['role'] == "Owner") {
 					echo '<li class="nav-item"><a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a></li>';
 				}
 			?>
