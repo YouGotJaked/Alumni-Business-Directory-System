@@ -1,22 +1,25 @@
 <?php
 include "../src/user.php";
     
-$test_user_id = 17;
+// This variable needs to be set to the right index before use
+$test_user_id = 36;
 
 $user = new User();
-$json = '{
-    "first_name":"The",
-    "last_name":"Thinker",
-    "degree":"philosophy",
-    "graduation_year":2077,
-    "email":"hello@world.com",
-    "hashed_password":"$2y$10$yijNQx65Am.35DNmWt2AJeiN/Hy6aeE38LFAkc/Sqkh/fl8AlWkhG",
-    "role":"Owner",
-    "business_id":0
-}';
 
-echo $json . "<br>";
-$add_resp = $user->add($json);
+$json = ['first_name' => 'first_name',
+'last_name' => 'last_name',
+'degree' => 'degree',
+'graduation_year' => 2000,
+'email' => 'email@scu.edu',
+'hashed_password' => '',
+'role' => 'Visitor',
+'business_id' => 0];
+
+$json_obj = json_encode($json, JSON_PRETTY_PRINT);
+
+echo $json_obj . "<br>";
+
+$add_resp = $user->add($json_obj);
     
 if ($add_resp) {
     echo "User has been added" . "<br>";
@@ -24,9 +27,9 @@ if ($add_resp) {
     echo "Failed to add user" . "<br>";
 }
     
-echo $user->get_one('id', 0) . "<br>";
-echo $user->get_one("degree", "philosophy") . "<br>";
-$update_resp = $user->update(0, "first_name", "THE");
+echo $user->get_one('id', $test_user_id) . "<br>";
+
+$update_resp = $user->update($test_user_id, "first_name", "First_Name");
     
 if ($update_resp) {
     echo "User has been updated" . "<br>";
@@ -34,9 +37,9 @@ if ($update_resp) {
     echo "Failed to update user" . "<br>";
 }
 
-echo $user->get_one('id', 0) . "<br>";
-echo $user->get_one("degree", "philosophy") . "<br>";
-$remove_resp = $user->remove(0);
+echo $user->get_one('id', $test_user_id) . "<br>";
+
+$remove_resp = $user->remove($test_user_id);
     
 if ($remove_resp) {
     echo "User has been removed" . "<br>";

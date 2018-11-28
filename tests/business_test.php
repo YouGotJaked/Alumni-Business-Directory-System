@@ -1,23 +1,25 @@
 <?php
 include "../src/business.php";
 
-$test_business_id = 36;
+// This variable needs to be set to the right index before use
+$test_business_id = 62;
 
 $business = new Business();
-$json = '{
-    "name":"Hello",
-    "status":"Darkness",
-    "description":"My",
-    "category":"Old",
-    "street":"Friend",
-    "city":"Hello",
-    "state":"World",
-    "zip":22222,
-    "country":"!",
-    "owner_id":0
-}';
+
+$json = ['name' => "name",
+'status' => "Requested",
+'description' => "description",
+'category' => "category",
+'street' => "street",
+'city' => "city",
+'state' => "state",
+'zip' => 38471,
+'country' => "country",
+'owner_id' => 0];
+
+$json_obj = json_encode($json, JSON_PRETTY_PRINT);
     
-$add_resp = $business->add($json);
+$add_resp = $business->add($json_obj);
     
 if ($add_resp) {
     echo "Business has been added" . "<br>";
@@ -26,7 +28,8 @@ if ($add_resp) {
 }
     
 echo $business->get_one("id", $test_business_id) . "<br>";
-$update_resp = $business->update($test_business_id, "name", "HELLO");
+
+$update_resp = $business->update($test_business_id, "name", "NAME");
     
 if ($update_resp) {
     echo "Business has been updated" . "<br>";
@@ -37,16 +40,16 @@ if ($update_resp) {
 echo $business->get_one("id", $test_business_id) . "<br>";
     
 $new_json = '{
-    "name":"THIS IS UPDATED",
-    "status":"DarknessWEW",
-    "description":"MyWEW",
-    "category":"Old",
-    "street":"FriendWEW",
-    "city":"Hello",
-    "state":"WorldWEW",
-    "zip":33333,
-    "country":"NO",
-    "owner_id":1
+    "name":"name",
+    "status":"status",
+    "description":"description",
+    "category":"category",
+    "street":"street",
+    "city":"city",
+    "state":"state",
+    "zip":11111,
+    "country":"country",
+    "owner_id":0
 }';
 
 $update_all_values_resp = $business->update_all_values($test_business_id, $new_json);
@@ -58,6 +61,7 @@ if ($update_all_values_resp) {
 }
 
 echo $business->get_one("id", $test_business_id) . "<br>";
+
 $remove_resp = $business->remove($test_business_id);
     
 if ($remove_resp) {
