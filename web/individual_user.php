@@ -61,7 +61,7 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="card border-dark container text-center col-lg-6 col-sm-10 p-3">
+	<div class="card border-dark container col-lg-6 col-sm-10 p-3">
 		<u><h1 id="user-name" class="text-uppercase"></h1></u>
 		<div id="user-degree" class= "mb-3 text-uppercase"></div>
 		<div id="user-graduation-year"></div>
