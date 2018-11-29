@@ -77,7 +77,7 @@
 	$requested = $business->get_all("status", "Requested");
     $json_req = json_decode($requested);
         
-    if (!isset($json_req)) {
+    if (count($json_req) == 0) {
             echo '<div class="text-center">No businesses to verify.</div>';
             return;
     }
