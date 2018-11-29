@@ -1,6 +1,10 @@
 @charset "UTF-8";
 /* CSS Document */
 
+/* 
+    DESCRIPTION: This file handles the styling of certain elements of our HTML
+*/
+
 nav {
 	background-color: #b50043;
 }
