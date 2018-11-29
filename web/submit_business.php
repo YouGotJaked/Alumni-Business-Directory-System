@@ -30,6 +30,12 @@
 			<li class="nav-item">
                 <?php
                 session_start();
+                    
+                // Verify user is logged in
+                if (!$_SESSION['login']) {
+                    header('Location: login.php');
+                }
+                    
                 if ($_SESSION['role'] == "Owner") {
                     echo '<a class="navbar-brand mr-2" href="edit_business.php"><button class="btn btn-sm btn-outline-light">Edit Business</button></a>';
                 }
@@ -104,11 +110,6 @@
         <?php
         require_once "../src/business.php";
         require_once "../src/user.php";
-
-        // Verify user is logged in
-        if (!$_SESSION['login']) {
-            header('Location: login.php');
-        }
 
         if (isset($_POST["submit"])) {
             $business = new Business();

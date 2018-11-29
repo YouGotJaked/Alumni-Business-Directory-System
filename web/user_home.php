@@ -77,8 +77,6 @@
         header('Location: login.php');
     }
 
-	// TODO fill the values of the category control with available options from the database
-
 	?>
 </body>
 </html>
