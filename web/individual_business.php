@@ -66,13 +66,12 @@
 		<u><h1 id="business-name" class="text-uppercase text-center"></h1></u>
 		<div id="business-category" class= "mb-3 text-uppercase text-center"></div>
 		<p id="business-description" class="mx-auto"></p>
-		<div class="text-center">
 			<div id="business-street"></div>
 			<div id="business-city"></div>
 			<div id="business-state"></div>
 			<div id="business-zip"></div>
 			<div id="business-country"></div>
-		</div>
+			<div class="mb-2"></div>
 	</div>
 
 	<?php
