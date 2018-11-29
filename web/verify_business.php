@@ -78,7 +78,7 @@
     $json_req = json_decode($requested);
         
     if (count($json_req) == 0) {
-            echo '<div class="text-center">No businesses to verify.</div>';
+            echo '<h1 class="text-center">No businesses to verify.</h1>';
             return;
     }
 
