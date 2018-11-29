@@ -83,7 +83,7 @@
 
 	// TODO turn this function into jQuery stuff so that its easier to manipulate - populateVerifyBusinessList()
 	// have the function trigger onchange of any of the field states
-	foreach ($json_req as &$json) : ?>
+	foreach (json_decode($requested) as &$json) : ?>
 		<?php $owner = json_decode($user->get_one("id", $json->owner_id))[0]; ?>
 
 		<div class="card border-dark mb-3 mx-auto" style="max-width: 18rem;">
