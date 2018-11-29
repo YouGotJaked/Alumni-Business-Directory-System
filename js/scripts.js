@@ -46,10 +46,10 @@ function populateBusinessList(approved, name, category, city) {
     //approved = $.map(approved, String.toUpperCase);
     for (var i = 0; i < approved.length; ++i) {
         var bob = approved[i].name.toUpperCase();
-        var dan = name;
+        var dan = name.toUpperCase();
         console.log(bob);
         console.log(dan);
-        if (approved[i].name.includes(name.toUpperCase()) && approved[i].category.includes(category) && approved[i].city.includes(city)) {
+        if (bob.includes(dan) && approved[i].category.includes(category) && approved[i].city.includes(city)) {
             results.push(approved[i])
         }
     }
