@@ -75,6 +75,9 @@
 	}
 
 	$requested = $business->get_all("status", "Requested");
+    if (!isset($requsted)) {
+        echo "No businesses to verify." . "<br>";
+    } else {
 
 	// TODO turn this function into jQuery stuff so that its easier to manipulate - populateVerifyBusinessList()
 	// have the function trigger onchange of any of the field states
@@ -109,6 +112,6 @@
 			</div>
 			</form>
 		</div>
-	<?php endforeach ?>
+    <?php endforeach } ?>}
 </body>
 </html>
