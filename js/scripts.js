@@ -45,7 +45,7 @@ function populateBusinessList(approved, name, category, city) {
     results = []
 
     for (var i = 0; i < approved.length; ++i) {
-        if (approved[i].name.includes(name) && approved[i].category.includes(category) && approved[i].city.includes(city)) {
+        if (approved[i].name.ignoreCase.includes(name.ignoreCase) && approved[i].category.ignoreCase.includes(category.ignoreCase) && approved[i].city.ignoreCase.includes(city.ignoreCase)) {
             results.push(approved[i])
         }
     }
