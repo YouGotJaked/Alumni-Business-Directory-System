@@ -45,7 +45,13 @@ function populateBusinessList(approved, name, category, city) {
     results = []
 
     for (var i = 0; i < approved.length; ++i) {
-        if (approved[i].name.includes(name) && approved[i].category.includes(category) && approved[i].city.includes(city)) {
+        // for case insensitive search
+        var upperCaseApprovedName = approved[i].name.toUpperCase();
+        var upperCaseName = name.toUpperCase();
+        var upperCaseApprovedCity = approved[i].city.toUpperCase();
+        var upperCaseCity = city.toUpperCase();
+        
+        if (upperCaseApprovedName.includes(upperCaseName) && approved[i].category.includes(category) && upperCaseApprovedCity.includes(upperCaseCity)) {
             results.push(approved[i])
         }
     }
