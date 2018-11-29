@@ -107,7 +107,6 @@
 			var name = "<?php echo $name; ?>"
 			var category = "<?php echo $category; ?>"
 			var city = "<?php echo $city; ?>"
-            $approved = array_map('strtolower', $approved);
 			populateBusinessList(approved, name, category, city)
 		});
 	</script>
