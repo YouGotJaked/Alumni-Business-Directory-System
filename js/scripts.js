@@ -43,13 +43,15 @@ function populateIndividualBusinessFields(business, owner) {
 */
 function populateBusinessList(approved, name, category, city) {
     results = []
-    //approved = $.map(approved, String.toUpperCase);
+
     for (var i = 0; i < approved.length; ++i) {
-        var bob = approved[i].name.toUpperCase();
-        var dan = name.toUpperCase();
-        console.log(bob);
-        console.log(dan);
-        if (bob.includes(dan) && approved[i].category.includes(category) && approved[i].city.includes(city)) {
+        // for case insensitive search
+        var upperCaseApprovedName = approved[i].name.toUpperCase();
+        var upperCaseName = name.toUpperCase();
+        var upperCaseApprovedCity = approved[i].city.toUpperCase();
+        var upperCaseCity = city.toUpperCase();
+        
+        if (upperCaseApprovedName.includes(upperCaseName) && approved[i].category.includes(category) && upperCaseApprovedCity.includes(upperCaseCity)) {
             results.push(approved[i])
         }
     }
