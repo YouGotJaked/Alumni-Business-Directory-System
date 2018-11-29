@@ -78,7 +78,8 @@
     $json_req = json_decode($requested);
     if (count($json_req) == 0) {
         echo "No businesses to verify." . "<br>";
-    } else {
+        return;
+    }
 
 	// TODO turn this function into jQuery stuff so that its easier to manipulate - populateVerifyBusinessList()
 	// have the function trigger onchange of any of the field states
@@ -113,6 +114,6 @@
 			</div>
 			</form>
 		</div>
-    <?php endforeach }?>
+    <?php endforeach ?>
 </body>
 </html>
