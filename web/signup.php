@@ -66,6 +66,10 @@
     $user = new User();
 
     if (isset($_POST["submit"])) {
+        if ($_POST["password"] != $_POST["confirm_password"]) {
+            echo '<div class="text-center">Passwords must match. Please try again.</div>';
+            return;
+        }
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
         $json = $user->get_one("email", $_POST["email"]);
         $json_obj = json_decode($json);
