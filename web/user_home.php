@@ -53,7 +53,7 @@
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
 	<div class="container mb-3 col-lg-6 col-sm-10">
-		<label for="exampleFormControlSelect1">Select one or more options to view relevant businesses</label>
+		<label for="exampleFormControlSelect1">Select one or more options to view businesses</label>
 		<form action="business_list.php" method="post">
 		<select class="form-control mb-3" id="exampleFormControlSelect1" name="category" value="">
 			<option disabled selected value>Type of Business</option>
