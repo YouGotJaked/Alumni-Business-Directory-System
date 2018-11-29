@@ -12,7 +12,7 @@ function populateIndividualBusinessFields(business, owner) {
     $("#business-zip").text(business.zip)
     $("#business-country").text(business.country)
 
-    $(".container").append('<a class="text-center" href="individual_user.php?user_id=' + owner.id + '" id="business-owner">' + owner.first_name + " " + owner.last_name + '</a>')
+    $(".container").append('<a href="individual_user.php?user_id=' + owner.id + '" id="business-owner">' + owner.first_name + " " + owner.last_name + '</a>')
 }
 
 function populateBusinessList(approved, name, category, city) {
