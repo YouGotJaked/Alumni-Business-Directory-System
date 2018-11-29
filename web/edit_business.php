@@ -1,3 +1,4 @@
+<!--The edit page displays all businesses in the database. The Alumni Office Manager can click any section and edit the information or remove the business from the database.-->
 <!doctype html>
 <html>
 <head>

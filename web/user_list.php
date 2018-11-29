@@ -1,3 +1,4 @@
+<!--The Alumni Office Manager can view all current users which displays their name, degree, and graduation year. Clicking the link on a user's name takes the Alumni Office Manager to a page showing more information on a particular user, showing the name, degree, graduation year, email, and role in the system.-->
 <!doctype html>
 <html>
 <head>

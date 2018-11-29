@@ -1,3 +1,4 @@
+<!--This page displays three buttons that allow the Alumni Office Manager to verify submitted businesses, edit or remove current businesses, or view all current users.-->
 <!doctype html>
 <html>
 <head>

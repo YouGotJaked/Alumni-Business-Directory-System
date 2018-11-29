@@ -1,3 +1,4 @@
+<!--Alumni Office Manager can view all the system's users-->
 <!doctype html>
 <html>
 <head>
@@ -61,9 +62,9 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="card border-dark container col-lg-6 col-sm-10 p-3">
-		<u><h1 id="user-name" class="text-uppercase"></h1></u>
-		<div id="user-degree" class= "mb-3 text-uppercase"></div>
+	<div class="card border-dark container col-lg-4 col-sm-10 p-3">
+		<u><h1 id="user-name" class="text-center text-uppercase mb-1"></h1></u>
+		<div id="user-degree" class= "text-uppercase"></div>
 		<div id="user-graduation-year"></div>
 		<div id="user-email"></div>
 		<div id="user-role"></div>

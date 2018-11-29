@@ -1,3 +1,4 @@
+<!--The individual business page shows more specific information on the selected business. This will display the business name, type of business, a description, and the business' address.-->
 <!doctype html>
 <html>
 <head>

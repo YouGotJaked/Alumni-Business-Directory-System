@@ -1,3 +1,4 @@
+<!--The business list page sorts the current businesses under the searched category. If a user wishes to view more information on a particular business, they can click the link and be taken to a page displaying greater detail on the particular business-->
 <!doctype html>
 <html>
 <head>

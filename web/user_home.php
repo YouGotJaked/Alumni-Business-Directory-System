@@ -1,3 +1,4 @@
+<!--Users are able to submit a business for the Alumni Office Manager to review or logout. Below the navigation menu, users will have the option to search for businesses by business name, business type, or by city. Once a users searches for a business, they will be taken to another screen displaying all businesses fulfilling the requested criteria.-->
 <!doctype html>
 <html>
 <head>
@@ -52,7 +53,7 @@
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
 	<div class="container mb-3 col-lg-6 col-sm-10">
-		<label for="exampleFormControlSelect1">Select one or more options</label>
+		<label for="exampleFormControlSelect1">Select one or more options to view businesses</label>
 		<form action="business_list.php" method="post">
 		<select class="form-control mb-3" id="exampleFormControlSelect1" name="category" value="">
 			<option disabled selected value>Type of Business</option>
@@ -64,7 +65,7 @@
 		</select>
 		<input type="text" class="form-control mb-3" placeholder="Business Name" name="name">
 		<input type="text" class="form-control mb-3" placeholder="City" name="city">
-		<input type="submit" class="btn submitbtn" name="submit">
+		<button type="submit" class="btn submitbtn">Search</button>
 		</form>
 	</div>
 
