@@ -1,3 +1,7 @@
+/*
+ DESCRIPTION: This module provides test cases for the Business class.
+ */
+
 <?php
 include "../src/business.php";
 

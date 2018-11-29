@@ -1,3 +1,7 @@
+/*
+ DESCRIPTION: This module provides test cases for the User class.
+ */
+
 <?php
 include "../src/user.php";
     

@@ -43,8 +43,9 @@
                 $_SESSION['role'] = $json_obj[0]->role;
                 $_SESSION['user'] = $json_obj[0]->id;
 
+                // Redirect to home page based on user's role
                 $loc = ($_SESSION['role'] == "Manager") ? "manager_home.php" : "user_home.php";
-                header("Location:" . $loc);         // Go to home page
+                header("Location:" . $loc);
             } else {
                 $login_error = "Invalid Email or Password";
             }

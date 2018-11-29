@@ -1,11 +1,30 @@
+/*
+ DESCRIPTION: This module provides the login functionality.
+ */
+
 <?php
 require_once "user.php";
     
-// Create new user account
+/*
+ NAME: create_user
+ PARAMETERS:
+    first_name (String): first name of user
+    last_name (String): last name of user
+    degree (String): academic degree of user (i.e. COEN, ECON, PHIL, etc.)
+    graduation_year (Integer): graduation year of user
+    email (String): email address of user
+    password (String): plaintext password of user
+    role (String): role of user in system (visitor, owner, manager)
+    business_id (Int): ID of user's business in business database
+ RETURNS: none
+ DESCRIPTION: Creates a new user account in the 'users' database.
+ NOTES: The default role for new users is visitor, and the default business ID is 0.
+ */
 function create_user($first_name, $last_name, $degree, $graduation_year, $email, $password, $role, $business_id) {
     $user = new User();
     $exists = $user->get_one('email', $email);  // check if user already exists with that email
     $json_arr = json_decode($exists, true);
+    
     if (count($json_arr) > 0) {
         echo "User already exists" . "<br>";
         return;
@@ -22,7 +41,6 @@ function create_user($first_name, $last_name, $degree, $graduation_year, $email,
         'business_id' => $business_id];
         
     $json_obj = json_encode($json, JSON_PRETTY_PRINT);
-    echo $json_obj . "<br>";
     $add_resp = $user->add($json_obj);
 
     if ($add_resp) {
@@ -31,8 +49,15 @@ function create_user($first_name, $last_name, $degree, $graduation_year, $email,
         echo "Failed to add user" . "<br>";
     }
 }
-    
-// Log in user with provided credentials
+
+/*
+ NAME: login
+ PARAMETERS:
+     email (String): email address of user
+     password (String): plaintext password of user
+ RETURNS: (Boolean) True if there exists a user with 'email' and password hashes match, otherwise False
+ DESCRIPTION: Log into the database with provided credentials.
+ */
 function login($email, $password) {
     $user = new User();
     $json = $user->get_one('email', $email);
