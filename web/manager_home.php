@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 	<link href="../css/styles.css" rel="stylesheet" type="text/css"/>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,11 +19,11 @@
                 <a class="nav-link navbutton" href="manager_home.php">Home</a>
             </li>
         </ul>
-		
+
 		<button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
 			<img src="../img/three-bars.svg" width="20px">
 		</button>
-		
+
 		<div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">

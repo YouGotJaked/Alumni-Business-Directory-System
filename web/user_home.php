@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 	<link href="../css/styles.css" rel="stylesheet" type="text/css"/>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,11 +19,11 @@
                 <a class="nav-link navbutton" href="user_home.php">Home</a>
             </li>
         </ul>
-		
+
 		<button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
 			<img src="../img/three-bars.svg" width="20px">
 		</button>
-		
+
 		<div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
 			<li class="nav-item">
@@ -51,17 +52,17 @@
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
 	<div class="container mb-3 col-lg-6 col-sm-10">
-		<label for="exampleFormControlSelect1">What type of business are you looking for?</label>
+		<label for="exampleFormControlSelect1">Select one or more options</label>
 		<form action="business_list.php" method="post">
-		<input type="text" class="form-control mb-3" placeholder="Business Name" name="name">
 		<select class="form-control mb-3" id="exampleFormControlSelect1" name="category" value="">
-			<option disabled selected value> -- select an option -- </option>
+			<option disabled selected value>Type of Business</option>
 			<option value="Restaurant">Restaurant</option>
 			<option value="Shopping">Shopping</option>
 			<option value="Professional Services">Professional Services</option>
 			<option value="Local Services">Local Services</option>
 			<option value="Home Services">Home Services</option>
 		</select>
+		<input type="text" class="form-control mb-3" placeholder="Business Name" name="name">
 		<input type="text" class="form-control mb-3" placeholder="City" name="city">
 		<input type="submit" class="btn submitbtn" name="submit">
 		</form>
@@ -69,7 +70,7 @@
 
 	<?php
 	include "../src/business.php";
-        
+
     // Verify user is logged in
     if (!$_SESSION['login']) {
         header('Location: login.php');
