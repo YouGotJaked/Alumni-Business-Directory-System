@@ -1,3 +1,4 @@
+<!--Users are able to submit a business for the Alumni Office Manager to review or logout. Below the navigation menu, users will have the option to search for businesses by business name, business type, or by city. Once a users searches for a business, they will be taken to another screen displaying all businesses fulfilling the requested criteria.-->
 <!doctype html>
 <html>
 <head>

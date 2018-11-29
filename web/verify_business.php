@@ -1,3 +1,4 @@
+<!--The verification page shows the Office Manager who has requested for businesses to be added to the database, including relevant information on the business owner. The Office Manager can then confirm or deny submitted businesses, and must click the submit button below to input their decision.-->
 <!doctype html>
 <html>
 <head>
