@@ -79,19 +79,19 @@
 
 	if (isset($_POST['submit'])) {
 		if (isset($_POST['name'])) {
-			$name = $_POST["name"];
+			strcasecmp($name, $_POST["name"]) == 0;
 		} else {
 			$name = "";
 		}
 
 		if (isset($_POST['category'])) {
-			$category = $_POST["category"];
+			strcasecmp($category, $_POST["category"]) == 0;
 		} else {
 			$category = "";
 		}
 
 		if (isset($_POST['city'])) {
-			$city = $_POST["city"];
+			strcasecmp($city, $_POST["city"]) == 0;
 		} else {
 			$city = "";
 		}
