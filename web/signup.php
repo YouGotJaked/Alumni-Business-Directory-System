@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 	<link href="../css/styles.css" rel="stylesheet" type="text/css"/>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,14 +61,14 @@
     session_regenerate_id(true);
     require_once "../src/login.php";
     require_once "../src/user.php";
-        
+
     $user = new User();
 
     if (isset($_POST["submit"])) {
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
         $json = $user->get_one("email", $_POST["email"]);
         $json_obj = json_decode($json);
-        
+
         // Track user email, role and ID
         $_SESSION['login'] = login($_POST["email"], $_POST["password"]);
         $_SESSION['email'] = $json_obj[0]->email;
