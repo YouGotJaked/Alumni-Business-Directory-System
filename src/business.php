@@ -6,6 +6,13 @@ class Business extends Entry {
         $this->database->connect();
         $json_obj = json_decode($json);
 
+        $json_obj->name = mysqli_real_escape_string($this->database->conn, $json_obj->name);
+        $json_obj->description = mysqli_real_escape_string($this->database->conn, $json_obj->description);
+        $json_obj->street = mysqli_real_escape_string($this->database->conn, $json_obj->street);
+        $json_obj->city = mysqli_real_escape_string($this->database->conn, $json_obj->city);
+        $json_obj->state = mysqli_real_escape_string($this->database->conn, $json_obj->state);
+        $json_obj->country = mysqli_real_escape_string($this->database->conn, $json_obj->country);
+
         $query = "INSERT INTO businesses (
             id,
             name,
@@ -56,6 +63,13 @@ class Business extends Entry {
     public function update_all_values($id, $json) {
         $this->database->connect();
         $json_obj = json_decode($json);
+
+        $json_obj->name = mysqli_real_escape_string($this->database->conn, $json_obj->name);
+        $json_obj->description = mysqli_real_escape_string($this->database->conn, $json_obj->description);
+        $json_obj->street = mysqli_real_escape_string($this->database->conn, $json_obj->street);
+        $json_obj->city = mysqli_real_escape_string($this->database->conn, $json_obj->city);
+        $json_obj->state = mysqli_real_escape_string($this->database->conn, $json_obj->state);
+        $json_obj->country = mysqli_real_escape_string($this->database->conn, $json_obj->country);
 
         $query = "UPDATE businesses SET
             name = '$json_obj->name',

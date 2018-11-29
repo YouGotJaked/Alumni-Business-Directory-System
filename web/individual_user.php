@@ -13,10 +13,19 @@
 </head>
 
 <body>
+	<?php 
+		session_start();
+	?>
 	<nav class="navbar navbar-expand-sm">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link navbutton" href="manager_home.php">Home</a>
+				<?php
+					if ($_SESSION['role'] == "Visitor" || $_SESSION['role'] == "Owner") {
+						echo '<a class="nav-link navbutton" href="user_home.php">Home</a>';
+					} else if ($_SESSION['role'] == "Manager") {
+						echo '<a class="nav-link navbutton" href="manager_home.php">Home</a>';
+					}
+				?>
             </li>
         </ul>
 		
@@ -26,11 +35,19 @@
 		
 		<div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
+			<?php 
+				if ($_SESSION['role'] == "Owner") {
+                    echo '<a class="navbar-brand mr-2" href="edit_business.php"><button class="btn btn-sm btn-outline-light">Edit Business</button></a>';
+                }
+				
+				if ($_SESSION['role'] == "Visitor" || $_SESSION['role'] == "Owner") {
+					echo '<li class="nav-item"><a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a></li>';
+				}
+			?>
             <li class="nav-item">
                 <span class="nav-link" style="color: white" href="#">
                     <?php
-                    session_start();
-                    echo $_SESSION['email'];
+                    	echo $_SESSION['email'];
                     ?>
                 </span>
             </li>
@@ -43,9 +60,9 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="container text-center">
-		<h1 id="user-name"></h1>
-		<div id="user-degree"></div>
+	<div class="card border-dark container text-center col-lg-6 col-sm-10 p-3">
+		<u><h1 id="user-name" class="text-uppercase"></h1></u>
+		<div id="user-degree" class= "mb-3 text-uppercase"></div>
 		<div id="user-graduation-year"></div>
 		<div id="user-email"></div>
 		<div id="user-role"></div>
@@ -53,30 +70,37 @@
 
 	<?php
 
+	include "../src/business.php";
 	include "../src/user.php";
 
-	// Verify user is logged as administrator
-    if (!$_SESSION['login']) {
-        header('Location: login.php');
-    } else if ($_SESSION['role'] != "Manager") {
-        header('Location: user_home.php');
-    }
+	// Verify user is logged in
+	if (!$_SESSION['login']) {
+		header('Location: login.php');
+	}
 
+	$business = new Business();
 	$user = new User();
 
 	if (isset($_GET['user_id'])) {
 		$individual_user = $user->get_one("id", $_GET['user_id']);
+		
+		$json_obj = json_decode($individual_user)[0];
+
+		if ($json_obj->role == "Owner") {
+			$owner_business = $business->get_one("id", $json_obj->business_id);
+		} else {
+			$owner_business = "";
+		}
+
 	} else {
 		$individual_user = 0;
 	}
-
-	// TODO if the user's role is an owner, get the business data as well and pass to the function
 
 	?>
 
 	<script>
 		$(function () {
-        	populateIndividualUserFields(<?php echo $individual_user ?>)
+        	populateIndividualUserFields(<?php echo $individual_user ?>, <?php echo $owner_business ?>)
     	});
 	</script>
 </body>

@@ -13,45 +13,54 @@
 </head>
 
 <body>
+	<?php 
+		session_start();
+	?>
 	<nav class="navbar navbar-expand-sm">
-			<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
-							<a class="nav-link navbutton" href="user_home.php">Home</a>
-					</li>
-			</ul>
-
-	<button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
-		<img src="../img/three-bars.svg" width="20px">
-	</button>
-
-	<div class="collapse navbar-collapse" id="collapse_target">
-			<ul class="navbar-nav ml-auto">
-		<li class="nav-item">
-							<?php
-							session_start();
-							if ($_SESSION['role'] == "Owner") {
-									echo '<a class="navbar-brand mr-2" href="edit_business.php"><button class="btn btn-sm btn-outline-light">Edit Business</button></a>';
-							}
-							?>
-							<a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a>
-					</li>
-					<li class="nav-item">
-							<span class="nav-link" style="color: white" href="#">
-									<?php
-									echo $_SESSION['email'];
-									?>
-							</span>
-					</li>
-					<li class="nav-item">
-							<a class="nav-link navbutton" href="../src/logout.php">Logout</a>
-					</li>
-			</ul>
-	</div>
-</nav>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+				<?php
+					if ($_SESSION['role'] == "Visitor" || $_SESSION['role'] == "Owner") {
+						echo '<a class="nav-link navbutton" href="user_home.php">Home</a>';
+					} else if ($_SESSION['role'] == "Manager") {
+						echo '<a class="nav-link navbutton" href="manager_home.php">Home</a>';
+					}
+				?>
+            </li>
+        </ul>
+		
+		<button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+			<img src="../img/three-bars.svg" width="20px">
+		</button>
+		
+		<div class="collapse navbar-collapse" id="collapse_target">
+        <ul class="navbar-nav ml-auto">
+			<?php 
+				if ($_SESSION['role'] == "Owner") {
+                    echo '<a class="navbar-brand mr-2" href="edit_business.php"><button class="btn btn-sm btn-outline-light">Edit Business</button></a>';
+                }
+				
+				if ($_SESSION['role'] == "Visitor" || $_SESSION['role'] == "Owner") {
+					echo '<li class="nav-item"><a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a></li>';
+				}
+			?>
+            <li class="nav-item">
+                <span class="nav-link" style="color: white" href="#">
+                    <?php
+                    	echo $_SESSION['email'];
+                    ?>
+                </span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbutton" href="../src/logout.php">Logout</a>
+            </li>
+        </ul>
+		</div>
+	</nav>
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="card border-dark container text-center col-lg-6 col-sm-10">
+	<div class="card border-dark container text-center col-lg-6 col-sm-10 p-3">
 		<u><h1 id="business-name" class="text-uppercase"></h1></u>
 		<div id="business-category" class= "mb-3 text-uppercase"></div>
 		<p id="business-description" class="mx-auto"></p>
@@ -65,6 +74,7 @@
 	<?php
 
 	include "../src/business.php";
+	include "../src/user.php";
 
 	// Verify user is logged in
 	if (!$_SESSION['login']) {
@@ -72,9 +82,14 @@
 	}
 
 	$business = new Business();
+	$user = new User();
 
 	if (isset($_GET['business_id'])) {
 		$individual_business = $business->get_one("id", $_GET['business_id']);
+
+		$json_obj = json_decode($individual_business)[0];
+
+		$business_owner = $user->get_one("id", $json_obj->owner_id);
 	} else {
 		$individual_business = 0;
 	}
@@ -83,7 +98,7 @@
 
 	<script>
 		$(function () {
-        	populateIndividualBusinessFields(<?php echo $individual_business ?>)
+        	populateIndividualBusinessFields(<?php echo $individual_business ?>, <?php echo $business_owner ?>)
     	});
 	</script>
 </body>
