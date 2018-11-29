@@ -73,7 +73,7 @@
 			$business->update($id, "status", "Denied");
 		}
 	}
-
+    echo "No businesses to verify." . "<br>";
 	$requested = $business->get_all("status", "Requested");
     $json_req = json_decode($requested);
     if (count($json_req) == 0) {
