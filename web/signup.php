@@ -67,7 +67,7 @@
 
     if (isset($_POST["submit"])) {
         if ($_POST["password"] != $_POST["confirm_password"]) {
-            echo "Passwords must match.";
+            echo '<div class="text-center">Passwords must match. Please try again.</div>';
             return;
         }
         create_user($_POST["first"], $_POST["last"], $_POST["degree"], $_POST["year"], $_POST["email"], $_POST["password"], "Visitor", 0);
