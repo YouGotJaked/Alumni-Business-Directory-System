@@ -1,8 +1,9 @@
-/*
- DESCRIPTION: This module provides test cases for creating new users.
- */
-
 <?php
+
+/*
+    DESCRIPTION: This module provides test cases for creating new users.
+*/
+
 include "../src/login.php";
 
 create_user('Gary',

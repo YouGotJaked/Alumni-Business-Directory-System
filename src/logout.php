@@ -1,8 +1,9 @@
-/*
- DESCRIPTION: This module provides the logout functionality. It ends the current user's session and redirects them to the login page.
- */
-
 <?php
+
+/*
+    DESCRIPTION: This module provides the logout functionality. It ends the current user's session and redirects them to the login page.
+*/
+
 session_start();
 
 // unset all session variables

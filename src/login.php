@@ -1,8 +1,9 @@
-/*
- DESCRIPTION: This module provides the login functionality.
- */
-
 <?php
+
+/*
+    DESCRIPTION: This module provides the login functionality.
+*/
+
 require_once "user.php";
     
 /*

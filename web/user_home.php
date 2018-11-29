@@ -65,7 +65,7 @@
 		</select>
 		<input type="text" class="form-control mb-3" placeholder="Business Name" name="name">
 		<input type="text" class="form-control mb-3" placeholder="City" name="city">
-		<button type="submit" class="btn submitbtn">Search</button>
+		<button type="submit" class="btn submitbtn" name="submit">Search</button>
 		</form>
 	</div>
 
