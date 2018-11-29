@@ -62,8 +62,8 @@
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
 	<div class="card border-dark container col-lg-4 col-sm-10 p-3">
-		<u><h1 id="user-name" class="text-uppercase"></h1></u>
-		<div id="user-degree" class= "mb-3 text-uppercase"></div>
+		<u><h1 id="user-name" class="text-uppercase mb-1"></h1></u>
+		<p>Degree: <div id="user-degree" class= "text-uppercase"></div></p>
 		<div id="user-graduation-year"></div>
 		<div id="user-email"></div>
 		<div id="user-role"></div>
