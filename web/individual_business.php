@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 	<link href="../css/styles.css" rel="stylesheet" type="text/css"/>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +14,7 @@
 </head>
 
 <body>
-	<?php 
+	<?php
 		session_start();
 	?>
 	<nav class="navbar navbar-expand-sm">
@@ -28,18 +29,18 @@
 				?>
             </li>
         </ul>
-		
+
 		<button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
 			<img src="../img/three-bars.svg" width="20px">
 		</button>
-		
+
 		<div class="collapse navbar-collapse" id="collapse_target">
         <ul class="navbar-nav ml-auto">
-			<?php 
+			<?php
 				if ($_SESSION['role'] == "Owner") {
                     echo '<a class="navbar-brand mr-2" href="edit_business.php"><button class="btn btn-sm btn-outline-light">Edit Business</button></a>';
                 }
-				
+
 				if ($_SESSION['role'] == "Visitor" || $_SESSION['role'] == "Owner") {
 					echo '<li class="nav-item"><a class="navbar-brand mr-2" href="submit_business.php"><button class="btn btn-sm btn-outline-light">Submit Business</button></a></li>';
 				}
@@ -60,15 +61,17 @@
 	<div class="jumbotron">
 		<h1>Santa Clara University Business Directory</h1>
 	</div>
-	<div class="card border-dark container text-center col-lg-6 col-sm-10 p-3">
-		<u><h1 id="business-name" class="text-uppercase"></h1></u>
-		<div id="business-category" class= "mb-3 text-uppercase"></div>
+	<div class="card border-dark container col-lg-6 col-sm-10 p-3">
+		<u><h1 id="business-name" class="text-uppercase text-center"></h1></u>
+		<div id="business-category" class= "mb-3 text-uppercase text-center"></div>
 		<p id="business-description" class="mx-auto"></p>
-		<div id="business-street"></div>
-		<div id="business-city"></div>
-		<div id="business-state"></div>
-		<div id="business-zip"></div>
-		<div id="business-country"></div>
+		<div class="text-center">
+			<div id="business-street"></div>
+			<div id="business-city"></div>
+			<div id="business-state"></div>
+			<div id="business-zip"></div>
+			<div id="business-country"></div>
+		</div>
 	</div>
 
 	<?php

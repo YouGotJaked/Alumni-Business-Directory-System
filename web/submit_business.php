@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 	<link href="../css/styles.css" rel="stylesheet" type="text/css"/>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -111,7 +112,7 @@
         if (isset($_POST["submit"])) {
             $business = new Business();
             $user = new User();
-          
+
             $json = ['name' => $_POST["name"],
             'status' => "Requested",
             'description' => $_POST["description"],

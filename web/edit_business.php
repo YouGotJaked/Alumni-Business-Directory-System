@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 	<link href="../css/styles.css" rel="stylesheet" type="text/css"/>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,7 +50,7 @@
     <?php
     include "../src/business.php";
     include "../src/user.php";
-        
+
     // Verify user is logged as owner
     if (!$_SESSION['login']) {
         header('Location: login.php');
@@ -58,10 +59,10 @@
     } else if ($_SESSION['role'] == "Manager") {
         header('Location: manager_home.php');
     }
-        
+
     $business = new Business();
     $user = new User();
-    
+
     $business_id = json_decode($user->get_one("id", $_SESSION['user']))[0]->business_id;
     $busn = json_decode($business->get_one("id", $business_id))[0];
     ?>
@@ -131,10 +132,10 @@
                 'zip' => $_POST["zip"],
                 'country' => $_POST["country"],
                 'owner_id' => $busn->owner_id];
-        
+
                 $json_obj = json_encode($json, JSON_PRETTY_PRINT);
                 $update_busn = $business->update_all_values($business_id, $json_obj);
-        
+
                 if ($update_busn) {
                     echo "<br>" . "Business updated." . "<br>";
                 } else {
