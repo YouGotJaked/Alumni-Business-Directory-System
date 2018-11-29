@@ -1,7 +1,10 @@
+/*
+ DESCRIPTION: This module provides a test case for the login() function.
+ */
+
 <?php
 include "../src/login.php";
    
-//$p2 = login("jsnake@scu.edu", "hunter2");
 $p2 = login("pwahrens@gmail.com", "default");
     
 if ($p2) {

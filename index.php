@@ -1,3 +1,7 @@
+/*
+ DESCRIPTION: Default page to display on website. Automatically redirects to login screen.
+ */
+
 <html>
 	<head>
 		<title>Alumni Business Directory</title>

@@ -1,3 +1,7 @@
+/*
+ DESCRIPTION: This module provides test cases for creating new users.
+ */
+
 <?php
 include "../src/login.php";
 
