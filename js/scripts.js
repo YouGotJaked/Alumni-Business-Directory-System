@@ -55,6 +55,10 @@ function populateBusinessList(approved, name, category, city) {
             results.push(approved[i])
         }
     }
+    
+    if (results.length == 0) {
+        $("body").append('<h3 class="text-center">No businesses match criteria.</h3>')
+    }
 
     for (var i = 0; i < results.length; ++i) {
         var card_body_id = "business".concat('_', results[i].id)

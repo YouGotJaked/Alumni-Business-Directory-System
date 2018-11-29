@@ -75,10 +75,16 @@
 	}
 
 	$requested = $business->get_all("status", "Requested");
+    $json_req = json_decode($requested);
+        
+    if (count($json_req) == 0) {
+            echo '<h3 class="text-center">No businesses to verify.</h3>';
+            return;
+    }
 
 	// TODO turn this function into jQuery stuff so that its easier to manipulate - populateVerifyBusinessList()
 	// have the function trigger onchange of any of the field states
-	foreach (json_decode($requested) as &$json) : ?>
+	foreach ($json_req as &$json) : ?>
 		<?php $owner = json_decode($user->get_one("id", $json->owner_id))[0]; ?>
 
 		<div class="card border-dark mb-3 mx-auto" style="max-width: 18rem;">
@@ -94,7 +100,7 @@
 				<p class="card-text">State: <?= $json->state ?></p>
 				<p class="card-text">Zip Code: <?= $json->zip ?></p>
 				<p class="card-text">Country: <?= $json->country ?></p>
-
+            </div>
 			<form class="card-footer bg-transparent" action="verify_business.php" method="post">
 			<div>
 				<div class="form-check">
