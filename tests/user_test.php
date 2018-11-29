@@ -1,8 +1,9 @@
-/*
- DESCRIPTION: This module provides test cases for the User class.
- */
-
 <?php
+
+/*
+    DESCRIPTION: This module provides test cases for the User class.
+*/
+
 include "../src/user.php";
     
 // This variable needs to be set to the right index before use

@@ -1,8 +1,9 @@
-/*
- DESCRIPTION: This module provides test cases for the Business class.
- */
-
 <?php
+
+/*
+    DESCRIPTION: This module provides test cases for the Business class.
+*/
+
 include "../src/business.php";
 
 // This variable needs to be set to the right index before use

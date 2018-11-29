@@ -1,8 +1,9 @@
-/*
- DESCRIPTION: This module defines the Database class. The class provides functionality for connection and disconnecting to the MySQL database.
- */
-
 <?php
+
+/*
+    DESCRIPTION: This module defines the Database class. The class provides functionality for connection and disconnecting to the MySQL database.
+*/
+
 class Database {
     public $conn;
     

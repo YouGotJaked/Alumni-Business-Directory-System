@@ -1,3 +1,4 @@
+<!--This page allows new users to sign up for an account and logs them in upon successful registration-->
 <!doctype html>
 <html>
 <head>

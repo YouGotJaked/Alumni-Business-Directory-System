@@ -1,8 +1,9 @@
-/*
- DESCRIPTION: This module provides test cases for the Database class. It ensures the connect and disconnect functionalities work as intended.
- */
-
 <?php
+
+/*
+    DESCRIPTION: This module provides test cases for the Database class. It ensures the connect and disconnect functionalities work as intended.
+*/
+
 include "../src/database.php";
     
 $database = new Database();
