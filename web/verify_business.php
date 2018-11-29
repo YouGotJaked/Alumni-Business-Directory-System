@@ -99,7 +99,7 @@
 				<p class="card-text">State: <?= $json->state ?></p>
 				<p class="card-text">Zip Code: <?= $json->zip ?></p>
 				<p class="card-text">Country: <?= $json->country ?></p>
-
+            </div>
 			<form class="card-footer bg-transparent" action="verify_business.php" method="post">
 			<div>
 				<div class="form-check">
