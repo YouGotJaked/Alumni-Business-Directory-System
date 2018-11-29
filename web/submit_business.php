@@ -1,3 +1,4 @@
+<!--User is able to fill out a form that will be sent to the Office Manager to be verified-->
 <!doctype html>
 <html>
 <head>

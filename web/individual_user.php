@@ -1,3 +1,4 @@
+<!--Alumni Office Manager can view all the system's users-->
 <!doctype html>
 <html>
 <head>
