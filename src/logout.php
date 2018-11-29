@@ -1,3 +1,7 @@
+/*
+ DESCRIPTION: This module provides the logout functionality. It ends the current user's session and redirects them to the login page.
+ */
+
 <?php
 session_start();
 
@@ -13,7 +17,6 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// destroy session
 session_destroy();
 
 // go to login
