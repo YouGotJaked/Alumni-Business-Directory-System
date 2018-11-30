@@ -38,9 +38,7 @@
             </li>
             <li class="nav-item">
                 <span class="nav-link" style="color: white" href="#">
-                    <?php
-                    echo $_SESSION['email'];
-                    ?>
+                    <?php echo $_SESSION['email']; ?>
                 </span>
             </li>
             <li class="nav-item">
